@@ -17,6 +17,18 @@ public class FrameRegister extends javax.swing.JFrame {
         initComponents();
     }
 
+    public PanelBtnRegister getPanelBtnRegister1() {
+        return panelBtnRegister1;
+    }
+
+    public PanelTxtRegister getPanelTxtRegister2() {
+        return panelTxtRegister2;
+    }
+
+    public Panel_Nav getPanel_Nav1() {
+        return panel_Nav1;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

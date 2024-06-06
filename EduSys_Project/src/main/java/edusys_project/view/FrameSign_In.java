@@ -8,13 +8,21 @@ package edusys_project.view;
  *
  * @author Usuario
  */
-public class FrameSing_In extends javax.swing.JFrame {
+public class FrameSign_In extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameSing_In
      */
-    public FrameSing_In() {
+    public FrameSign_In() {
         initComponents();
+    }
+
+    public PanelBtnSingIn getPanelBtnSingIn1() {
+        return panelBtnSingIn1;
+    }
+
+    public Panel_Nav getPanel_Nav1() {
+        return panel_Nav1;
     }
 
     /**
@@ -64,20 +72,21 @@ public class FrameSing_In extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameSing_In().setVisible(true);
+                new FrameSign_In().setVisible(true);
             }
         });
     }

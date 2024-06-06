@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -17,6 +19,10 @@ public class PanelBtnOptions extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void listen(ActionListener optionsController){
+        btnLogin.addActionListener(optionsController);
+        btnRegister.addActionListener(optionsController);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,10 +37,12 @@ public class PanelBtnOptions extends javax.swing.JPanel {
 
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Log-in.png"))); // NOI18N
         btnLogin.setActionCommand("login");
+        btnLogin.setBorderPainted(false);
         btnLogin.setContentAreaFilled(false);
 
         btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegister.png"))); // NOI18N
         btnRegister.setActionCommand("register");
+        btnRegister.setBorderPainted(false);
         btnRegister.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

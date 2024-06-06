@@ -36,7 +36,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
 
         jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
