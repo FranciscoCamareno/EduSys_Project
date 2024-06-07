@@ -6,14 +6,14 @@ package edusys_project.view;
 
 /**
  *
- * @author Usuario
+ * @author valer
  */
-public class FramePrincipal extends javax.swing.JFrame {
+public class FrameUsersManagement extends javax.swing.JFrame {
 
     /**
-     * Creates new form FramePrincipal
+     * Creates new form FrameCoursesManagement
      */
-    public FramePrincipal() {
+    public FrameUsersManagement() {
         initComponents();
     }
 
@@ -26,17 +26,15 @@ public class FramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelEduSys1 = new edusys_project.view.PanelEduSys();
-        jLFondo = new javax.swing.JLabel();
+        panelUsersManagement1 = new edusys_project.view.PanelUsersManagement();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panelUsersManagement1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        panelEduSys1.setOpaque(false);
-        getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
-
-        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 710));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoUsersManagement.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -58,26 +56,27 @@ public class FramePrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameUsersManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameUsersManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameUsersManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameUsersManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                new FrameUsersManagement().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLFondo;
-    private edusys_project.view.PanelEduSys panelEduSys1;
+    private javax.swing.JLabel jLabel1;
+    private edusys_project.view.PanelUsersManagement panelUsersManagement1;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,35 +27,35 @@ public class PanelBtnRegister extends javax.swing.JPanel {
     private void initComponents() {
 
         btnSingUp = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         btnSingUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sing-Up.png"))); // NOI18N
         btnSingUp.setActionCommand("singup");
         btnSingUp.setContentAreaFilled(false);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Back.png"))); // NOI18N
-        jButton2.setActionCommand("back");
-        jButton2.setContentAreaFilled(false);
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Back.png"))); // NOI18N
+        btnBack.setActionCommand("back");
+        btnBack.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnSingUp)
-            .addComponent(jButton2)
+            .addComponent(btnBack)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnSingUp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2))
+                .addComponent(btnBack))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSingUp;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

@@ -37,6 +37,7 @@
           <Image iconType="3" name="/img/btn_Log-in.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="login"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -46,6 +47,7 @@
           <Image iconType="3" name="/img/btnRegister.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="register"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>

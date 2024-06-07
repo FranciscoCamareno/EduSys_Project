@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -17,6 +19,9 @@ public class Panel_Nav extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void listen (ActionListener controller){
+        btnExit.addActionListener(controller);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,12 +38,22 @@ public class Panel_Nav extends javax.swing.JPanel {
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_bottom.png"))); // NOI18N
         btnExit.setActionCommand("btnExit");
+        btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nav_bar.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

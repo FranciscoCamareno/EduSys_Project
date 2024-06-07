@@ -8,13 +8,21 @@ package edusys_project.view;
  *
  * @author Usuario
  */
-public class FramePrincipal extends javax.swing.JFrame {
+public class FrameSign_In extends javax.swing.JFrame {
 
     /**
-     * Creates new form FramePrincipal
+     * Creates new form FrameSing_In
      */
-    public FramePrincipal() {
+    public FrameSign_In() {
         initComponents();
+    }
+
+    public PanelBtnSingIn getPanelBtnSingIn1() {
+        return panelBtnSingIn1;
+    }
+
+    public Panel_Nav getPanel_Nav1() {
+        return panel_Nav1;
     }
 
     /**
@@ -26,17 +34,23 @@ public class FramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelEduSys1 = new edusys_project.view.PanelEduSys();
-        jLFondo = new javax.swing.JLabel();
+        panel_Nav1 = new edusys_project.view.Panel_Nav();
+        panelTxtSingIn1 = new edusys_project.view.PanelTxtSingIn();
+        panelBtnSingIn1 = new edusys_project.view.PanelBtnSingIn();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panel_Nav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        panelEduSys1.setOpaque(false);
-        getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
+        panelTxtSingIn1.setOpaque(false);
+        getContentPane().add(panelTxtSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
 
-        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 710));
+        panelBtnSingIn1.setOpaque(false);
+        getContentPane().add(panelBtnSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -58,26 +72,29 @@ public class FramePrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FramePrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameSign_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                new FrameSign_In().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLFondo;
-    private edusys_project.view.PanelEduSys panelEduSys1;
+    private javax.swing.JLabel jLabel1;
+    private edusys_project.view.PanelBtnSingIn panelBtnSingIn1;
+    private edusys_project.view.PanelTxtSingIn panelTxtSingIn1;
+    private edusys_project.view.Panel_Nav panel_Nav1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,14 +6,14 @@ package edusys_project.view;
 
 /**
  *
- * @author Usuario
+ * @author valer
  */
-public class FrameSing_In extends javax.swing.JFrame {
+public class FrameCoursesManagement extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrameSing_In
+     * Creates new form FrameCoursesManagement
      */
-    public FrameSing_In() {
+    public FrameCoursesManagement() {
         initComponents();
     }
 
@@ -26,23 +26,16 @@ public class FrameSing_In extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_Nav1 = new edusys_project.view.Panel_Nav();
-        panelTxtSingIn1 = new edusys_project.view.PanelTxtSingIn();
-        panelBtnSingIn1 = new edusys_project.view.PanelBtnSingIn();
-        jLabel1 = new javax.swing.JLabel();
+        panelCoursesManagement1 = new edusys_project.view.PanelCoursesManagement();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panel_Nav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(panelCoursesManagement1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, -1, -1));
 
-        panelTxtSingIn1.setOpaque(false);
-        getContentPane().add(panelTxtSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
-
-        panelBtnSingIn1.setOpaque(false);
-        getContentPane().add(panelBtnSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCoursesManagement.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -64,28 +57,26 @@ public class FrameSing_In extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCoursesManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCoursesManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCoursesManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameSing_In.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameCoursesManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameSing_In().setVisible(true);
+                new FrameCoursesManagement().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private edusys_project.view.PanelBtnSingIn panelBtnSingIn1;
-    private edusys_project.view.PanelTxtSingIn panelTxtSingIn1;
-    private edusys_project.view.Panel_Nav panel_Nav1;
+    private javax.swing.JLabel jLabel2;
+    private edusys_project.view.PanelCoursesManagement panelCoursesManagement1;
     // End of variables declaration//GEN-END:variables
 }
