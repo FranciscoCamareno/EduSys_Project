@@ -37,7 +37,7 @@ public class FrameCareersManagementMaintenance extends javax.swing.JFrame {
         getContentPane().add(panelCareersManagementAndMaintenance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 570, -1, -1));
+        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 580, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo2.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

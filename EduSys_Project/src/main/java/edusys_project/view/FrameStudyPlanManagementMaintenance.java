@@ -34,7 +34,7 @@ public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
+        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
 
         panelStudyPlanManagementAndMaintenance1.setOpaque(false);
         getContentPane().add(panelStudyPlanManagementAndMaintenance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));

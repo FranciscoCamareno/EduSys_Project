@@ -31,20 +31,20 @@ public class PanelCRUD extends javax.swing.JPanel {
         jBModificar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
 
-        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Agregar.png"))); // NOI18N
+        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Add.png"))); // NOI18N
         jBAgregar.setActionCommand("agregar");
         jBAgregar.setContentAreaFilled(false);
 
-        jBConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consultar.png"))); // NOI18N
+        jBConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consult.png"))); // NOI18N
         jBConsultar.setActionCommand("Consultar");
         jBConsultar.setContentAreaFilled(false);
 
-        jBModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Modificar.png"))); // NOI18N
+        jBModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Edit.png"))); // NOI18N
         jBModificar.setToolTipText("");
         jBModificar.setActionCommand("Modificar");
         jBModificar.setContentAreaFilled(false);
 
-        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Eliminar.png"))); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Delete.png"))); // NOI18N
         jBEliminar.setToolTipText("");
         jBEliminar.setActionCommand("Eliminar");
         jBEliminar.setContentAreaFilled(false);
