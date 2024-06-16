@@ -29,7 +29,7 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtIDUser = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
         txtCarnet = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
@@ -38,15 +38,19 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        txtIdUser = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,15 +66,15 @@ public class PanelUsersManagement extends javax.swing.JPanel {
                 txtEmailActionPerformed(evt);
             }
         });
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 320, 30));
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 330, 30));
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("ID User:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 215, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        txtIDUser.setBorder(null);
-        add(txtIDUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 320, 30));
+        txtUserName.setBorder(null);
+        add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 330, 30));
 
         txtCarnet.setBorder(null);
         add(txtCarnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 80, 20));
@@ -81,7 +85,7 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 289, -1, -1));
 
         txtPhoneNumber.setBorder(null);
-        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 510, 310, 30));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 320, 30));
 
         jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
@@ -94,16 +98,18 @@ public class PanelUsersManagement extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel5.setText("User Type:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 134, -1, -1));
+        jLabel5.setText("User-Name");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Phone number:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 508, -1, -1));
+        jLabel6.setText("Password:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
 
         txtName.setBorder(null);
         add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 330, 30));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 582, 320, 30));
+        add(txtIdUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 132, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
@@ -114,10 +120,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("Carnet:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
-
-        jComboBox1.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 136, 117, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LargeTextSpace.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 289, -1, -1));
@@ -132,10 +134,21 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 437, -1, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SmallTextSpace.png"))); // NOI18N
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 120, -1));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LargeTextSpace.png"))); // NOI18N
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 508, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SmallTextSpace.png"))); // NOI18N
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel9.setText("Phone number:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 508, -1, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LargeTextSpace.png"))); // NOI18N
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 508, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -144,7 +157,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -152,6 +164,8 @@ public class PanelUsersManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -159,11 +173,14 @@ public class PanelUsersManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtCarnet;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtIDUser;
+    private javax.swing.JTextField txtIdUser;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

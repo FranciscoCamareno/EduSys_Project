@@ -40,4 +40,10 @@ public class UsersController implements ActionListener{
     
     
     
+    
+    public static void main(String[] args) {
+        new UsersController();
+    }
+    
+    
 }

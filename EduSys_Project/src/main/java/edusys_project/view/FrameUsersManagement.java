@@ -46,10 +46,10 @@ public class FrameUsersManagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panelUsersManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        getContentPane().add(panelUsersManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -20, -1, -1));
 
         panelCRUD.setOpaque(false);
-        getContentPane().add(panelCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 620, -1, -1));
+        getContentPane().add(panelCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 640, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoUsersManagement.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
