@@ -17,32 +17,32 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jBAgregar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jBConsultar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnConsult" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jBModificar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jBEliminar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="103" groupAlignment="3" attributes="0">
-              <Component id="jBAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jBConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jBModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jBEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="btnConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
           </Group>
-          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jBAgregar">
+    <Component class="javax.swing.JButton" name="btnAdd">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/Add.png"/>
@@ -51,7 +51,7 @@
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBConsultar">
+    <Component class="javax.swing.JButton" name="btnConsult">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/Consult.png"/>
@@ -60,7 +60,7 @@
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBModificar">
+    <Component class="javax.swing.JButton" name="btnEdit">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/Edit.png"/>
@@ -70,7 +70,7 @@
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBEliminar">
+    <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/Delete.png"/>
@@ -80,7 +80,7 @@
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/BackParaMantenimiento.png"/>

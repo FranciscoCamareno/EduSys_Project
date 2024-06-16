@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -16,6 +18,14 @@ public class PanelCRUD extends javax.swing.JPanel {
     public PanelCRUD() {
         initComponents();
     }
+    
+    public void listen (ActionListener controller){
+        btnAdd.addActionListener(controller);
+        btnConsult.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,66 +36,66 @@ public class PanelCRUD extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBAgregar = new javax.swing.JButton();
-        jBConsultar = new javax.swing.JButton();
-        jBModificar = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnConsult = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
-        jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Add.png"))); // NOI18N
-        jBAgregar.setActionCommand("agregar");
-        jBAgregar.setContentAreaFilled(false);
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Add.png"))); // NOI18N
+        btnAdd.setActionCommand("agregar");
+        btnAdd.setContentAreaFilled(false);
 
-        jBConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consult.png"))); // NOI18N
-        jBConsultar.setActionCommand("Consultar");
-        jBConsultar.setContentAreaFilled(false);
+        btnConsult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consult.png"))); // NOI18N
+        btnConsult.setActionCommand("Consultar");
+        btnConsult.setContentAreaFilled(false);
 
-        jBModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Edit.png"))); // NOI18N
-        jBModificar.setToolTipText("");
-        jBModificar.setActionCommand("Modificar");
-        jBModificar.setContentAreaFilled(false);
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Edit.png"))); // NOI18N
+        btnEdit.setToolTipText("");
+        btnEdit.setActionCommand("Modificar");
+        btnEdit.setContentAreaFilled(false);
 
-        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Delete.png"))); // NOI18N
-        jBEliminar.setToolTipText("");
-        jBEliminar.setActionCommand("Eliminar");
-        jBEliminar.setContentAreaFilled(false);
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Delete.png"))); // NOI18N
+        btnDelete.setToolTipText("");
+        btnDelete.setActionCommand("Eliminar");
+        btnDelete.setContentAreaFilled(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BackParaMantenimiento.png"))); // NOI18N
-        jButton1.setActionCommand("Back");
-        jButton1.setContentAreaFilled(false);
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BackParaMantenimiento.png"))); // NOI18N
+        btnBack.setActionCommand("Back");
+        btnBack.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jBAgregar)
+                .addComponent(btnAdd)
                 .addGap(18, 18, 18)
-                .addComponent(jBConsultar)
+                .addComponent(btnConsult)
                 .addGap(18, 18, 18)
-                .addComponent(jBModificar)
+                .addComponent(btnEdit)
                 .addGap(18, 18, 18)
-                .addComponent(jBEliminar)
+                .addComponent(btnDelete)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1))
+                .addComponent(btnBack))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jBAgregar)
-                .addComponent(jBConsultar)
-                .addComponent(jBModificar)
-                .addComponent(jBEliminar))
-            .addComponent(jButton1)
+                .addComponent(btnAdd)
+                .addComponent(btnConsult)
+                .addComponent(btnEdit)
+                .addComponent(btnDelete))
+            .addComponent(btnBack)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBAgregar;
-    private javax.swing.JButton jBConsultar;
-    private javax.swing.JButton jBEliminar;
-    private javax.swing.JButton jBModificar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnConsult;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     // End of variables declaration//GEN-END:variables
 }

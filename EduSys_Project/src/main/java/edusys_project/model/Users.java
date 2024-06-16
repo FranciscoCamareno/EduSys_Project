@@ -25,15 +25,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-@NamedQueries({
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-    @NamedQuery(name = "Users.findByIdUsers", query = "SELECT u FROM Users u WHERE u.idUsers = :idUsers"),
-    @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name"),
-    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
-    @NamedQuery(name = "Users.findByUserName", query = "SELECT u FROM Users u WHERE u.userName = :userName"),
-    @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email"),
-    @NamedQuery(name = "Users.findByPhoneNumber", query = "SELECT u FROM Users u WHERE u.phoneNumber = :phoneNumber"),
-    @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName")})
+//@NamedQueries({
+//    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
+//    @NamedQuery(name = "Users.findByIdUsers", query = "SELECT u FROM Users u WHERE u.idUsers = :idUsers"),
+//    @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name"),
+//    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
+//    @NamedQuery(name = "Users.findByUserName", query = "SELECT u FROM Users u WHERE u.userName = :userName"),
+//    @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email"),
+//    @NamedQuery(name = "Users.findByPhoneNumber", query = "SELECT u FROM Users u WHERE u.phoneNumber = :phoneNumber"),
+//    @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName")})
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -194,29 +194,36 @@ public class Users implements Serializable {
         this.profileidProfile = profileidProfile;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idUsers != null ? idUsers.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
-            return false;
-        }
-        Users other = (Users) object;
-        if ((this.idUsers == null && other.idUsers != null) || (this.idUsers != null && !this.idUsers.equals(other.idUsers))) {
-            return false;
-        }
-        return true;
-    }
-
+//    @Override
+//    public int hashCode() {
+//        int hash = 0;
+//        hash += (idUsers != null ? idUsers.hashCode() : 0);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object object) {
+//        // TODO: Warning - this method won't work in the case the id fields are not set
+//        if (!(object instanceof Users)) {
+//            return false;
+//        }
+//        Users other = (Users) object;
+//        if ((this.idUsers == null && other.idUsers != null) || (this.idUsers != null && !this.idUsers.equals(other.idUsers))) {
+//            return false;
+//        }
+//        return true;
+//    }
+    
+    
     @Override
     public String toString() {
-        return "edusys_project.model.Users[ idUsers=" + idUsers + " ]";
+        return "Users{" + "idUsers=" + idUsers + ", name=" + name + ", password=" + password + ", userName=" + 
+                userName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", lastName=" + lastName + ", activitiesCollection=" + 
+                activitiesCollection + ", courseCollection=" + courseCollection + ", notificationsCollection=" + 
+                notificationsCollection + ", groupsCollection=" + groupsCollection + ", studentCollection=" + 
+                studentCollection + ", profileidProfile=" + profileidProfile + '}';
     }
+
+    
     
 }

@@ -24,18 +24,20 @@ import edusys_project.model.Users;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author fcama
  */
 public class UsersJpaController implements Serializable {
-
-    public UsersJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
+    
     private EntityManagerFactory emf = null;
 
+    public UsersJpaController(EntityManagerFactory emf) {
+        this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+    }
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -58,8 +60,8 @@ public class UsersJpaController implements Serializable {
         }
         EntityManager em = null;
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
+            em = getEntityManager(); //crea el administrador de entidades
+            em.getTransaction().begin(); //prepara la transaccion
             Profile profileidProfile = users.getProfileidProfile();
             if (profileidProfile != null) {
                 profileidProfile = em.getReference(profileidProfile.getClass(), profileidProfile.getIdProfile());
@@ -95,7 +97,7 @@ public class UsersJpaController implements Serializable {
                 attachedStudentCollection.add(studentCollectionStudentToAttach);
             }
             users.setStudentCollection(attachedStudentCollection);
-            em.persist(users);
+            em.persist(users);//inserta entidad en la base de datos
             if (profileidProfile != null) {
                 profileidProfile.getUsersCollection().add(users);
                 profileidProfile = em.merge(profileidProfile);
@@ -125,7 +127,7 @@ public class UsersJpaController implements Serializable {
                     oldUsersOfStudentCollectionStudent = em.merge(oldUsersOfStudentCollectionStudent);
                 }
             }
-            em.getTransaction().commit();
+            em.getTransaction().commit(); //finalizar transaccion
         } catch (Exception ex) {
             if (findUsers(users.getIdUsers()) != null) {
                 throw new PreexistingEntityException("Users " + users + " already exists.", ex);
@@ -207,7 +209,7 @@ public class UsersJpaController implements Serializable {
             }
             studentCollectionNew = attachedStudentCollectionNew;
             users.setStudentCollection(studentCollectionNew);
-            users = em.merge(users);
+            users = em.merge(users); //edita los valores en la base de datos
             if (profileidProfileOld != null && !profileidProfileOld.equals(profileidProfileNew)) {
                 profileidProfileOld.getUsersCollection().remove(users);
                 profileidProfileOld = em.merge(profileidProfileOld);
@@ -291,7 +293,8 @@ public class UsersJpaController implements Serializable {
             }
         }
     }
-
+    
+    //metodo eliminar
     public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -349,25 +352,27 @@ public class UsersJpaController implements Serializable {
         }
     }
 
-    public List<Users> findUsersEntities() {
-        return findUsersEntities(true, -1, -1);
-    }
+//    public List<Users> findUsersEntities() {
+//        return findUsersEntities(true, -1, -1);
+//    }
+//
+//    public List<Users> findUsersEntities(int maxResults, int firstResult) {
+//        return findUsersEntities(false, maxResults, firstResult);
+//    }
+    
+    
 
-    public List<Users> findUsersEntities(int maxResults, int firstResult) {
-        return findUsersEntities(false, maxResults, firstResult);
-    }
-
-    private List<Users> findUsersEntities(boolean all, int maxResults, int firstResult) {
+    private ArrayList<Users> consultList() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
             cq.select(cq.from(Users.class));
             Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
+//            if (!all) {
+//                q.setMaxResults(maxResults);
+//                q.setFirstResult(firstResult);
+//            }
+            return (ArrayList<Users>)q.getResultList();
         } finally {
             em.close();
         }
