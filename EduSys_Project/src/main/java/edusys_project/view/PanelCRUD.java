@@ -30,6 +30,7 @@ public class PanelCRUD extends javax.swing.JPanel {
         jBConsultar = new javax.swing.JButton();
         jBModificar = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jBAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Add.png"))); // NOI18N
         jBAgregar.setActionCommand("agregar");
@@ -49,6 +50,10 @@ public class PanelCRUD extends javax.swing.JPanel {
         jBEliminar.setActionCommand("Eliminar");
         jBEliminar.setContentAreaFilled(false);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BackParaMantenimiento.png"))); // NOI18N
+        jButton1.setActionCommand("Back");
+        jButton1.setContentAreaFilled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,7 +65,9 @@ public class PanelCRUD extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jBModificar)
                 .addGap(18, 18, 18)
-                .addComponent(jBEliminar))
+                .addComponent(jBEliminar)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,6 +76,7 @@ public class PanelCRUD extends javax.swing.JPanel {
                 .addComponent(jBConsultar)
                 .addComponent(jBModificar)
                 .addComponent(jBEliminar))
+            .addComponent(jButton1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -78,5 +86,6 @@ public class PanelCRUD extends javax.swing.JPanel {
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBModificar;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

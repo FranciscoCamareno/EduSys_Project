@@ -8,12 +8,12 @@ package edusys_project.view;
  *
  * @author Usuario
  */
-public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
+public class FrameDataTable extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrameStudyPlanManagementMaintenance
+     * Creates new form DataTable
      */
-    public FrameStudyPlanManagementMaintenance() {
+    public FrameDataTable() {
         initComponents();
     }
 
@@ -26,21 +26,23 @@ public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelCRUD1 = new edusys_project.view.PanelCRUD();
-        panelStudyPlanManagementAndMaintenance1 = new edusys_project.view.PanelStudyPlanManagementAndMaintenance();
+        panelTable2 = new edusys_project.view.PanelTable();
+        jLabel1 = new javax.swing.JLabel();
+        panelTable3 = new edusys_project.view.PanelTable();
+        panelTable1 = new edusys_project.view.PanelTable();
         jLabel2 = new javax.swing.JLabel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo2.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, -1));
-
-        panelStudyPlanManagementAndMaintenance1.setOpaque(false);
-        getContentPane().add(panelStudyPlanManagementAndMaintenance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        panelTable1.setOpaque(false);
+        getContentPane().add(panelTable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo2.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,27 +64,30 @@ public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameStudyPlanManagementMaintenance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameDataTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameStudyPlanManagementMaintenance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameDataTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameStudyPlanManagementMaintenance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameDataTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameStudyPlanManagementMaintenance.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameDataTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameStudyPlanManagementMaintenance().setVisible(true);
+                new FrameDataTable().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private edusys_project.view.PanelCRUD panelCRUD1;
-    private edusys_project.view.PanelStudyPlanManagementAndMaintenance panelStudyPlanManagementAndMaintenance1;
+    private edusys_project.view.PanelTable panelTable1;
+    private edusys_project.view.PanelTable panelTable2;
+    private edusys_project.view.PanelTable panelTable3;
     // End of variables declaration//GEN-END:variables
 }
