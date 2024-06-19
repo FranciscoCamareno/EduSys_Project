@@ -24,10 +24,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "profile")
-@NamedQueries({
-    @NamedQuery(name = "Profile.findAll", query = "SELECT p FROM Profile p"),
-    @NamedQuery(name = "Profile.findByIdProfile", query = "SELECT p FROM Profile p WHERE p.idProfile = :idProfile"),
-    @NamedQuery(name = "Profile.findByUserType", query = "SELECT p FROM Profile p WHERE p.userType = :userType")})
+//@NamedQueries({
+//    @NamedQuery(name = "Profile.findAll", query = "SELECT p FROM Profile p"),
+//    @NamedQuery(name = "Profile.findByIdProfile", query = "SELECT p FROM Profile p WHERE p.idProfile = :idProfile"),
+//    @NamedQuery(name = "Profile.findByUserType", query = "SELECT p FROM Profile p WHERE p.userType = :userType")})
 public class Profile implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class Profile implements Serializable {
     private String userType;
     @JoinColumn(name = "Module_idModule", referencedColumnName = "idModule")
     @ManyToOne(optional = false)
-    private Module moduleidModule;
+    private Modulo moduleidModule;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profileidProfile")
     private Collection<Users> usersCollection;
 
@@ -56,6 +56,14 @@ public class Profile implements Serializable {
         this.userType = userType;
     }
 
+    public Profile(Integer idProfile, String userType, Modulo moduleidModule) {
+        this.idProfile = idProfile;
+        this.userType = userType;
+        this.moduleidModule = moduleidModule;
+    }
+    
+    
+    
     public Integer getIdProfile() {
         return idProfile;
     }
@@ -72,11 +80,11 @@ public class Profile implements Serializable {
         this.userType = userType;
     }
 
-    public Module getModuleidModule() {
+    public Modulo getModuleidModule() {
         return moduleidModule;
     }
 
-    public void setModuleidModule(Module moduleidModule) {
+    public void setModuleidModule(Modulo moduleidModule) {
         this.moduleidModule = moduleidModule;
     }
 

@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import edusys_project.model.Module;
+import edusys_project.model.Modulo;
 import edusys_project.model.Profile;
 import edusys_project.model.Users;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class ProfileJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Module moduleidModule = profile.getModuleidModule();
+            Modulo moduleidModule = profile.getModuleidModule();
             if (moduleidModule != null) {
                 moduleidModule = em.getReference(moduleidModule.getClass(), moduleidModule.getIdModule());
                 profile.setModuleidModule(moduleidModule);
@@ -88,8 +88,8 @@ public class ProfileJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Profile persistentProfile = em.find(Profile.class, profile.getIdProfile());
-            Module moduleidModuleOld = persistentProfile.getModuleidModule();
-            Module moduleidModuleNew = profile.getModuleidModule();
+            Modulo moduleidModuleOld = persistentProfile.getModuleidModule();
+            Modulo moduleidModuleNew = profile.getModuleidModule();
             Collection<Users> usersCollectionOld = persistentProfile.getUsersCollection();
             Collection<Users> usersCollectionNew = profile.getUsersCollection();
             List<String> illegalOrphanMessages = null;
@@ -175,7 +175,7 @@ public class ProfileJpaController implements Serializable {
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-            Module moduleidModule = profile.getModuleidModule();
+            Modulo moduleidModule = profile.getModuleidModule();
             if (moduleidModule != null) {
                 moduleidModule.getProfileCollection().remove(profile);
                 moduleidModule = em.merge(moduleidModule);

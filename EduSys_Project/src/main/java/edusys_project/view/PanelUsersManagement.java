@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author valer
@@ -16,6 +18,65 @@ public class PanelUsersManagement extends javax.swing.JPanel {
     public PanelUsersManagement() {
         initComponents();
     }
+
+    public String getTxtEmail() {
+        return txtEmail.getText();
+    }
+
+    public void setTxtEmail(String txtEmail) {
+        this.txtEmail.setText(txtEmail);
+    }
+
+    public String getTxtIdUser() {
+        return txtIdUser.getText();
+    }
+
+    public void setTxtIdUser(JTextField txtIdUser) {
+        this.txtIdUser = txtIdUser;
+    }
+
+    public String getTxtLastName() {
+        return txtLastName.getText();
+    }
+
+    public void setTxtLastName(String txtLastName) {
+        this.txtLastName.setText(txtLastName);
+    }
+
+    public String getTxtName() {
+        return txtName.getText();
+    }
+
+    public void setTxtName(String txtName) {
+        this.txtName.setText(txtName);
+    }
+
+    public String getTxtPassword() {
+        return txtPassword.getText();
+    }
+
+    public void setTxtPassword(String txtPassword) {
+        this.txtPassword.setText(txtPassword);
+    }
+
+    public String getTxtPhoneNumber() {
+        return txtPhoneNumber.getText();
+    }
+
+    public void setTxtPhoneNumber(String txtPhoneNumber) {
+        this.txtPhoneNumber.setText(txtPhoneNumber);
+    }
+
+    public String getTxtUserName() {
+        return txtUserName.getText();
+    }
+
+    public void setTxtUserName(String txtUserName) {
+        this.txtUserName.setText(txtUserName);
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +91,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         txtEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
-        txtCarnet = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -41,14 +101,12 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         txtPassword = new javax.swing.JTextField();
         txtIdUser = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
@@ -75,9 +133,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
 
         txtUserName.setBorder(null);
         add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 330, 30));
-
-        txtCarnet.setBorder(null);
-        add(txtCarnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 80, 20));
 
         jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -116,11 +171,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
         jLabel7.setText("Last name:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 364, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel8.setText("Carnet:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
-
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LargeTextSpace.png"))); // NOI18N
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 289, -1, -1));
 
@@ -138,9 +188,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LargeTextSpace.png"))); // NOI18N
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, -1, -1));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SmallTextSpace.png"))); // NOI18N
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Poppins SemiBold", 0, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
@@ -164,7 +211,6 @@ public class PanelUsersManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -172,9 +218,7 @@ public class PanelUsersManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtCarnet;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIdUser;
     private javax.swing.JTextField txtLastName;

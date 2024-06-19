@@ -22,12 +22,12 @@ import javax.persistence.Table;
  * @author fcama
  */
 @Entity
-@Table(name = "module")
-@NamedQueries({
-    @NamedQuery(name = "Module.findAll", query = "SELECT m FROM Module m"),
-    @NamedQuery(name = "Module.findByIdModule", query = "SELECT m FROM Module m WHERE m.idModule = :idModule"),
-    @NamedQuery(name = "Module.findByName", query = "SELECT m FROM Module m WHERE m.name = :name")})
-public class Module implements Serializable {
+@Table(name = "modulo")
+//@NamedQueries({
+//    @NamedQuery(name = "Module.findAll", query = "SELECT m FROM Module m"),
+//    @NamedQuery(name = "Module.findByIdModule", query = "SELECT m FROM Module m WHERE m.idModule = :idModule"),
+//    @NamedQuery(name = "Module.findByName", query = "SELECT m FROM Module m WHERE m.name = :name")})
+public class Modulo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -44,14 +44,14 @@ public class Module implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "moduleidModule")
     private Collection<Profile> profileCollection;
 
-    public Module() {
+    public Modulo() {
     }
 
-    public Module(Integer idModule) {
+    public Modulo(Integer idModule) {
         this.idModule = idModule;
     }
 
-    public Module(Integer idModule, String name, String description) {
+    public Modulo(Integer idModule, String name, String description) {
         this.idModule = idModule;
         this.name = name;
         this.description = description;
@@ -99,10 +99,10 @@ public class Module implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Module)) {
+        if (!(object instanceof Modulo)) {
             return false;
         }
-        Module other = (Module) object;
+        Modulo other = (Modulo) object;
         if ((this.idModule == null && other.idModule != null) || (this.idModule != null && !this.idModule.equals(other.idModule))) {
             return false;
         }

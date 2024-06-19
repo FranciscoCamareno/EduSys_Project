@@ -7,7 +7,7 @@ package edusys_project.controller.JPA;
 import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
 import edusys_project.controller.JPA.exceptions.PreexistingEntityException;
-import edusys_project.model.Module;
+import edusys_project.model.Modulo;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -35,7 +35,7 @@ public class ModuleJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Module module) throws PreexistingEntityException, Exception {
+    public void create(Modulo module) throws PreexistingEntityException, Exception {
         if (module.getProfileCollection() == null) {
             module.setProfileCollection(new ArrayList<Profile>());
         }
@@ -51,7 +51,7 @@ public class ModuleJpaController implements Serializable {
             module.setProfileCollection(attachedProfileCollection);
             em.persist(module);
             for (Profile profileCollectionProfile : module.getProfileCollection()) {
-                Module oldModuleidModuleOfProfileCollectionProfile = profileCollectionProfile.getModuleidModule();
+                Modulo oldModuleidModuleOfProfileCollectionProfile = profileCollectionProfile.getModuleidModule();
                 profileCollectionProfile.setModuleidModule(module);
                 profileCollectionProfile = em.merge(profileCollectionProfile);
                 if (oldModuleidModuleOfProfileCollectionProfile != null) {
@@ -72,12 +72,12 @@ public class ModuleJpaController implements Serializable {
         }
     }
 
-    public void edit(Module module) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void edit(Modulo module) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Module persistentModule = em.find(Module.class, module.getIdModule());
+            Modulo persistentModule = em.find(Modulo.class, module.getIdModule());
             Collection<Profile> profileCollectionOld = persistentModule.getProfileCollection();
             Collection<Profile> profileCollectionNew = module.getProfileCollection();
             List<String> illegalOrphanMessages = null;
@@ -102,7 +102,7 @@ public class ModuleJpaController implements Serializable {
             module = em.merge(module);
             for (Profile profileCollectionNewProfile : profileCollectionNew) {
                 if (!profileCollectionOld.contains(profileCollectionNewProfile)) {
-                    Module oldModuleidModuleOfProfileCollectionNewProfile = profileCollectionNewProfile.getModuleidModule();
+                    Modulo oldModuleidModuleOfProfileCollectionNewProfile = profileCollectionNewProfile.getModuleidModule();
                     profileCollectionNewProfile.setModuleidModule(module);
                     profileCollectionNewProfile = em.merge(profileCollectionNewProfile);
                     if (oldModuleidModuleOfProfileCollectionNewProfile != null && !oldModuleidModuleOfProfileCollectionNewProfile.equals(module)) {
@@ -133,9 +133,9 @@ public class ModuleJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Module module;
+            Modulo module;
             try {
-                module = em.getReference(Module.class, id);
+                module = em.getReference(Modulo.class, id);
                 module.getIdModule();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The module with id " + id + " no longer exists.", enfe);
@@ -160,19 +160,19 @@ public class ModuleJpaController implements Serializable {
         }
     }
 
-    public List<Module> findModuleEntities() {
+    public List<Modulo> findModuleEntities() {
         return findModuleEntities(true, -1, -1);
     }
 
-    public List<Module> findModuleEntities(int maxResults, int firstResult) {
+    public List<Modulo> findModuleEntities(int maxResults, int firstResult) {
         return findModuleEntities(false, maxResults, firstResult);
     }
 
-    private List<Module> findModuleEntities(boolean all, int maxResults, int firstResult) {
+    private List<Modulo> findModuleEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Module.class));
+            cq.select(cq.from(Modulo.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -184,10 +184,10 @@ public class ModuleJpaController implements Serializable {
         }
     }
 
-    public Module findModule(Integer id) {
+    public Modulo findModule(Integer id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Module.class, id);
+            return em.find(Modulo.class, id);
         } finally {
             em.close();
         }
@@ -197,7 +197,7 @@ public class ModuleJpaController implements Serializable {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Module> rt = cq.from(Module.class);
+            Root<Modulo> rt = cq.from(Modulo.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
