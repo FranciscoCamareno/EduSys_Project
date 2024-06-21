@@ -58,9 +58,6 @@ public class UsersController implements ActionListener {
 
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//                        ModuleJpaController moduleJpa = new ModuleJpaController(emf);
-//                        Modulo modulo;
-//                        modulo = moduleJpa.findModule(1);
                         Integer id = 1;
                         Profile profile;
                         ProfileJpaController profileJpa = new ProfileJpaController(emf);
@@ -92,19 +89,14 @@ public class UsersController implements ActionListener {
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
 
-                        Integer id = 1;
-                        Profile profile;
-//                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
-//                        profileJpa.create(profile = new Profile(id, "Student"));
                         users = new Users(idUserNew, nameNew, passwordNew, userNameNew, eMailNew, 
                                 phoneNumberNew, lastNameNew);
-                        usersJpaController.edit(users);
+                        usersJpaController.editar(users);
                     } catch (Exception ex) {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
-                
                 break;
             case "Eliminar":
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
@@ -112,16 +104,16 @@ public class UsersController implements ActionListener {
                 UsersJpaController userJpa = new UsersJpaController(emf);
                 int idProfile = Integer.parseInt(panelUM.getTxtIdUser());
 
-            {
-                try {
-                    userJpa.destroy(idProfile);
-                    profileJpa.destroy(idProfile);
-                } catch (IllegalOrphanException ex) {
-                    Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (NonexistentEntityException ex) {
-                    Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                 {
+                    try {
+                        userJpa.destroy(idProfile);
+                        profileJpa.destroy(idProfile);
+                    } catch (IllegalOrphanException ex) {
+                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
 
                 break;
 

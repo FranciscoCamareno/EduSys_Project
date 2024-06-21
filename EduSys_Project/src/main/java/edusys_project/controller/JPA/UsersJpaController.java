@@ -31,14 +31,14 @@ import javax.persistence.Persistence;
  * @author fcama
  */
 public class UsersJpaController implements Serializable {
-    
+
     private EntityManagerFactory emf = null;
 
     public UsersJpaController(EntityManagerFactory emf) {
         this.emf = emf;
         //Persistence.createEntityManagerFactory("EduSysPersistence");
     }
-    
+
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -141,6 +141,7 @@ public class UsersJpaController implements Serializable {
         }
     }
 
+    //metodo editar
     public void edit(Users users) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -240,7 +241,7 @@ public class UsersJpaController implements Serializable {
             for (Course courseCollectionNewCourse : courseCollectionNew) {
                 if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
                     courseCollectionNewCourse.getUsersCollection().add(users);
-                  courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
+                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
                 }
             }
             for (Notifications notificationsCollectionOldNotifications : notificationsCollectionOld) {
@@ -294,7 +295,44 @@ public class UsersJpaController implements Serializable {
             }
         }
     }
-    
+
+    public void editar(Users users) throws Exception {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+
+            // Find the user by ID
+            Users persistentUsers = em.find(Users.class, users.getIdUsers());
+
+            // Update user fields
+            persistentUsers.setName(users.getName());
+            persistentUsers.setPassword(users.getPassword());
+            persistentUsers.setUserName(users.getUserName());
+            persistentUsers.setEmail(users.getEmail());
+            persistentUsers.setPhoneNumber(users.getPhoneNumber());
+            persistentUsers.setLastName(users.getLastName());
+
+            // Merge the updated user object
+            em.merge(persistentUsers);
+
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            String msg = ex.getLocalizedMessage();
+            if (msg == null || msg.length() == 0) {
+                Integer id = users.getIdUsers();
+                if (findUsers(id) == null) {
+                    throw new NonexistentEntityException("The users with id " + id + " no longer exists.");
+                }
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     //metodo eliminar
     public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
@@ -360,9 +398,6 @@ public class UsersJpaController implements Serializable {
 //    public List<Users> findUsersEntities(int maxResults, int firstResult) {
 //        return findUsersEntities(false, maxResults, firstResult);
 //    }
-    
-    
-
     private ArrayList<Users> consultList() {
         EntityManager em = getEntityManager();
         try {
@@ -373,7 +408,7 @@ public class UsersJpaController implements Serializable {
 //                q.setMaxResults(maxResults);
 //                q.setFirstResult(firstResult);
 //            }
-            return (ArrayList<Users>)q.getResultList();
+            return (ArrayList<Users>) q.getResultList();
         } finally {
             em.close();
         }
@@ -400,5 +435,5 @@ public class UsersJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }
