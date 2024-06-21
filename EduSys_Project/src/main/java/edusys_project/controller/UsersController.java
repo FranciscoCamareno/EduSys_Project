@@ -61,7 +61,7 @@ public class UsersController implements ActionListener {
 //                        ModuleJpaController moduleJpa = new ModuleJpaController(emf);
 //                        Modulo modulo;
 //                        modulo = moduleJpa.findModule(1);
-                        Integer id = 4;
+                        Integer id = 1;
                         Profile profile;
                         ProfileJpaController profileJpa = new ProfileJpaController(emf);
                         profileJpa.create(profile = new Profile(id, "Student", null));
@@ -94,10 +94,10 @@ public class UsersController implements ActionListener {
 
                         Integer id = 1;
                         Profile profile;
-                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
-                        profileJpa.create(profile = new Profile(id, "Student", null));
+//                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
+//                        profileJpa.create(profile = new Profile(id, "Student"));
                         users = new Users(idUserNew, nameNew, passwordNew, userNameNew, eMailNew, 
-                                phoneNumberNew, lastNameNew, profile);
+                                phoneNumberNew, lastNameNew);
                         usersJpaController.edit(users);
                     } catch (Exception ex) {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
@@ -114,8 +114,8 @@ public class UsersController implements ActionListener {
 
             {
                 try {
-                    profileJpa.destroy(idProfile);
                     userJpa.destroy(idProfile);
+                    profileJpa.destroy(idProfile);
                 } catch (IllegalOrphanException ex) {
                     Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (NonexistentEntityException ex) {

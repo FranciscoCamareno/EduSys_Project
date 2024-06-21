@@ -240,7 +240,7 @@ public class UsersJpaController implements Serializable {
             for (Course courseCollectionNewCourse : courseCollectionNew) {
                 if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
                     courseCollectionNewCourse.getUsersCollection().add(users);
-                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
+                  courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
                 }
             }
             for (Notifications notificationsCollectionOldNotifications : notificationsCollectionOld) {
@@ -310,12 +310,12 @@ public class UsersJpaController implements Serializable {
             }
             List<String> illegalOrphanMessages = null;
             Collection<Student> studentCollectionOrphanCheck = users.getStudentCollection();
-            for (Student studentCollectionOrphanCheckStudent : studentCollectionOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Users (" + users + ") cannot be destroyed since the Student " + studentCollectionOrphanCheckStudent + " in its studentCollection field has a non-nullable users field.");
-            }
+//            for (Student studentCollectionOrphanCheckStudent : studentCollectionOrphanCheck) {
+//                if (illegalOrphanMessages == null) {
+//                    illegalOrphanMessages = new ArrayList<String>();
+//                }
+//                illegalOrphanMessages.add("This Users (" + users + ") cannot be destroyed since the Student " + studentCollectionOrphanCheckStudent + " in its studentCollection field has a non-nullable users field.");
+//            }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
@@ -324,26 +324,26 @@ public class UsersJpaController implements Serializable {
                 profileidProfile.getUsersCollection().remove(users);
                 profileidProfile = em.merge(profileidProfile);
             }
-            Collection<Activities> activitiesCollection = users.getActivitiesCollection();
-            for (Activities activitiesCollectionActivities : activitiesCollection) {
-                activitiesCollectionActivities.getUsersCollection().remove(users);
-                activitiesCollectionActivities = em.merge(activitiesCollectionActivities);
-            }
-            Collection<Course> courseCollection = users.getCourseCollection();
-            for (Course courseCollectionCourse : courseCollection) {
-                courseCollectionCourse.getUsersCollection().remove(users);
-                courseCollectionCourse = em.merge(courseCollectionCourse);
-            }
-            Collection<Notifications> notificationsCollection = users.getNotificationsCollection();
-            for (Notifications notificationsCollectionNotifications : notificationsCollection) {
-                notificationsCollectionNotifications.getUsersCollection().remove(users);
-                notificationsCollectionNotifications = em.merge(notificationsCollectionNotifications);
-            }
-            Collection<Groups> groupsCollection = users.getGroupsCollection();
-            for (Groups groupsCollectionGroups : groupsCollection) {
-                groupsCollectionGroups.getUsersCollection().remove(users);
-                groupsCollectionGroups = em.merge(groupsCollectionGroups);
-            }
+//            Collection<Activities> activitiesCollection = users.getActivitiesCollection();
+//            for (Activities activitiesCollectionActivities : activitiesCollection) {
+//                activitiesCollectionActivities.getUsersCollection().remove(users);
+//                activitiesCollectionActivities = em.merge(activitiesCollectionActivities);
+//            }
+//            Collection<Course> courseCollection = users.getCourseCollection();
+//            for (Course courseCollectionCourse : courseCollection) {
+//                courseCollectionCourse.getUsersCollection().remove(users);
+//                courseCollectionCourse = em.merge(courseCollectionCourse);
+//            }
+//            Collection<Notifications> notificationsCollection = users.getNotificationsCollection();
+//            for (Notifications notificationsCollectionNotifications : notificationsCollection) {
+//                notificationsCollectionNotifications.getUsersCollection().remove(users);
+//                notificationsCollectionNotifications = em.merge(notificationsCollectionNotifications);
+//            }
+//            Collection<Groups> groupsCollection = users.getGroupsCollection();
+//            for (Groups groupsCollectionGroups : groupsCollection) {
+//                groupsCollectionGroups.getUsersCollection().remove(users);
+//                groupsCollectionGroups = em.merge(groupsCollectionGroups);
+//            }
             em.remove(users);
             em.getTransaction().commit();
         } finally {
