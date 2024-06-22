@@ -25,6 +25,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -142,159 +143,159 @@ public class UsersJpaController implements Serializable {
     }
 
     //metodo editar
-    public void edit(Users users) throws IllegalOrphanException, NonexistentEntityException, Exception {
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Users persistentUsers = em.find(Users.class, users.getIdUsers());
-            Profile profileidProfileOld = persistentUsers.getProfileidProfile();
-            Profile profileidProfileNew = users.getProfileidProfile();
-            Collection<Activities> activitiesCollectionOld = persistentUsers.getActivitiesCollection();
-            Collection<Activities> activitiesCollectionNew = users.getActivitiesCollection();
-            Collection<Course> courseCollectionOld = persistentUsers.getCourseCollection();
-            Collection<Course> courseCollectionNew = users.getCourseCollection();
-            Collection<Notifications> notificationsCollectionOld = persistentUsers.getNotificationsCollection();
-            Collection<Notifications> notificationsCollectionNew = users.getNotificationsCollection();
-            Collection<Groups> groupsCollectionOld = persistentUsers.getGroupsCollection();
-            Collection<Groups> groupsCollectionNew = users.getGroupsCollection();
-            Collection<Student> studentCollectionOld = persistentUsers.getStudentCollection();
-            Collection<Student> studentCollectionNew = users.getStudentCollection();
-            List<String> illegalOrphanMessages = null;
-            for (Student studentCollectionOldStudent : studentCollectionOld) {
-                if (!studentCollectionNew.contains(studentCollectionOldStudent)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain Student " + studentCollectionOldStudent + " since its users field is not nullable.");
-                }
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
-            }
-            if (profileidProfileNew != null) {
-                profileidProfileNew = em.getReference(profileidProfileNew.getClass(), profileidProfileNew.getIdProfile());
-                users.setProfileidProfile(profileidProfileNew);
-            }
-            Collection<Activities> attachedActivitiesCollectionNew = new ArrayList<Activities>();
-            for (Activities activitiesCollectionNewActivitiesToAttach : activitiesCollectionNew) {
-                activitiesCollectionNewActivitiesToAttach = em.getReference(activitiesCollectionNewActivitiesToAttach.getClass(), activitiesCollectionNewActivitiesToAttach.getIdActivities());
-                attachedActivitiesCollectionNew.add(activitiesCollectionNewActivitiesToAttach);
-            }
-            activitiesCollectionNew = attachedActivitiesCollectionNew;
-            users.setActivitiesCollection(activitiesCollectionNew);
-            Collection<Course> attachedCourseCollectionNew = new ArrayList<Course>();
-            for (Course courseCollectionNewCourseToAttach : courseCollectionNew) {
-                courseCollectionNewCourseToAttach = em.getReference(courseCollectionNewCourseToAttach.getClass(), courseCollectionNewCourseToAttach.getSyllabus());
-                attachedCourseCollectionNew.add(courseCollectionNewCourseToAttach);
-            }
-            courseCollectionNew = attachedCourseCollectionNew;
-            users.setCourseCollection(courseCollectionNew);
-            Collection<Notifications> attachedNotificationsCollectionNew = new ArrayList<Notifications>();
-            for (Notifications notificationsCollectionNewNotificationsToAttach : notificationsCollectionNew) {
-                notificationsCollectionNewNotificationsToAttach = em.getReference(notificationsCollectionNewNotificationsToAttach.getClass(), notificationsCollectionNewNotificationsToAttach.getIdNotifications());
-                attachedNotificationsCollectionNew.add(notificationsCollectionNewNotificationsToAttach);
-            }
-            notificationsCollectionNew = attachedNotificationsCollectionNew;
-            users.setNotificationsCollection(notificationsCollectionNew);
-            Collection<Groups> attachedGroupsCollectionNew = new ArrayList<Groups>();
-            for (Groups groupsCollectionNewGroupsToAttach : groupsCollectionNew) {
-                groupsCollectionNewGroupsToAttach = em.getReference(groupsCollectionNewGroupsToAttach.getClass(), groupsCollectionNewGroupsToAttach.getIdGroup());
-                attachedGroupsCollectionNew.add(groupsCollectionNewGroupsToAttach);
-            }
-            groupsCollectionNew = attachedGroupsCollectionNew;
-            users.setGroupsCollection(groupsCollectionNew);
-            Collection<Student> attachedStudentCollectionNew = new ArrayList<Student>();
-            for (Student studentCollectionNewStudentToAttach : studentCollectionNew) {
-                studentCollectionNewStudentToAttach = em.getReference(studentCollectionNewStudentToAttach.getClass(), studentCollectionNewStudentToAttach.getStudentPK());
-                attachedStudentCollectionNew.add(studentCollectionNewStudentToAttach);
-            }
-            studentCollectionNew = attachedStudentCollectionNew;
-            users.setStudentCollection(studentCollectionNew);
-            users = em.merge(users); //edita los valores en la base de datos
-            if (profileidProfileOld != null && !profileidProfileOld.equals(profileidProfileNew)) {
-                profileidProfileOld.getUsersCollection().remove(users);
-                profileidProfileOld = em.merge(profileidProfileOld);
-            }
-            if (profileidProfileNew != null && !profileidProfileNew.equals(profileidProfileOld)) {
-                profileidProfileNew.getUsersCollection().add(users);
-                profileidProfileNew = em.merge(profileidProfileNew);
-            }
-            for (Activities activitiesCollectionOldActivities : activitiesCollectionOld) {
-                if (!activitiesCollectionNew.contains(activitiesCollectionOldActivities)) {
-                    activitiesCollectionOldActivities.getUsersCollection().remove(users);
-                    activitiesCollectionOldActivities = em.merge(activitiesCollectionOldActivities);
-                }
-            }
-            for (Activities activitiesCollectionNewActivities : activitiesCollectionNew) {
-                if (!activitiesCollectionOld.contains(activitiesCollectionNewActivities)) {
-                    activitiesCollectionNewActivities.getUsersCollection().add(users);
-                    activitiesCollectionNewActivities = em.merge(activitiesCollectionNewActivities);
-                }
-            }
-            for (Course courseCollectionOldCourse : courseCollectionOld) {
-                if (!courseCollectionNew.contains(courseCollectionOldCourse)) {
-                    courseCollectionOldCourse.getUsersCollection().remove(users);
-                    courseCollectionOldCourse = em.merge(courseCollectionOldCourse);
-                }
-            }
-            for (Course courseCollectionNewCourse : courseCollectionNew) {
-                if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
-                    courseCollectionNewCourse.getUsersCollection().add(users);
-                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
-                }
-            }
-            for (Notifications notificationsCollectionOldNotifications : notificationsCollectionOld) {
-                if (!notificationsCollectionNew.contains(notificationsCollectionOldNotifications)) {
-                    notificationsCollectionOldNotifications.getUsersCollection().remove(users);
-                    notificationsCollectionOldNotifications = em.merge(notificationsCollectionOldNotifications);
-                }
-            }
-            for (Notifications notificationsCollectionNewNotifications : notificationsCollectionNew) {
-                if (!notificationsCollectionOld.contains(notificationsCollectionNewNotifications)) {
-                    notificationsCollectionNewNotifications.getUsersCollection().add(users);
-                    notificationsCollectionNewNotifications = em.merge(notificationsCollectionNewNotifications);
-                }
-            }
-            for (Groups groupsCollectionOldGroups : groupsCollectionOld) {
-                if (!groupsCollectionNew.contains(groupsCollectionOldGroups)) {
-                    groupsCollectionOldGroups.getUsersCollection().remove(users);
-                    groupsCollectionOldGroups = em.merge(groupsCollectionOldGroups);
-                }
-            }
-            for (Groups groupsCollectionNewGroups : groupsCollectionNew) {
-                if (!groupsCollectionOld.contains(groupsCollectionNewGroups)) {
-                    groupsCollectionNewGroups.getUsersCollection().add(users);
-                    groupsCollectionNewGroups = em.merge(groupsCollectionNewGroups);
-                }
-            }
-            for (Student studentCollectionNewStudent : studentCollectionNew) {
-                if (!studentCollectionOld.contains(studentCollectionNewStudent)) {
-                    Users oldUsersOfStudentCollectionNewStudent = studentCollectionNewStudent.getUsers();
-                    studentCollectionNewStudent.setUsers(users);
-                    studentCollectionNewStudent = em.merge(studentCollectionNewStudent);
-                    if (oldUsersOfStudentCollectionNewStudent != null && !oldUsersOfStudentCollectionNewStudent.equals(users)) {
-                        oldUsersOfStudentCollectionNewStudent.getStudentCollection().remove(studentCollectionNewStudent);
-                        oldUsersOfStudentCollectionNewStudent = em.merge(oldUsersOfStudentCollectionNewStudent);
-                    }
-                }
-            }
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                Integer id = users.getIdUsers();
-                if (findUsers(id) == null) {
-                    throw new NonexistentEntityException("The users with id " + id + " no longer exists.");
-                }
-            }
-            throw ex;
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-    }
+//    public void edit(Users users) throws IllegalOrphanException, NonexistentEntityException, Exception {
+//        EntityManager em = null;
+//        try {
+//            em = getEntityManager();
+//            em.getTransaction().begin();
+//            Users persistentUsers = em.find(Users.class, users.getIdUsers());
+//            Profile profileidProfileOld = persistentUsers.getProfileidProfile();
+//            Profile profileidProfileNew = users.getProfileidProfile();
+//            Collection<Activities> activitiesCollectionOld = persistentUsers.getActivitiesCollection();
+//            Collection<Activities> activitiesCollectionNew = users.getActivitiesCollection();
+//            Collection<Course> courseCollectionOld = persistentUsers.getCourseCollection();
+//            Collection<Course> courseCollectionNew = users.getCourseCollection();
+//            Collection<Notifications> notificationsCollectionOld = persistentUsers.getNotificationsCollection();
+//            Collection<Notifications> notificationsCollectionNew = users.getNotificationsCollection();
+//            Collection<Groups> groupsCollectionOld = persistentUsers.getGroupsCollection();
+//            Collection<Groups> groupsCollectionNew = users.getGroupsCollection();
+//            Collection<Student> studentCollectionOld = persistentUsers.getStudentCollection();
+//            Collection<Student> studentCollectionNew = users.getStudentCollection();
+//            List<String> illegalOrphanMessages = null;
+//            for (Student studentCollectionOldStudent : studentCollectionOld) {
+//                if (!studentCollectionNew.contains(studentCollectionOldStudent)) {
+//                    if (illegalOrphanMessages == null) {
+//                        illegalOrphanMessages = new ArrayList<String>();
+//                    }
+//                    illegalOrphanMessages.add("You must retain Student " + studentCollectionOldStudent + " since its users field is not nullable.");
+//                }
+//            }
+//            if (illegalOrphanMessages != null) {
+//                throw new IllegalOrphanException(illegalOrphanMessages);
+//            }
+//            if (profileidProfileNew != null) {
+//                profileidProfileNew = em.getReference(profileidProfileNew.getClass(), profileidProfileNew.getIdProfile());
+//                users.setProfileidProfile(profileidProfileNew);
+//            }
+//            Collection<Activities> attachedActivitiesCollectionNew = new ArrayList<Activities>();
+//            for (Activities activitiesCollectionNewActivitiesToAttach : activitiesCollectionNew) {
+//                activitiesCollectionNewActivitiesToAttach = em.getReference(activitiesCollectionNewActivitiesToAttach.getClass(), activitiesCollectionNewActivitiesToAttach.getIdActivities());
+//                attachedActivitiesCollectionNew.add(activitiesCollectionNewActivitiesToAttach);
+//            }
+//            activitiesCollectionNew = attachedActivitiesCollectionNew;
+//            users.setActivitiesCollection(activitiesCollectionNew);
+//            Collection<Course> attachedCourseCollectionNew = new ArrayList<Course>();
+//            for (Course courseCollectionNewCourseToAttach : courseCollectionNew) {
+//                courseCollectionNewCourseToAttach = em.getReference(courseCollectionNewCourseToAttach.getClass(), courseCollectionNewCourseToAttach.getSyllabus());
+//                attachedCourseCollectionNew.add(courseCollectionNewCourseToAttach);
+//            }
+//            courseCollectionNew = attachedCourseCollectionNew;
+//            users.setCourseCollection(courseCollectionNew);
+//            Collection<Notifications> attachedNotificationsCollectionNew = new ArrayList<Notifications>();
+//            for (Notifications notificationsCollectionNewNotificationsToAttach : notificationsCollectionNew) {
+//                notificationsCollectionNewNotificationsToAttach = em.getReference(notificationsCollectionNewNotificationsToAttach.getClass(), notificationsCollectionNewNotificationsToAttach.getIdNotifications());
+//                attachedNotificationsCollectionNew.add(notificationsCollectionNewNotificationsToAttach);
+//            }
+//            notificationsCollectionNew = attachedNotificationsCollectionNew;
+//            users.setNotificationsCollection(notificationsCollectionNew);
+//            Collection<Groups> attachedGroupsCollectionNew = new ArrayList<Groups>();
+//            for (Groups groupsCollectionNewGroupsToAttach : groupsCollectionNew) {
+//                groupsCollectionNewGroupsToAttach = em.getReference(groupsCollectionNewGroupsToAttach.getClass(), groupsCollectionNewGroupsToAttach.getIdGroup());
+//                attachedGroupsCollectionNew.add(groupsCollectionNewGroupsToAttach);
+//            }
+//            groupsCollectionNew = attachedGroupsCollectionNew;
+//            users.setGroupsCollection(groupsCollectionNew);
+//            Collection<Student> attachedStudentCollectionNew = new ArrayList<Student>();
+//            for (Student studentCollectionNewStudentToAttach : studentCollectionNew) {
+//                studentCollectionNewStudentToAttach = em.getReference(studentCollectionNewStudentToAttach.getClass(), studentCollectionNewStudentToAttach.getStudentPK());
+//                attachedStudentCollectionNew.add(studentCollectionNewStudentToAttach);
+//            }
+//            studentCollectionNew = attachedStudentCollectionNew;
+//            users.setStudentCollection(studentCollectionNew);
+//            users = em.merge(users); //edita los valores en la base de datos
+//            if (profileidProfileOld != null && !profileidProfileOld.equals(profileidProfileNew)) {
+//                profileidProfileOld.getUsersCollection().remove(users);
+//                profileidProfileOld = em.merge(profileidProfileOld);
+//            }
+//            if (profileidProfileNew != null && !profileidProfileNew.equals(profileidProfileOld)) {
+//                profileidProfileNew.getUsersCollection().add(users);
+//                profileidProfileNew = em.merge(profileidProfileNew);
+//            }
+//            for (Activities activitiesCollectionOldActivities : activitiesCollectionOld) {
+//                if (!activitiesCollectionNew.contains(activitiesCollectionOldActivities)) {
+//                    activitiesCollectionOldActivities.getUsersCollection().remove(users);
+//                    activitiesCollectionOldActivities = em.merge(activitiesCollectionOldActivities);
+//                }
+//            }
+//            for (Activities activitiesCollectionNewActivities : activitiesCollectionNew) {
+//                if (!activitiesCollectionOld.contains(activitiesCollectionNewActivities)) {
+//                    activitiesCollectionNewActivities.getUsersCollection().add(users);
+//                    activitiesCollectionNewActivities = em.merge(activitiesCollectionNewActivities);
+//                }
+//            }
+//            for (Course courseCollectionOldCourse : courseCollectionOld) {
+//                if (!courseCollectionNew.contains(courseCollectionOldCourse)) {
+//                    courseCollectionOldCourse.getUsersCollection().remove(users);
+//                    courseCollectionOldCourse = em.merge(courseCollectionOldCourse);
+//                }
+//            }
+//            for (Course courseCollectionNewCourse : courseCollectionNew) {
+//                if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
+//                    courseCollectionNewCourse.getUsersCollection().add(users);
+//                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
+//                }
+//            }
+//            for (Notifications notificationsCollectionOldNotifications : notificationsCollectionOld) {
+//                if (!notificationsCollectionNew.contains(notificationsCollectionOldNotifications)) {
+//                    notificationsCollectionOldNotifications.getUsersCollection().remove(users);
+//                    notificationsCollectionOldNotifications = em.merge(notificationsCollectionOldNotifications);
+//                }
+//            }
+//            for (Notifications notificationsCollectionNewNotifications : notificationsCollectionNew) {
+//                if (!notificationsCollectionOld.contains(notificationsCollectionNewNotifications)) {
+//                    notificationsCollectionNewNotifications.getUsersCollection().add(users);
+//                    notificationsCollectionNewNotifications = em.merge(notificationsCollectionNewNotifications);
+//                }
+//            }
+//            for (Groups groupsCollectionOldGroups : groupsCollectionOld) {
+//                if (!groupsCollectionNew.contains(groupsCollectionOldGroups)) {
+//                    groupsCollectionOldGroups.getUsersCollection().remove(users);
+//                    groupsCollectionOldGroups = em.merge(groupsCollectionOldGroups);
+//                }
+//            }
+//            for (Groups groupsCollectionNewGroups : groupsCollectionNew) {
+//                if (!groupsCollectionOld.contains(groupsCollectionNewGroups)) {
+//                    groupsCollectionNewGroups.getUsersCollection().add(users);
+//                    groupsCollectionNewGroups = em.merge(groupsCollectionNewGroups);
+//                }
+//            }
+//            for (Student studentCollectionNewStudent : studentCollectionNew) {
+//                if (!studentCollectionOld.contains(studentCollectionNewStudent)) {
+//                    Users oldUsersOfStudentCollectionNewStudent = studentCollectionNewStudent.getUsers();
+//                    studentCollectionNewStudent.setUsers(users);
+//                    studentCollectionNewStudent = em.merge(studentCollectionNewStudent);
+//                    if (oldUsersOfStudentCollectionNewStudent != null && !oldUsersOfStudentCollectionNewStudent.equals(users)) {
+//                        oldUsersOfStudentCollectionNewStudent.getStudentCollection().remove(studentCollectionNewStudent);
+//                        oldUsersOfStudentCollectionNewStudent = em.merge(oldUsersOfStudentCollectionNewStudent);
+//                    }
+//                }
+//            }
+//            em.getTransaction().commit();
+//        } catch (Exception ex) {
+//            String msg = ex.getLocalizedMessage();
+//            if (msg == null || msg.length() == 0) {
+//                Integer id = users.getIdUsers();
+//                if (findUsers(id) == null) {
+//                    throw new NonexistentEntityException("The users with id " + id + " no longer exists.");
+//                }
+//            }
+//            throw ex;
+//        } finally {
+//            if (em != null) {
+//                em.close();
+//            }
+//        }
+//    }
 
     public void editar(Users users) throws Exception {
         EntityManager em = null;
@@ -398,21 +399,33 @@ public class UsersJpaController implements Serializable {
 //    public List<Users> findUsersEntities(int maxResults, int firstResult) {
 //        return findUsersEntities(false, maxResults, firstResult);
 //    }
-    private ArrayList<Users> consultList() {
+    public List<Users> consultList() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<Users> cq = em.getCriteriaBuilder().createQuery(Users.class);
             cq.select(cq.from(Users.class));
-            Query q = em.createQuery(cq);
-//            if (!all) {
-//                q.setMaxResults(maxResults);
-//                q.setFirstResult(firstResult);
-//            }
-            return (ArrayList<Users>) q.getResultList();
+            TypedQuery<Users> query = em.createQuery(cq);
+            return query.getResultList();
         } finally {
             em.close();
         }
     }
+    
+//    public ArrayList<Users> consultList() {
+//        EntityManager em = getEntityManager();
+//        try {
+//            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//            cq.select(cq.from(Users.class));
+//            Query q = em.createQuery(cq);
+////            if (!all) {
+////                q.setMaxResults(maxResults);
+////                q.setFirstResult(firstResult);
+////            }
+//            return (ArrayList<Users>) q.getResultList();
+//        } finally {
+//            em.close();
+//        }
+//    }
 
     public Users findUsers(Integer id) {
         EntityManager em = getEntityManager();

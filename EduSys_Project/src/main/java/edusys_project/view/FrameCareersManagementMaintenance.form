@@ -35,7 +35,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="edusys_project.view.PanelCRUD" name="panelCRUD1">
+    <Component class="edusys_project.view.PanelCRUD" name="panelCRUD">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>

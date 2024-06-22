@@ -67,6 +67,17 @@ public class Careers implements Serializable {
         this.description = description;
     }
 
+    public Careers(String code, String profProfile, String name, String workingMarket, String description, StudyPlan studyPlanidStudyPlan) {
+        this.code = code;
+        this.profProfile = profProfile;
+        this.name = name;
+        this.workingMarket = workingMarket;
+        this.description = description;
+        this.studyPlanidStudyPlan = studyPlanidStudyPlan;
+    }
+    
+    
+
     public String getCode() {
         return code;
     }

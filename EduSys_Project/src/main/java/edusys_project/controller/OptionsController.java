@@ -5,7 +5,6 @@
 package edusys_project.controller;
 
 import edusys_project.view.FrameOptions;
-import edusys_project.view.FrameRegister;
 import edusys_project.view.FrameSign_In;
 import edusys_project.view.PanelBtnOptions;
 import edusys_project.view.Panel_Nav;
@@ -20,7 +19,6 @@ import javax.swing.JOptionPane;
 public class OptionsController implements ActionListener {
     
     FrameOptions frameOptions;
-    FrameRegister frameRegister;
     FrameSign_In frameSignIn;
     PanelBtnOptions panelBtnOptions;
     Panel_Nav panelNav;
@@ -40,9 +38,6 @@ public class OptionsController implements ActionListener {
         switch (e.getActionCommand()) {
             case "login":
                 System.out.println("login sirve");
-                break;
-            case "register":
-                System.out.println("register sirve");
                 break;
             case "btnExit":
                 JOptionPane.showMessageDialog(null, "Cerrando el Programa");

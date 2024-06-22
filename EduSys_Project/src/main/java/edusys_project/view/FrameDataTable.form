@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="edusys_project.view.PanelTable" name="panelTable2">
+    <Component class="edusys_project.view.PanelTableUsers" name="panelTable2">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -11,7 +11,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="edusys_project.view.PanelTable" name="panelTable3">
+    <Component class="edusys_project.view.PanelTableUsers" name="panelTable3">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -38,7 +38,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Component class="edusys_project.view.PanelTable" name="panelTable1">
+    <Component class="edusys_project.view.PanelTableUsers" name="panelTable1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>

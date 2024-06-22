@@ -35,8 +35,11 @@ public class UsersController implements ActionListener {
         panelCRUD = frameUM.getPanelCRUD();
         panelUM = frameUM.getPanelUsersManagement();
         frameUM.listen(this);
-        frameUM.setVisible(true);
         frameUM.setLocationRelativeTo(null);
+    }
+    
+    public FrameUsersManagement getFrameUsersManagement() {
+        return frameUM;
     }
 
     @Override
@@ -70,8 +73,9 @@ public class UsersController implements ActionListener {
                 }
 
                 break;
-            case "Consultar":
-                //muestra el JTable con los usuarios registrados
+            case "Search":
+                //Que se quede como el buscar
+                
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());
@@ -123,10 +127,10 @@ public class UsersController implements ActionListener {
         }
 
     }
-
-    public static void main(String[] args) throws Exception {
-        new UsersController();
-
-    }
+//
+//    public static void main(String[] args) throws Exception {
+//        new UsersController();
+//
+//    }
 
 }

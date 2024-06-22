@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import edusys_project.controller.CareersController;
+
 /**
  *
  * @author Usuario
@@ -16,6 +18,18 @@ public class FrameCareersManagementMaintenance extends javax.swing.JFrame {
     public FrameCareersManagementMaintenance() {
         initComponents();
     }
+    
+    public PanelCRUD getPanelCRUD(){
+        return panelCRUD;
+    }
+    
+    public PanelCareersManagementAndMaintenance getPanelUsersManagement(){
+        return panelCareersManagementAndMaintenance1;
+    }
+    
+    public void listen(CareersController controller){
+        panelCRUD.listen(controller);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,7 +41,7 @@ public class FrameCareersManagementMaintenance extends javax.swing.JFrame {
     private void initComponents() {
 
         panelCareersManagementAndMaintenance1 = new edusys_project.view.PanelCareersManagementAndMaintenance();
-        panelCRUD1 = new edusys_project.view.PanelCRUD();
+        panelCRUD = new edusys_project.view.PanelCRUD();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,8 +50,8 @@ public class FrameCareersManagementMaintenance extends javax.swing.JFrame {
         panelCareersManagementAndMaintenance1.setOpaque(false);
         getContentPane().add(panelCareersManagementAndMaintenance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
-        panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
+        panelCRUD.setOpaque(false);
+        getContentPane().add(panelCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo2.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -52,7 +66,7 @@ public class FrameCareersManagementMaintenance extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private edusys_project.view.PanelCRUD panelCRUD1;
+    private edusys_project.view.PanelCRUD panelCRUD;
     private edusys_project.view.PanelCareersManagementAndMaintenance panelCareersManagementAndMaintenance1;
     // End of variables declaration//GEN-END:variables
 }

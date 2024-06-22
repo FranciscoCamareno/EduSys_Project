@@ -4,6 +4,7 @@
  */
 package edusys_project.controller.JPA;
 
+import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
 import edusys_project.controller.JPA.exceptions.PreexistingEntityException;
 import edusys_project.model.Careers;
@@ -13,9 +14,11 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import edusys_project.model.StudyPlan;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -23,11 +26,12 @@ import javax.persistence.EntityManagerFactory;
  */
 public class CareersJpaController implements Serializable {
 
+    private EntityManagerFactory emf = null;
+    
     public CareersJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
-
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -60,27 +64,21 @@ public class CareersJpaController implements Serializable {
         }
     }
 
-    public void edit(Careers careers) throws NonexistentEntityException, Exception {
+    public void edit(Careers careers) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            
             Careers persistentCareers = em.find(Careers.class, careers.getCode());
-            StudyPlan studyPlanidStudyPlanOld = persistentCareers.getStudyPlanidStudyPlan();
-            StudyPlan studyPlanidStudyPlanNew = careers.getStudyPlanidStudyPlan();
-            if (studyPlanidStudyPlanNew != null) {
-                studyPlanidStudyPlanNew = em.getReference(studyPlanidStudyPlanNew.getClass(), studyPlanidStudyPlanNew.getIdStudyPlan());
-                careers.setStudyPlanidStudyPlan(studyPlanidStudyPlanNew);
-            }
-            careers = em.merge(careers);
-            if (studyPlanidStudyPlanOld != null && !studyPlanidStudyPlanOld.equals(studyPlanidStudyPlanNew)) {
-                studyPlanidStudyPlanOld.getCareersCollection().remove(careers);
-                studyPlanidStudyPlanOld = em.merge(studyPlanidStudyPlanOld);
-            }
-            if (studyPlanidStudyPlanNew != null && !studyPlanidStudyPlanNew.equals(studyPlanidStudyPlanOld)) {
-                studyPlanidStudyPlanNew.getCareersCollection().add(careers);
-                studyPlanidStudyPlanNew = em.merge(studyPlanidStudyPlanNew);
-            }
+            
+            persistentCareers.setCode(careers.getCode());
+            persistentCareers.setName(careers.getName());
+            persistentCareers.setDescription(careers.getDescription());
+            persistentCareers.setProfProfile(careers.getProfProfile());
+            persistentCareers.setWorkingMarket(careers.getWorkingMarket());
+            
+            em.merge(persistentCareers);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -98,7 +96,7 @@ public class CareersJpaController implements Serializable {
         }
     }
 
-    public void destroy(String id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException, IllegalOrphanException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -109,6 +107,10 @@ public class CareersJpaController implements Serializable {
                 careers.getCode();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The careers with id " + id + " no longer exists.", enfe);
+            }
+            List<String> illegalOrphanMessages = null;
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             StudyPlan studyPlanidStudyPlan = careers.getStudyPlanidStudyPlan();
             if (studyPlanidStudyPlan != null) {
@@ -143,6 +145,18 @@ public class CareersJpaController implements Serializable {
                 q.setFirstResult(firstResult);
             }
             return q.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<Careers> consultList() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery<Careers> cq = em.getCriteriaBuilder().createQuery(Careers.class);
+            cq.select(cq.from(Careers.class));
+            TypedQuery<Careers> query = em.createQuery(cq);
+            return query.getResultList();
         } finally {
             em.close();
         }

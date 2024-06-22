@@ -26,10 +26,10 @@ public class FrameDataTable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelTable2 = new edusys_project.view.PanelTable();
+        panelTable2 = new edusys_project.view.PanelTableUsers();
         jLabel1 = new javax.swing.JLabel();
-        panelTable3 = new edusys_project.view.PanelTable();
-        panelTable1 = new edusys_project.view.PanelTable();
+        panelTable3 = new edusys_project.view.PanelTableUsers();
+        panelTable1 = new edusys_project.view.PanelTableUsers();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo2.png"))); // NOI18N
@@ -55,8 +55,8 @@ public class FrameDataTable extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private edusys_project.view.PanelTable panelTable1;
-    private edusys_project.view.PanelTable panelTable2;
-    private edusys_project.view.PanelTable panelTable3;
+    private edusys_project.view.PanelTableUsers panelTable1;
+    private edusys_project.view.PanelTableUsers panelTable2;
+    private edusys_project.view.PanelTableUsers panelTable3;
     // End of variables declaration//GEN-END:variables
 }
