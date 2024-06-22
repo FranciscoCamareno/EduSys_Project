@@ -21,7 +21,6 @@ public class PanelBtnOptions extends javax.swing.JPanel {
 
     public void listen(ActionListener optionsController){
         btnLogin.addActionListener(optionsController);
-        btnRegister.addActionListener(optionsController);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,37 +32,26 @@ public class PanelBtnOptions extends javax.swing.JPanel {
     private void initComponents() {
 
         btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
 
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Log-in.png"))); // NOI18N
         btnLogin.setActionCommand("login");
         btnLogin.setBorderPainted(false);
         btnLogin.setContentAreaFilled(false);
 
-        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnRegister.png"))); // NOI18N
-        btnRegister.setActionCommand("register");
-        btnRegister.setBorderPainted(false);
-        btnRegister.setContentAreaFilled(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnLogin)
-            .addComponent(btnRegister)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnLogin)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegister))
+            .addComponent(btnLogin)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fcama
@@ -15,6 +17,18 @@ public class Frame_MainMenu extends javax.swing.JFrame {
      */
     public Frame_MainMenu() {
         initComponents();
+    }
+
+    public Panel_Buttons_Menu getPanel_Buttons_Menu1() {
+        return panel_Buttons_Menu1;
+    }
+
+    public Panel_Nav_Menu getPanel_Nav_Menu1() {
+        return panel_Nav_Menu1;
+    }
+    
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
     }
 
     /**

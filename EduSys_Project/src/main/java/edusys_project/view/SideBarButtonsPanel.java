@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author valer
@@ -15,6 +17,13 @@ public class SideBarButtonsPanel extends javax.swing.JPanel {
      */
     public SideBarButtonsPanel() {
         initComponents();
+    }
+    
+    public void listen(ActionListener controller){
+        carrersBtn.addActionListener(controller);
+        coursesBtn.addActionListener(controller);
+        studyPlanBtn.addActionListener(controller);
+        usersBtn.addActionListener(controller);
     }
 
     /**

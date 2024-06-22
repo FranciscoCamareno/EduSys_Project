@@ -4,6 +4,9 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author valer
@@ -15,6 +18,18 @@ public class FrameCarrers extends javax.swing.JFrame {
      */
     public FrameCarrers() {
         initComponents();
+    }
+
+    public SideBarButtonsPanel getSideBarButtonsPanel1() {
+        return sideBarButtonsPanel1;
+    }
+    
+    public void listen(ActionListener controller){
+        editCarrersBtn.addActionListener(controller);
+    }
+    
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
     }
 
     /**

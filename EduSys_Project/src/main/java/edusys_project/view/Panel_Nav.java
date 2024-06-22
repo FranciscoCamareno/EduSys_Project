@@ -47,7 +47,7 @@ public class Panel_Nav extends javax.swing.JPanel {
         });
         add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nav_bar.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/navImagenRedondeado.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

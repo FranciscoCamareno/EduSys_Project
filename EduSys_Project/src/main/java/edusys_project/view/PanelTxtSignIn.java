@@ -4,17 +4,35 @@
  */
 package edusys_project.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author Usuario
  */
-public class PanelTxtSingIn extends javax.swing.JPanel {
+public class PanelTxtSignIn extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelTxtSingIn
      */
-    public PanelTxtSingIn() {
+    public PanelTxtSignIn() {
         initComponents();
+    }
+
+    public String getJtPassword() {
+        return jtPassword.getText();
+    }
+
+    public void setJtPassword(String jtPassword) {
+        this.jtPassword.setText(jtPassword);
+    }
+
+    public String getJtUsername() {
+        return jtUsername.getText();
+    }
+
+    public void setJtUsername(String jtUsername) {
+        this.jtUsername.setText(jtUsername);
     }
 
     /**

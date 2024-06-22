@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author fcama
@@ -17,6 +19,13 @@ public class Panel_Buttons_Menu extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void listen(ActionListener controller){
+        btn_Admin_Career.addActionListener(controller);
+        btn_Admin_Course.addActionListener(controller);
+        btn_Admin_StudyPlan.addActionListener(controller);
+        btn_Admin_Users.addActionListener(controller);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
