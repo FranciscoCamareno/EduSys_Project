@@ -4,43 +4,63 @@
  */
 package edusys_project.tablesController;
 
+import edusys_project.controller.JPA.StudyPlanJpaController;
+import edusys_project.controller.*;
+import edusys_project.view.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author eveba
  */
-public class StudyPlanTableController {
-//    private FrameUsers frameUsers;
-//    private UsersController usersController;
-//    private FrameUsersManagement usersManagement;
-//    private UsersJpaController usersJpaController;
-//    private PanelTable panelTable;
-//
-//    public UsersTableController() {
-//        frameUsers = new FrameUsers(this);
-//        frameUsers.setLocationRelativeTo(null);
-//        usersController = new UsersController();
-//        usersManagement = usersController.getFrameUsersManagement();
-//        // Inicializar usersJpaController
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//        usersJpaController = new UsersJpaController(emf);
-//        // Inicializar panelTable
-//        panelTable = frameUsers.getDataTable();
-//        frameUsers.setVisible(true);
-//    }
-//    
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        if (e.getActionCommand().equals("editUsers")) {
-//            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-//            usersManagement.setVisible(true);
-//        }
-//        if (e.getActionCommand().equals("Refresh")) {
-//            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-//            panelTable.show();
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        new UsersTableController();
-//    }
+public class StudyPlanTableController implements ActionListener{
+    private FrameStudyPlan frameStudyPlan;
+    private StudyPlanController studyPlanController;
+    private FrameStudyPlanManagementMaintenance studyPlanManagement;
+    private StudyPlanJpaController studyPlanJpaController;
+    private PanelTableStudyPlan panelTableStudyPlan;
+    private SideBarButtonsPanel panelSBB;
+
+    public StudyPlanTableController() {
+        frameStudyPlan = new FrameStudyPlan(this);
+        frameStudyPlan.setLocationRelativeTo(null);
+        studyPlanController = new StudyPlanController();
+        panelSBB = frameStudyPlan.getPanelSBB();
+//        StudyPlanManagement = studyPlanController.getFrameCareersManagementMaintenance();
+        panelSBB.listen(this);
+        frameStudyPlan.setVisible(true);
+    }
+
+    public FrameStudyPlan getFrameStudyPlan() {
+        return frameStudyPlan;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("editCarrers")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            studyPlanManagement.setVisible(true);
+        }
+        if (e.getActionCommand().equals("Careers")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Courses")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Study Plans")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Users")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+    }
+
+    public static void main(String[] args) {
+        new StudyPlanTableController();
+    }
 }

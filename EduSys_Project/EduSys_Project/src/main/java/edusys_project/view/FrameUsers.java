@@ -21,6 +21,12 @@ public class FrameUsers extends javax.swing.JFrame {
         initComponents();
         listen(controller);
     }
+
+    public SideBarButtonsPanel getPanelSBB() {
+        return sideBarButtonsPanel;
+    }
+    
+    
     
     public void listen(ActionListener controller){
         editUsersBtn.addActionListener(controller);
@@ -28,6 +34,8 @@ public class FrameUsers extends javax.swing.JFrame {
         filterTxt.addActionListener(controller);
         jbRefresh.addActionListener(controller);
     }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
