@@ -5,6 +5,8 @@
 package edusys_project.controller;
 
 import edusys_project.controller.JPA.CourseJpaController;
+import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
+import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
 import edusys_project.model.Course;
 import edusys_project.view.FrameCoursesManagement;
 import edusys_project.view.PanelCRUD;
@@ -33,6 +35,7 @@ public class CoursesController implements ActionListener {
        courseJpaController = new CourseJpaController(emf);
        panelCRUD = frameCoursesManagement.getPanelCRUD();                     
        panelCoursesManagement = frameCoursesManagement.getPanelCoursesManagement();
+       frameCoursesManagement.setVisible(true);
        frameCoursesManagement.listen(this);
        frameCoursesManagement.setLocationRelativeTo(null);
     }
@@ -46,7 +49,8 @@ public class CoursesController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         switch(e.getActionCommand()){
-            case "Add":
+            case "agregar":
+                String syllabus = panelCoursesManagement.getTxtSyllabus();
                 String name = panelCoursesManagement.getTxtCourseName();
                 int amountCredits = Integer.parseInt(panelCoursesManagement.getTxtCredits());
                 String description = panelCoursesManagement.getTxtDescription();
@@ -54,17 +58,12 @@ public class CoursesController implements ActionListener {
                 int indepWorkHour = Integer.parseInt(panelCoursesManagement.getTxtInDeptWorkHours());
                 String modality = panelCoursesManagement.getTxtModality();
                 
-                if (name.isEmpty() || description.isEmpty() || modality.isEmpty()) {
+                if (syllabus.isEmpty() || name.isEmpty() || description.isEmpty() || modality.isEmpty()) {
                     System.out.println("Rellene los campos para el registro");
                 } else {
-
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//                        Integer id = 1;
-//                        Profile profile;
-//                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
-//                        profileJpa.create(profile = new Profile(id, "Student", null));
-                        course = new Course(name, amountCredits, description, indepWorkHour, lessonHours, modality);
+                        course = new Course(syllabus, name, amountCredits, description, indepWorkHour, lessonHours, modality);
                         courseJpaController.create(course);
                     } catch (Exception ex) {
                         Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,12 +72,47 @@ public class CoursesController implements ActionListener {
             break;
             
             case "Consult":
-                
+                //buscar
             break;
             
-            case "Edit":
+            case "Modificar":
+                String syllabusNew = panelCoursesManagement.getTxtSyllabus();
+                String nameNew = panelCoursesManagement.getTxtCourseName();
+                int amountCreditsNew = Integer.parseInt(panelCoursesManagement.getTxtCredits());
+                String descriptionNew = panelCoursesManagement.getTxtDescription();
+                int lessonHoursNew = Integer.parseInt(panelCoursesManagement.getTxtLessonHours());
+                int indepWorkHourNew = Integer.parseInt(panelCoursesManagement.getTxtInDeptWorkHours());
+                String modalityNew = panelCoursesManagement.getTxtModality();
                 
-            case "Delete":
+                if (nameNew.isEmpty() || descriptionNew.isEmpty() || modalityNew.isEmpty()) {
+                    System.out.println("Rellene los campos para el registro");
+                } else {
+                    try {
+                        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+
+                        course = new Course(syllabusNew, nameNew, amountCreditsNew, descriptionNew, indepWorkHourNew, lessonHoursNew, modalityNew);
+                        courseJpaController.edit(course);
+                    } catch (Exception ex) {
+                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                
+                
+            case "Eliminar":
+                
+                EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+                CourseJpaController courseJpaController = new CourseJpaController(emf);
+                String idCareers = panelCoursesManagement.getName();
+
+                 {
+                    try {
+                        courseJpaController.destroy(idCareers);
+                    } catch (IllegalOrphanException ex) {
+                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 
             break;
             
@@ -90,8 +124,8 @@ public class CoursesController implements ActionListener {
         }
     }
     
-//    public static void main(String[] args) {
-//        new CoursesController();
-//    }
+    public static void main(String[] args) {
+        new CoursesController();
+    }
     
 }
