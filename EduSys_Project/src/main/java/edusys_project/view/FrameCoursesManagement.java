@@ -28,7 +28,7 @@ public class FrameCoursesManagement extends javax.swing.JFrame {
     }
     
     public void listen(CoursesController controller){
-        panelCRUD.listen(controller);
+//        panelCRUD.listen(controller);
     }
 
     /**

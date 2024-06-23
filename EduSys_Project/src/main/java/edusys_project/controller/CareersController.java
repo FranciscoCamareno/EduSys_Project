@@ -35,6 +35,7 @@ public class CareersController implements ActionListener {
         panelCRUD = frameCMM.getPanelCRUD();
         panelCMM = frameCMM.getPanelUsersManagement();
         frameCMM.listen(this);
+        frameCMM.setVisible(true);
         frameCMM.setLocationRelativeTo(null);
     }
 
