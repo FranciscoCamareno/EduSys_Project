@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import edusys_project.controller.CoursesController;
+
 /**
  *
  * @author valer
@@ -16,6 +18,18 @@ public class FrameCoursesManagement extends javax.swing.JFrame {
     public FrameCoursesManagement() {
         initComponents();
     }
+    
+    public PanelCRUD getPanelCRUD(){
+        return panelCRUD;
+    }
+    
+    public PanelCoursesManagement getPanelCoursesManagement(){
+        return panelCoursesManagement1;
+    }
+    
+    public void listen(CoursesController controller){
+        panelCRUD.listen(controller);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,15 +41,15 @@ public class FrameCoursesManagement extends javax.swing.JFrame {
     private void initComponents() {
 
         panelCoursesManagement1 = new edusys_project.view.PanelCoursesManagement();
-        panelCRUD1 = new edusys_project.view.PanelCRUD();
+        panelCRUD = new edusys_project.view.PanelCRUD();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(panelCoursesManagement1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 20, -1, -1));
 
-        panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, -1));
+        panelCRUD.setOpaque(false);
+        getContentPane().add(panelCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCoursesManagement.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -50,7 +64,7 @@ public class FrameCoursesManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private edusys_project.view.PanelCRUD panelCRUD1;
+    private edusys_project.view.PanelCRUD panelCRUD;
     private edusys_project.view.PanelCoursesManagement panelCoursesManagement1;
     // End of variables declaration//GEN-END:variables
 }
