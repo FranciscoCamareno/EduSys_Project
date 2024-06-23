@@ -16,17 +16,20 @@ public class UsersTableController implements ActionListener {
     private FrameUsersManagement usersManagement;
     private UsersJpaController usersJpaController;
     private PanelTableUsers panelTableUsers;
+    private SideBarButtonsPanel panelSBB;
 
     public UsersTableController() {
         frameUsers = new FrameUsers(this);
         frameUsers.setLocationRelativeTo(null);
         usersController = new UsersController();
-        panelTableUsers = new PanelTableUsers();
+        panelSBB = frameUsers.getPanelSBB();
         usersManagement = usersController.getFrameUsersManagement();
-        // Inicializar usersJpaController
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-        usersJpaController = new UsersJpaController(emf);
+        panelSBB.listen(this);
         frameUsers.setVisible(true);
+    }
+    
+    public FrameUsers getFrameUsers() {
+        return frameUsers;
     }
     
     @Override
@@ -34,6 +37,23 @@ public class UsersTableController implements ActionListener {
         if (e.getActionCommand().equals("editUsers")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             usersManagement.setVisible(true);
+        }
+        if (e.getActionCommand().equals("Careers")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            frameUsers.dispose();
+            
+        }
+        if (e.getActionCommand().equals("Courses")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Study Plans")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Users")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
         }
     }
 

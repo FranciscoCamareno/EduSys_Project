@@ -16,32 +16,50 @@ import javax.persistence.Persistence;
  *
  * @author eveba
  */
- public class CareersTableController implements ActionListener{
+public class CareersTableController implements ActionListener {
+
     private FrameCareers frameCareers;
     private CareersController carrersController;
     private FrameCareersManagementMaintenance careersManagement;
     private CareersJpaController careersJpaController;
     private PanelTableCareers panelTable;
+    private SideBarButtonsPanel panelSBB;
 
     public CareersTableController() {
         frameCareers = new FrameCareers(this);
         frameCareers.setLocationRelativeTo(null);
         carrersController = new CareersController();
-//        careersManagement = carrersController.getFrameCareersManagementMaintenance();
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-        careersJpaController = new CareersJpaController(emf);
+        panelSBB = frameCareers.getPanelSBB();
+        careersManagement = carrersController.getFrameCareersManagementMaintenance();
+        panelSBB.listen(this);
         frameCareers.setVisible(true);
     }
-    
+
+    public FrameCareers getFrameCareers() {
+        return frameCareers;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("editCarrers")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             careersManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Refresh")) {
+        if (e.getActionCommand().equals("Careers")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            panelTable.show();
+            
+        }
+        if (e.getActionCommand().equals("Courses")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Study Plans")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
+        }
+        if (e.getActionCommand().equals("Users")) {
+            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            
         }
     }
 

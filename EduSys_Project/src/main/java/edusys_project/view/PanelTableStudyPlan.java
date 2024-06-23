@@ -18,46 +18,44 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PanelTableStudyPlan extends javax.swing.JPanel {
 
-//    private final CareersJpaController controller;
+    private final StudyPlanJpaController controller;
 
     /**
      * Creates new form Table
      */
     public PanelTableStudyPlan() {
         initComponents();
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//        controller = new CareersJpaController(emf);
-//
-//        showTable();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+        controller = new StudyPlanJpaController(emf);
+
+        showTable();
     }
 
-//    public void showTable() {
-//        DefaultTableModel model = new DefaultTableModel();
-//        model.addColumn("Codigo");
-//        model.addColumn("Nombre");
-//        model.addColumn("Descripcion");
-//        model.addColumn("Perfil Profesional");
-//        model.addColumn("Mercado Laboral");
-//
-//        jTable.setModel(model);
-//
-//        try {
-//            List<Careers> careersList = controller.consultList();
-//            for (Careers carrer : careersList) {
-//                Object[] rowData = {
-//                    carrer.getCode(),
-//                    carrer.getName(),
-//                    carrer.getDescription(),
-//                    carrer.getProfProfile(),
-//                    carrer.getWorkingMarket()
-//                };
-//                model.addRow(rowData);
-//            }
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Error al mostrar datos: " + ex.getMessage());
-//            ex.printStackTrace(); // Imprime el stack trace para debugging
-//        }
-//    }
+    public void showTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("ID");
+        model.addColumn("Descripcion");
+        model.addColumn("Fecha de Aprobacion");
+        model.addColumn("Fecha de vigencia");
+
+        jTable.setModel(model);
+
+        try {
+            List<StudyPlan> studyPlanList = controller.consultList();
+            for (StudyPlan studyPlan : studyPlanList) {
+                Object[] rowData = {
+                    studyPlan.getIdStudyPlan(),
+                    studyPlan.getDescription(),
+                    studyPlan.getApprovalDate(),
+                    studyPlan.getEffectiveDate()
+                };
+                model.addRow(rowData);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al mostrar datos: " + ex.getMessage());
+            ex.printStackTrace(); // Imprime el stack trace para debugging
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

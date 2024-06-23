@@ -18,46 +18,48 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PanelTableCourse extends javax.swing.JPanel {
 
-//    private final CourseJpaController controller;
+    private final CourseJpaController controller;
 
     /**
      * Creates new form Table
      */
     public PanelTableCourse() {
         initComponents();
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//        controller = new CourseJpaController(emf);
-//
-//        showTable();
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+        controller = new CourseJpaController(emf);
+
+        showTable();
     }
 
-//    public void showTable() {
-//        DefaultTableModel model = new DefaultTableModel();
-//        model.addColumn("Codigo");
-//        model.addColumn("Nombre");
-//        model.addColumn("Descripcion");
-//        model.addColumn("Perfil Profesional");
-//        model.addColumn("Mercado Laboral");
-//
-//        jTable.setModel(model);
-//
-//        try {
-//            List<Careers> careersList = controller.consultList();
-//            for (Careers carrer : careersList) {
-//                Object[] rowData = {
-//                    carrer.getCode(),
-//                    carrer.getName(),
-//                    carrer.getDescription(),
-//                    carrer.getProfProfile(),
-//                    carrer.getWorkingMarket()
-//                };
-//                model.addRow(rowData);
-//            }
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Error al mostrar datos: " + ex.getMessage());
-//            ex.printStackTrace(); // Imprime el stack trace para debugging
-//        }
-//    }
+    public void showTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nombre");
+        model.addColumn("Creditos Totales");
+        model.addColumn("Modalidad");
+        model.addColumn("Horas de lesiones");
+        model.addColumn("Horas Trabajo en casa");
+        model.addColumn("Descripcion");
+
+        jTable.setModel(model);
+
+        try {
+            List<Course> coursesList = controller.consultList();
+            for (Course course : coursesList) {
+                Object[] rowData = {
+                    course.getName(),
+                    course.getAmountCredits(),
+                    course.getModality(),
+                    course.getLessonHours(),
+                    course.getIndepWorkHour(),
+                    course.getDescription()
+                };
+                model.addRow(rowData);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al mostrar datos: " + ex.getMessage());
+            ex.printStackTrace(); // Imprime el stack trace para debugging
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
