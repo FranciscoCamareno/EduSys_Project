@@ -88,14 +88,15 @@ public class CoursesController implements ActionListener {
                     System.out.println("Rellene los campos para el registro");
                 } else {
                     try {
-                        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
 
-                        course = new Course(syllabusNew, nameNew, amountCreditsNew, descriptionNew, indepWorkHourNew, lessonHoursNew, modalityNew);
-                        courseJpaController.edit(course);
+              course = new Course(syllabusNew, nameNew, amountCreditsNew, descriptionNew, indepWorkHourNew, lessonHoursNew, modalityNew);                    
+              courseJpaController.editar(course);
                     } catch (Exception ex) {
-                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+                Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+              }
+
                 
                 
             case "Eliminar":
