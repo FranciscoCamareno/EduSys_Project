@@ -93,7 +93,7 @@ public class CoursesController implements ActionListener {
               course = new Course(syllabusNew, nameNew, amountCreditsNew, descriptionNew, indepWorkHourNew, lessonHoursNew, modalityNew);                    
               courseJpaController.editar(course);
                     } catch (Exception ex) {
-                Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
                }
               }
 
@@ -103,17 +103,18 @@ public class CoursesController implements ActionListener {
                 
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
                 CourseJpaController courseJpaController = new CourseJpaController(emf);
-                String idCareers = panelCoursesManagement.getName();
+                String nameCourses = panelCoursesManagement.getName();
 
                  {
-                    try {
-                        courseJpaController.destroy(idCareers);
-                    } catch (IllegalOrphanException ex) {
-                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (NonexistentEntityException ex) {
-                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+            try {
+                courseJpaController.destroy(nameCourses);                
+            } catch (IllegalOrphanException ex) {
+                Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NonexistentEntityException ex) {
+                Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           }
+
                 
             break;
             
