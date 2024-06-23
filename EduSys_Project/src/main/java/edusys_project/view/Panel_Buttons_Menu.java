@@ -42,18 +42,22 @@ public class Panel_Buttons_Menu extends javax.swing.JPanel {
 
         btn_Admin_Course.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_admin_cursos.png"))); // NOI18N
         btn_Admin_Course.setActionCommand("AdminCursos");
+        btn_Admin_Course.setBorderPainted(false);
         btn_Admin_Course.setContentAreaFilled(false);
 
         btn_Admin_Career.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_admin_carreras.png"))); // NOI18N
         btn_Admin_Career.setActionCommand("AdminCarreras");
+        btn_Admin_Career.setBorderPainted(false);
         btn_Admin_Career.setContentAreaFilled(false);
 
         btn_Admin_StudyPlan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_admin_planestudios.png"))); // NOI18N
         btn_Admin_StudyPlan.setActionCommand("AdminPlanEstudios");
+        btn_Admin_StudyPlan.setBorderPainted(false);
         btn_Admin_StudyPlan.setContentAreaFilled(false);
 
         btn_Admin_Users.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_admin_usuarios.png"))); // NOI18N
         btn_Admin_Users.setActionCommand("AdminUsuarios");
+        btn_Admin_Users.setBorderPainted(false);
         btn_Admin_Users.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

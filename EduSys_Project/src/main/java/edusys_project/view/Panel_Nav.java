@@ -38,6 +38,7 @@ public class Panel_Nav extends javax.swing.JPanel {
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_bottom.png"))); // NOI18N
         btnExit.setActionCommand("btnExit");
+        btnExit.setBorder(null);
         btnExit.setBorderPainted(false);
         btnExit.setContentAreaFilled(false);
         btnExit.addActionListener(new java.awt.event.ActionListener() {

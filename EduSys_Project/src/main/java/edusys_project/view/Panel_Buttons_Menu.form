@@ -50,6 +50,7 @@
           <Image iconType="3" name="/img/btn_admin_cursos.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="AdminCursos"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -59,6 +60,7 @@
           <Image iconType="3" name="/img/btn_admin_carreras.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="AdminCarreras"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -68,6 +70,7 @@
           <Image iconType="3" name="/img/btn_admin_planestudios.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="AdminPlanEstudios"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -77,6 +80,7 @@
           <Image iconType="3" name="/img/btn_admin_usuarios.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="AdminUsuarios"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>

@@ -30,7 +30,7 @@ import javax.persistence.Table;
 public class Modulo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id//pk
     @Basic(optional = false)
     @Column(name = "idModule")
     private Integer idModule;

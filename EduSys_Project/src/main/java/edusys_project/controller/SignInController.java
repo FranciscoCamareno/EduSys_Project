@@ -18,7 +18,7 @@ public class SignInController implements ActionListener {
     PanelTxtSignIn panelTxtSignIn;
     PanelBtnSingIn panelBtnSignIn;//SignIn esta mal escrito, corregir despues que se despi el frame
     Panel_Nav panelNav;
-    
+
     MainMenuController mainMenuController;
     Frame_MainMenu frameMainMenu;
 
@@ -50,13 +50,18 @@ public class SignInController implements ActionListener {
                 String username = panelTxtSignIn.getJtUsername();
                 String password = panelTxtSignIn.getJtPassword();
 
-                if (!"admin".equals(username)) {
-                    frameSignIn.showMessage("Usuario no autorizado para realizar esta acción");
+                if (username.isEmpty() || password.isEmpty()) {
+                    frameSignIn.showMessage("Los campos de usuario y contraseña no pueden estar vacíos");
+                } else if (!"admin".equals(username)) {
+                    frameSignIn.showMessage("Por favor ingrese con un usuario autorizado para realizar esta acción");
                 } else if (!"123".equals(password)) {
                     frameSignIn.showMessage("Contraseña incorrecta");
                 } else {
                     frameSignIn.showMessage("Acceso concedido");
-                        frameMainMenu.setVisible(true);
+                    frameMainMenu.setLocationRelativeTo(null);
+                    frameMainMenu.setVisible(true);
+                    frameSignIn.dispose();
+
                 }
 
                 break;

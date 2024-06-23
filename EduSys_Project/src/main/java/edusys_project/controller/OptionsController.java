@@ -26,7 +26,7 @@ public class OptionsController implements ActionListener {
         frameOptions = new FrameOptions();
         panelBtnOptions = frameOptions.getPanelBtnOptions1();
         panelNav = frameOptions.getPanel_Nav1();
-        frameOptions.setLocationRelativeTo(panelNav);
+        frameOptions.setLocationRelativeTo(null);
         frameOptions.setVisible(true);
         panelBtnOptions.listen(this);
         panelNav.listen(this);
@@ -40,7 +40,9 @@ public class OptionsController implements ActionListener {
         switch (e.getActionCommand()) {
             case "login":
                 System.out.println("login sirve");
+                frameSignIn.setLocationRelativeTo(null);
                 frameSignIn.setVisible(true);
+                frameOptions.dispose();
                 break;
             case "btnExit":
                 JOptionPane.showMessageDialog(null, "Cerrando el Programa");

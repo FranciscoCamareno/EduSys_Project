@@ -4,6 +4,9 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author valer
@@ -17,6 +20,19 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         initComponents();
     }
 
+    public SideBarButtonsPanel getSideBarButtonsPanel1() {
+        return sideBarButtonsPanel1;
+    }
+
+    public void listen(ActionListener controller) {
+        downloadBtn.addActionListener(controller);
+        editStudyPlanBtn.addActionListener(controller);
+    }
+
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null,message);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +89,7 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
 
         downloadBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/downloadBtn.png"))); // NOI18N
+        downloadBtn.setActionCommand("downloadBtn");
         downloadBtn.setBorderPainted(false);
         downloadBtn.setContentAreaFilled(false);
         getContentPane().add(downloadBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));

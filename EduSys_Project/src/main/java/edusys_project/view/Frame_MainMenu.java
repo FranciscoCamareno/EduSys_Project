@@ -46,15 +46,13 @@ public class Frame_MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panel_Nav_Menu1.setOpaque(false);
         getContentPane().add(panel_Nav_Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panel_Buttons_Menu1.setOpaque(false);
         getContentPane().add(panel_Buttons_Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCelesteGrande.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

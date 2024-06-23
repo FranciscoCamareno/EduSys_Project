@@ -23,6 +23,9 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     
     CarrersController carrersController;
     FrameCarrers frameCarrers;
+    
+    StudyPlanController studyPlanController;
+    FrameStudyPlan frameStudyPlan;
 
     public MainMenuController() {
         coursesController = new CoursesController();
@@ -30,6 +33,9 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
         
         carrersController = new CarrersController();
         frameCarrers = carrersController.frameCarrers;
+        
+        studyPlanController = new StudyPlanController();
+        frameStudyPlan = studyPlanController.frameStudyPlan;
         
         frameMainMenu = new Frame_MainMenu();
         panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu1();
@@ -47,13 +53,19 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "AdminCursos":
+                frameCourses.setLocationRelativeTo(null);
                 frameCourses.setVisible(true);
+                frameMainMenu.setVisible(false);
                 break;
             case "AdminCarreras":
+                frameCarrers.setLocationRelativeTo(null);
                 frameCarrers.setVisible(true);
+                frameMainMenu.setVisible(false);
                 break;
             case "AdminPlanEstudios":
-                frameMainMenu.showMessage("AdminPlan");
+                frameStudyPlan.setLocationRelativeTo(null);
+                frameStudyPlan.setVisible(true);
+                frameMainMenu.setVisible(false);
                 break;
             case "AdminUsuarios":
                 frameMainMenu.showMessage("AdminUsuarios");
