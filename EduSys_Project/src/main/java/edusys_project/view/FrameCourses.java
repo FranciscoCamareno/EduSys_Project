@@ -29,14 +29,13 @@ public class FrameCourses extends javax.swing.JFrame {
     
     public void listen(ActionListener controller){
         editCoursesBtn.addActionListener(controller);
-        carrersFilterCmb.addActionListener(controller);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelTableCourse1 = new edusys_project.view.PanelTableCourse();
         jLabel3 = new javax.swing.JLabel();
-        carrersFilterCmb = new javax.swing.JComboBox<>();
         modalityLabel = new javax.swing.JLabel();
         lessonHoursLabel = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
@@ -56,11 +55,11 @@ public class FrameCourses extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelTableCourse1.setOpaque(false);
+        getContentPane().add(panelTableCourse1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 650, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/COURSEStxt.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
-
-        carrersFilterCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a carrer" }));
-        getContentPane().add(carrersFilterCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 210, -1));
         getContentPane().add(modalityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 370, 90, 20));
         getContentPane().add(lessonHoursLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 90, 20));
         getContentPane().add(descriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 90, 20));
@@ -110,7 +109,6 @@ public class FrameCourses extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> carrersFilterCmb;
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JButton editCoursesBtn;
@@ -126,6 +124,7 @@ public class FrameCourses extends javax.swing.JFrame {
     private javax.swing.JLabel lessonHoursLabel;
     private javax.swing.JLabel modalityLabel;
     private javax.swing.JLabel nameLabel;
+    private edusys_project.view.PanelTableCourse panelTableCourse1;
     private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel1;
     // End of variables declaration//GEN-END:variables
 }

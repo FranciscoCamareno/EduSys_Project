@@ -34,6 +34,7 @@ public class FrameCareers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelTableCareers1 = new edusys_project.view.PanelTableCareers();
         sideBarButtonsPanel1 = new edusys_project.view.SideBarButtonsPanel();
         editCareersBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -42,6 +43,9 @@ public class FrameCareers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelTableCareers1.setOpaque(false);
+        getContentPane().add(panelTableCareers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 780, -1));
         getContentPane().add(sideBarButtonsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
         editCareersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EditIcon.png"))); // NOI18N
@@ -67,6 +71,7 @@ public class FrameCareers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private edusys_project.view.PanelTableCareers panelTableCareers1;
     private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel1;
     // End of variables declaration//GEN-END:variables
 }

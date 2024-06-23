@@ -33,6 +33,7 @@ public class FrameStudyPlan extends javax.swing.JFrame {
     private void initComponents() {
 
         sideBarButtonsPanel1 = new edusys_project.view.SideBarButtonsPanel();
+        panelTableStudyPlan1 = new edusys_project.view.PanelTableStudyPlan();
         descriptionLabel = new javax.swing.JLabel();
         effectiveDateLabel = new javax.swing.JLabel();
         approvalDateLabel = new javax.swing.JLabel();
@@ -51,6 +52,9 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(sideBarButtonsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 100, -1, -1));
+
+        panelTableStudyPlan1.setOpaque(false);
+        getContentPane().add(panelTableStudyPlan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 670, 530));
         getContentPane().add(descriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 570, 180));
         getContentPane().add(effectiveDateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 100, 20));
         getContentPane().add(approvalDateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 100, 20));
@@ -79,7 +83,7 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         downloadBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/downloadBtn.png"))); // NOI18N
         downloadBtn.setBorderPainted(false);
         downloadBtn.setContentAreaFilled(false);
-        getContentPane().add(downloadBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));
+        getContentPane().add(downloadBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, -1, -1));
 
         editStudyPlanBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EditIcon.png"))); // NOI18N
         editStudyPlanBtn.setActionCommand("editStudyPlanBtn");
@@ -115,6 +119,7 @@ public class FrameStudyPlan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private edusys_project.view.PanelTableStudyPlan panelTableStudyPlan1;
     private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel1;
     // End of variables declaration//GEN-END:variables
 }
