@@ -27,8 +27,6 @@ public class FrameStudyPlan extends javax.swing.JFrame {
     
     public void listen(ActionListener controller){
         editStudyPlanBtn.addActionListener(controller);
-        carrersCmb.addActionListener(controller);
-        filterTxt.addActionListener(controller);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -45,10 +43,8 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         downloadBtn = new javax.swing.JButton();
-        filterTxt = new javax.swing.JTextField();
         editStudyPlanBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        carrersCmb = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -84,7 +80,6 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         downloadBtn.setBorderPainted(false);
         downloadBtn.setContentAreaFilled(false);
         getContentPane().add(downloadBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 600, -1, -1));
-        getContentPane().add(filterTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 150, -1));
 
         editStudyPlanBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EditIcon.png"))); // NOI18N
         editStudyPlanBtn.setActionCommand("editStudyPlanBtn");
@@ -94,9 +89,6 @@ public class FrameStudyPlan extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/STUDY PLANStxt.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
-
-        carrersCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a carrer" }));
-        getContentPane().add(carrersCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 160, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoBlancoSobreTurquesa.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
@@ -110,13 +102,11 @@ public class FrameStudyPlan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel approvalDateLabel;
-    private javax.swing.JComboBox<String> carrersCmb;
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JButton downloadBtn;
     private javax.swing.JButton editStudyPlanBtn;
     private javax.swing.JLabel effectiveDateLabel;
-    private javax.swing.JTextField filterTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

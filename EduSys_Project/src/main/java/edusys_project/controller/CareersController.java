@@ -100,9 +100,9 @@ public class CareersController implements ActionListener {
                     try {
                         careerJpa.destroy(idCareers);
                     } catch (IllegalOrphanException ex) {
-                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CareersController.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (NonexistentEntityException ex) {
-                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CareersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
