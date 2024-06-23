@@ -33,14 +33,15 @@ public class PanelCRUD extends javax.swing.JPanel {
         btnDelete.addActionListener(controller);
         btnBack.addActionListener(controller);
     }
-//    public void listen (CoursesController controller){
-//        btnAdd.addActionListener(controller);
-//        btnConsult.addActionListener(controller);
-//        btnEdit.addActionListener(controller);
-//        btnDelete.addActionListener(controller);
-//        btnBack.addActionListener(controller);
-//    }
-//    
+    
+    public void listen (CoursesController controller){
+        btnAdd.addActionListener(controller);
+        btnConsult.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
+
 //    public void listen (StudyPlansController controller){
 //        btnAdd.addActionListener(controller);
 //        btnConsult.addActionListener(controller);

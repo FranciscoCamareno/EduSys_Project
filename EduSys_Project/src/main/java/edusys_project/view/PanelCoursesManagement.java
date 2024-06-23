@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author valer
@@ -16,6 +18,56 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
     public PanelCoursesManagement() {
         initComponents();
     }
+    
+    public String getTxtIdCourses() {
+        return txtCourseName.getText();
+    }
+
+    public void setTxtIdCourses(JTextField txtCourseName) {
+        this.txtCourseName = txtCourseName;
+    }
+    
+    public String getTxtCredits() {
+        return txtCredits.getText();
+    }
+
+    public void setTxtCredits(JTextField txtCredits) {
+        this.txtCredits = txtCredits;
+    }
+    
+    public String getTxtDescription() {
+        return txtDescription.getText();
+    }
+
+    public void setTxtDescription(JTextField txtDescription) {
+        this.txtDescription = txtDescription;
+    }
+    
+    public String getTxtInDeptWorkHours() {
+        return txtInDeptWorkHours.getText();
+    }
+
+    public void setTxtInDeptWorkHours(JTextField txtInDeptWorkHours) {
+        this.txtInDeptWorkHours = txtInDeptWorkHours;
+    }
+    
+    public String getTxtLessonHours() {
+        return txtLessonHours.getText();
+    }
+
+    public void setTxtLessonHours(JTextField txtLessonHours) {
+        this.txtLessonHours = txtLessonHours;
+    }
+    
+    public String getTxtModality() {
+        return txtModality.getText();
+    }
+
+    public void setTxtModality(JTextField txtModality) {
+        this.txtModality = txtModality;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
