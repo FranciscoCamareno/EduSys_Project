@@ -20,6 +20,7 @@ import edusys_project.model.StudyPlan;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -214,25 +215,36 @@ public class StudyPlanJpaController implements Serializable {
         }
     }
 
-    public List<StudyPlan> findStudyPlanEntities() {
-        return findStudyPlanEntities(true, -1, -1);
-    }
-
-    public List<StudyPlan> findStudyPlanEntities(int maxResults, int firstResult) {
-        return findStudyPlanEntities(false, maxResults, firstResult);
-    }
-
-    private List<StudyPlan> findStudyPlanEntities(boolean all, int maxResults, int firstResult) {
+//    public List<StudyPlan> findStudyPlanEntities() {
+//        return findStudyPlanEntities(true, -1, -1);
+//    }
+//
+//    public List<StudyPlan> findStudyPlanEntities(int maxResults, int firstResult) {
+//        return findStudyPlanEntities(false, maxResults, firstResult);
+//    }
+//
+//    private List<StudyPlan> findStudyPlanEntities(boolean all, int maxResults, int firstResult) {
+//        EntityManager em = getEntityManager();
+//        try {
+//            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//            cq.select(cq.from(StudyPlan.class));
+//            Query q = em.createQuery(cq);
+//            if (!all) {
+//                q.setMaxResults(maxResults);
+//                q.setFirstResult(firstResult);
+//            }
+//            return q.getResultList();
+//        } finally {
+//            em.close();
+//        }
+//    }
+    public List<StudyPlan> consultList() {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            CriteriaQuery<StudyPlan> cq = em.getCriteriaBuilder().createQuery(StudyPlan.class);
             cq.select(cq.from(StudyPlan.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
+            TypedQuery<StudyPlan> query = em.createQuery(cq);
+            return query.getResultList();
         } finally {
             em.close();
         }
@@ -259,5 +271,5 @@ public class StudyPlanJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

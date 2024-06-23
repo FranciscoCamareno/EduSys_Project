@@ -8,6 +8,6 @@ package edusys_project.controller;
  *
  * @author eveba
  */
-public class CoursesController {
+public class StudyPlanController {
     
 }

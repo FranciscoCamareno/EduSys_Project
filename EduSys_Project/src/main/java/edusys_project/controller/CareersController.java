@@ -4,7 +4,6 @@
  */
 package edusys_project.controller;
 
-
 import edusys_project.controller.JPA.CareersJpaController;
 import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
@@ -21,7 +20,7 @@ import javax.persistence.Persistence;
  *
  * @author eveba
  */
-public class CareersController implements ActionListener{
+public class CareersController implements ActionListener {
 
     private PanelCRUD panelCRUD;
     private PanelCareersManagementAndMaintenance panelCMM;
@@ -38,14 +37,14 @@ public class CareersController implements ActionListener{
         frameCMM.listen(this);
         frameCMM.setLocationRelativeTo(null);
     }
-    
+
     public FrameCareersManagementMaintenance getFrameCareersManagementMaintenance() {
         return frameCMM;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    switch (e.getActionCommand()) {
+        switch (e.getActionCommand()) {
             case "agregar":
 
                 String idCareer = panelCMM.getTxtIdCareers();
@@ -60,21 +59,15 @@ public class CareersController implements ActionListener{
 
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-//                        Integer id = 1;
-//                        Profile profile;
-//                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
-//                        profileJpa.create(profile = new Profile(id, "Student", null));
                         careers = new Careers(idCareer, name, description, profProfile, workingMarket, null);
                         careersJpaController.create(careers);
                     } catch (Exception ex) {
                         Logger.getLogger(CareersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
                 break;
             case "Search":
                 //Que se quede como el buscar
-                
                 break;
             case "Modificar":
                 String idCareerNew = panelCMM.getTxtIdCareers();

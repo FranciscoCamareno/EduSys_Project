@@ -37,7 +37,7 @@ public class UsersController implements ActionListener {
         frameUM.listen(this);
         frameUM.setLocationRelativeTo(null);
     }
-    
+
     public FrameUsersManagement getFrameUsersManagement() {
         return frameUM;
     }
@@ -75,7 +75,6 @@ public class UsersController implements ActionListener {
                 break;
             case "Search":
                 //Que se quede como el buscar
-                
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());
@@ -93,14 +92,13 @@ public class UsersController implements ActionListener {
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
 
-                        users = new Users(idUserNew, nameNew, passwordNew, userNameNew, eMailNew, 
+                        users = new Users(idUserNew, nameNew, passwordNew, userNameNew, eMailNew,
                                 phoneNumberNew, lastNameNew);
                         usersJpaController.editar(users);
                     } catch (Exception ex) {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
                 break;
             case "Eliminar":
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
@@ -118,9 +116,7 @@ public class UsersController implements ActionListener {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
                 break;
-
             case "Back":
                 frameUM.dispose();
                 break;

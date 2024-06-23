@@ -22,22 +22,20 @@ public class FrameCareers extends javax.swing.JFrame {
         listen(controller);
     }
     
+    public SideBarButtonsPanel getPanelSBB() {
+        return sideBarButtonsPanel1;
+    }
+    
     public void listen(ActionListener controller){
         editCareersBtn.addActionListener(controller);
-        carrersFilterCmb.addActionListener(controller);
-        filterTxt.addActionListener(controller);
-        jbRefresh.addActionListener(controller);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        carrersFilterCmb = new javax.swing.JComboBox<>();
-        panelTableCareers = new edusys_project.view.PanelTableCareers();
+        panelTableCareers1 = new edusys_project.view.PanelTableCareers();
         sideBarButtonsPanel1 = new edusys_project.view.SideBarButtonsPanel();
-        jbRefresh = new javax.swing.JButton();
-        filterTxt = new javax.swing.JTextField();
         editCareersBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,14 +44,9 @@ public class FrameCareers extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        carrersFilterCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select an option", "ID", "Name" }));
-        getContentPane().add(carrersFilterCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 150, -1));
-        getContentPane().add(panelTableCareers, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 810, -1));
+        panelTableCareers1.setOpaque(false);
+        getContentPane().add(panelTableCareers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 780, -1));
         getContentPane().add(sideBarButtonsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
-
-        jbRefresh.setText("Refresh");
-        getContentPane().add(jbRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 150, 40));
-        getContentPane().add(filterTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 150, -1));
 
         editCareersBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EditIcon.png"))); // NOI18N
         editCareersBtn.setActionCommand("editCarrers");
@@ -74,14 +67,11 @@ public class FrameCareers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> carrersFilterCmb;
     private javax.swing.JButton editCareersBtn;
-    private javax.swing.JTextField filterTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton jbRefresh;
-    private edusys_project.view.PanelTableCareers panelTableCareers;
+    private edusys_project.view.PanelTableCareers panelTableCareers1;
     private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel1;
     // End of variables declaration//GEN-END:variables
 }
