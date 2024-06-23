@@ -5,7 +5,6 @@
 package edusys_project.controller;
 
 import edusys_project.controller.JPA.*;
-import edusys_project.tablesController.*;
 import edusys_project.view.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

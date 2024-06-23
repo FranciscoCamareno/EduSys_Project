@@ -2,45 +2,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package edusys_project.tablesController;
+package edusys_project.controller.tables;
 
-import edusys_project.controller.JPA.StudyPlanJpaController;
 import edusys_project.controller.*;
+import edusys_project.controller.JPA.*;
 import edusys_project.view.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author eveba
  */
-public class StudyPlanTableController implements ActionListener{
-    private FrameStudyPlan frameStudyPlan;
-    private StudyPlanController studyPlanController;
-    private FrameStudyPlanManagementMaintenance studyPlanManagement;
-    private StudyPlanJpaController studyPlanJpaController;
-    private PanelTableStudyPlan panelTableStudyPlan;
+public class CareersTableController implements ActionListener {
+
+    private FrameCareers frameCareers;
+    private CareersController carrersController;
+    private FrameCareersManagementMaintenance careersManagement;
+    private CareersJpaController careersJpaController;
+    private PanelTableCareers panelTable;
     private SideBarButtonsPanel panelSBB;
 
-    public StudyPlanTableController() {
-        frameStudyPlan = new FrameStudyPlan(this);
-        frameStudyPlan.setLocationRelativeTo(null);
-        studyPlanController = new StudyPlanController();
-        panelSBB = frameStudyPlan.getPanelSBB();
-//        StudyPlanManagement = studyPlanController.getFrameCareersManagementMaintenance();
+    public CareersTableController() {
+        frameCareers = new FrameCareers(this);
+        frameCareers.setLocationRelativeTo(null);
+        carrersController = new CareersController();
+        panelSBB = frameCareers.getPanelSBB();
+        careersManagement = carrersController.getFrameCareersManagementMaintenance();
         panelSBB.listen(this);
-        frameStudyPlan.setVisible(true);
+        frameCareers.setVisible(true);
     }
 
-    public FrameStudyPlan getFrameStudyPlan() {
-        return frameStudyPlan;
+    public FrameCareers getFrameCareers() {
+        return frameCareers;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("editCarrers")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            studyPlanManagement.setVisible(true);
+            careersManagement.setVisible(true);
         }
         if (e.getActionCommand().equals("Careers")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
@@ -61,6 +64,6 @@ public class StudyPlanTableController implements ActionListener{
     }
 
     public static void main(String[] args) {
-        new StudyPlanTableController();
+        new CareersTableController();
     }
 }

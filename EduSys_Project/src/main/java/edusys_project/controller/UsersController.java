@@ -7,6 +7,7 @@ package edusys_project.controller;
 import edusys_project.controller.JPA.*;
 import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
+import edusys_project.controller.tables.*;
 import edusys_project.model.*;
 import edusys_project.view.*;
 import java.awt.event.ActionEvent;
@@ -26,11 +27,14 @@ public class UsersController implements ActionListener {
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;
+    private FrameUsers frameUsers;
     private Users users;
     private UsersJpaController usersJpaController;
+    private UsersTableController usersTable;
 
     public UsersController() {
         frameUM = new FrameUsersManagement();
+        frameUsers = new FrameUsers(usersTable);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
         usersJpaController = new UsersJpaController(emf);
         panelCRUD = frameUM.getPanelCRUD();
@@ -76,7 +80,8 @@ public class UsersController implements ActionListener {
                 }
 
                 break;
-            case "Search":
+            case "Consultar":
+                usersTable = new UsersTableController();
                 //Que se quede como el buscar
                 break;
             case "Modificar":

@@ -4,7 +4,7 @@
  */
 package edusys_project.view;
 
-import edusys_project.tablesController.*;
+import edusys_project.controller.tables.UsersTableController;
 import java.awt.event.ActionListener;
 
 /**
