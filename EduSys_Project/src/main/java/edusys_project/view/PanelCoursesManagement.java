@@ -19,11 +19,11 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
         initComponents();
     }
     
-    public String getTxtIdCourses() {
+    public String getTxtCourseName() {
         return txtCourseName.getText();
     }
 
-    public void setTxtIdCourses(JTextField txtCourseName) {
+    public void setTxtCourseName(JTextField txtCourseName) {
         this.txtCourseName = txtCourseName;
     }
     

@@ -11,6 +11,8 @@ import edusys_project.view.PanelCRUD;
 import edusys_project.view.PanelCoursesManagement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -35,13 +37,39 @@ public class CoursesController implements ActionListener {
        frameCoursesManagement.setLocationRelativeTo(null);
     }
     
+    public FrameCoursesManagement getFrameCoursesManagement() {
+        return frameCoursesManagement;
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
         switch(e.getActionCommand()){
             case "Add":
+                String name = panelCoursesManagement.getTxtCourseName();
+                int amountCredits = Integer.parseInt(panelCoursesManagement.getTxtCredits());
+                String description = panelCoursesManagement.getTxtDescription();
+                int lessonHours = Integer.parseInt(panelCoursesManagement.getTxtLessonHours());
+                int indepWorkHour = Integer.parseInt(panelCoursesManagement.getTxtInDeptWorkHours());
+                String modality = panelCoursesManagement.getTxtModality();
                 
+                if (name.isEmpty() || description.isEmpty() || modality.isEmpty()) {
+                    System.out.println("Rellene los campos para el registro");
+                } else {
+
+                    try {
+                        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+//                        Integer id = 1;
+//                        Profile profile;
+//                        ProfileJpaController profileJpa = new ProfileJpaController(emf);
+//                        profileJpa.create(profile = new Profile(id, "Student", null));
+                        course = new Course(name, amountCredits, description, indepWorkHour, lessonHours, modality);
+                        courseJpaController.create(course);
+                    } catch (Exception ex) {
+                        Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             break;
             
             case "Consult":
@@ -55,9 +83,15 @@ public class CoursesController implements ActionListener {
             break;
             
             case "Back":
+                frameCoursesManagement.dispose();
                 
-            break;    
+            break;
+                
         }
     }
+    
+//    public static void main(String[] args) {
+//        new CoursesController();
+//    }
     
 }

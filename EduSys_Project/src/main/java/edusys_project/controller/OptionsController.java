@@ -47,7 +47,7 @@ public class OptionsController implements ActionListener {
         }
     }
     
-    public static void main(String[] args) {
-        new OptionsController();
-    }
+//    public static void main(String[] args) {
+//        new OptionsController();
+//    }
 }
