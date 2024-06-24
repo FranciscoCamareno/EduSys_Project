@@ -4,6 +4,7 @@
  */
 package edusys_project.view;
 
+import edusys_project.controller.tables.CoursesTableController;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,10 @@ public class FrameCourses extends javax.swing.JFrame {
     /**
      * Creates new form FrameCourses
      */
-    
+    public FrameCourses(CoursesTableController controller) {
+        initComponents();
+        listen(controller);
+    }
     public FrameCourses() {
         initComponents();
     }
@@ -32,7 +36,8 @@ public class FrameCourses extends javax.swing.JFrame {
     public void showMessage(String message){
         JOptionPane.showMessageDialog(null, message);
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
