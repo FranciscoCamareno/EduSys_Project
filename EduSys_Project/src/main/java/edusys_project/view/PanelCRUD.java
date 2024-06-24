@@ -49,6 +49,13 @@ public class PanelCRUD extends javax.swing.JPanel {
 //        btnDelete.addActionListener(controller);
 //        btnBack.addActionListener(controller);
 //    }
+    public void listen (ActionListener controller){
+//        btnAdd.addActionListener(controller);
+//        btnConsult.addActionListener(controller);
+//        btnEdit.addActionListener(controller);
+//        btnDelete.addActionListener(controller);
+//        btnBack.addActionListener(controller);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.

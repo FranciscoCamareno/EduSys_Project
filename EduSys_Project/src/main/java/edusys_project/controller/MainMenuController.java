@@ -38,8 +38,8 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
         frameStudyPlan = studyPlanController.frameStudyPlan;
         
         frameMainMenu = new Frame_MainMenu();
-        panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu1();
-        panelNavMenu = frameMainMenu.getPanel_Nav_Menu1();
+        panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu();
+        panelNavMenu = frameMainMenu.getPanel_Nav_Menu();
         panelButtonsMenu.listen(this);
         panelNavMenu.listen(this);
 
