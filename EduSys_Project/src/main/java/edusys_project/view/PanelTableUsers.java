@@ -141,16 +141,6 @@ public class PanelTableUsers extends javax.swing.JPanel {
         } catch (Exception e) {
             e.printStackTrace(); // Imprime el stack trace para debugging
         }
-//        try {
-//            if (usersCmb.getSelectedItem().equals("Column One")) {
-//                sorter.setRowFilter(RowFilter.regexFilter("(!?)" + this.filterTxt.getText(), 0));
-//            } else if (usersCmb.getSelectedItem().equals("Column Two")) {
-//                sorter.setRowFilter(RowFilter.regexFilter("(!?)" + this.filterTxt.getText(), 1));
-//            } else {
-//                sorter.setRowFilter(RowFilter.regexFilter("(!?)" + this.filterTxt.getText(), 2));
-//            }
-//        } catch (Exception e) {
-//        }
     }//GEN-LAST:event_filterTxtKeyReleased
 
 

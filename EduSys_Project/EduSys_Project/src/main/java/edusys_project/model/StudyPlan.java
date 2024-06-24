@@ -70,13 +70,6 @@ public class StudyPlan implements Serializable {
         this.amountCredits = amountCredits;
     }
 
-    public StudyPlan(Integer idStudyPlan, String description, Date effectiveDate, Date approvalDate) {
-        this.idStudyPlan = idStudyPlan;
-        this.description = description;
-        this.effectiveDate = effectiveDate;
-        this.approvalDate = approvalDate;
-    }
-
     public Integer getIdStudyPlan() {
         return idStudyPlan;
     }
@@ -157,5 +150,5 @@ public class StudyPlan implements Serializable {
     public String toString() {
         return "edusys_project.model.StudyPlan[ idStudyPlan=" + idStudyPlan + " ]";
     }
-
+    
 }

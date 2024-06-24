@@ -4,8 +4,6 @@
  */
 package edusys_project.view;
 
-import javax.swing.JTextField;
-
 /**
  *
  * @author Usuario
@@ -19,39 +17,6 @@ public class PanelStudyPlanManagementAndMaintenance extends javax.swing.JPanel {
         initComponents();
     }
 
-    public String getApprovalDateTxt() {
-        return approvalDateTxt.getText();
-    }
-
-    public void setApprovalDateTxt(String approvalDateTxt) {
-        this.approvalDateTxt.setText(approvalDateTxt);
-    }
-
-    public String getDescriptionStudyPlanTxt() {
-        return descriptionStudyPlanTxt.getText();
-    }
-
-    public void setDescriptionStudyPlanTxt(String descriptionStudyPlanTxt) {
-        this.descriptionStudyPlanTxt.setText(descriptionStudyPlanTxt);
-    }
-
-    public String getEffectiveDateTxt() {
-        return effectiveDateTxt.getText();
-    }
-
-    public void setEffectiveDateTxt(String effectiveDateTxt) {
-        this.effectiveDateTxt.setText(effectiveDateTxt);
-    }
-
-    public String getIdStudyNameTxt() {
-        return idStudyNameTxt.getText();
-    }
-
-    public void setIdStudyNameTxt(String idStudyNameTxt) {
-        this.idStudyNameTxt.setText(idStudyNameTxt);
-    }
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,10 +26,10 @@ public class PanelStudyPlanManagementAndMaintenance extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idStudyNameTxt = new javax.swing.JTextField();
-        descriptionStudyPlanTxt = new javax.swing.JTextField();
-        approvalDateTxt = new javax.swing.JTextField();
-        effectiveDateTxt = new javax.swing.JTextField();
+        jtIdStudyName = new javax.swing.JTextField();
+        jtDescriptionStudyPlan = new javax.swing.JTextField();
+        jtApprovalDate = new javax.swing.JTextField();
+        jtEffectiveDate = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -77,17 +42,17 @@ public class PanelStudyPlanManagementAndMaintenance extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        idStudyNameTxt.setBorder(null);
-        add(idStudyNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 120, 80, 20));
+        jtIdStudyName.setBorder(null);
+        add(jtIdStudyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 120, 80, 20));
 
-        descriptionStudyPlanTxt.setBorder(null);
-        add(descriptionStudyPlanTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 240, 50));
+        jtDescriptionStudyPlan.setBorder(null);
+        add(jtDescriptionStudyPlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 240, 50));
 
-        approvalDateTxt.setBorder(null);
-        add(approvalDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 230, 30));
+        jtApprovalDate.setBorder(null);
+        add(jtApprovalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 230, 30));
 
-        effectiveDateTxt.setBorder(null);
-        add(effectiveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 240, 30));
+        jtEffectiveDate.setBorder(null);
+        add(jtEffectiveDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 240, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/TituloPlanDeEstudios.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 14, -1, -1));
@@ -119,10 +84,6 @@ public class PanelStudyPlanManagementAndMaintenance extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField approvalDateTxt;
-    private javax.swing.JTextField descriptionStudyPlanTxt;
-    private javax.swing.JTextField effectiveDateTxt;
-    private javax.swing.JTextField idStudyNameTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -132,5 +93,9 @@ public class PanelStudyPlanManagementAndMaintenance extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jtApprovalDate;
+    private javax.swing.JTextField jtDescriptionStudyPlan;
+    private javax.swing.JTextField jtEffectiveDate;
+    private javax.swing.JTextField jtIdStudyName;
     // End of variables declaration//GEN-END:variables
 }

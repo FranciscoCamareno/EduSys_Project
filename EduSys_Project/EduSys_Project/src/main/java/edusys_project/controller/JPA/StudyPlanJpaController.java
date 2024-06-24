@@ -20,8 +20,6 @@ import edusys_project.model.StudyPlan;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 /**
  *
@@ -29,20 +27,14 @@ import javax.persistence.TypedQuery;
  */
 public class StudyPlanJpaController implements Serializable {
 
-    private EntityManagerFactory emf = null;
-
     public StudyPlanJpaController(EntityManagerFactory emf) {
-        this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+        this.emf = emf;
     }
-    
-    public StudyPlanJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-    }
+    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
 
     public void create(StudyPlan studyPlan) throws PreexistingEntityException, Exception {
         if (studyPlan.getCareersCollection() == null) {
@@ -53,8 +45,8 @@ public class StudyPlanJpaController implements Serializable {
         }
         EntityManager em = null;
         try {
-            em = getEntityManager();//crear admin de entidades
-            em.getTransaction().begin();//preparar la transaccion
+            em = getEntityManager();
+            em.getTransaction().begin();
             Collection<Careers> attachedCareersCollection = new ArrayList<Careers>();
             for (Careers careersCollectionCareersToAttach : studyPlan.getCareersCollection()) {
                 careersCollectionCareersToAttach = em.getReference(careersCollectionCareersToAttach.getClass(), careersCollectionCareersToAttach.getCode());
@@ -67,7 +59,7 @@ public class StudyPlanJpaController implements Serializable {
                 attachedCourseCollection.add(courseCollectionCourseToAttach);
             }
             studyPlan.setCourseCollection(attachedCourseCollection);
-            em.persist(studyPlan);//insertar una entidad en la base de datos
+            em.persist(studyPlan);
             for (Careers careersCollectionCareers : studyPlan.getCareersCollection()) {
                 StudyPlan oldStudyPlanidStudyPlanOfCareersCollectionCareers = careersCollectionCareers.getStudyPlanidStudyPlan();
                 careersCollectionCareers.setStudyPlanidStudyPlan(studyPlan);
@@ -86,7 +78,7 @@ public class StudyPlanJpaController implements Serializable {
                     oldStudyPlanidStudyPlanOfCourseCollectionCourse = em.merge(oldStudyPlanidStudyPlanOfCourseCollectionCourse);
                 }
             }
-            em.getTransaction().commit();//finalizar la transaccion
+            em.getTransaction().commit();
         } catch (Exception ex) {
             if (findStudyPlan(studyPlan.getIdStudyPlan()) != null) {
                 throw new PreexistingEntityException("StudyPlan " + studyPlan + " already exists.", ex);
@@ -94,114 +86,78 @@ public class StudyPlanJpaController implements Serializable {
             throw ex;
         } finally {
             if (em != null) {
-                em.close();//cerrar entity manager
+                em.close();
             }
         }
     }
 
-//    public void edit(StudyPlan studyPlan) throws IllegalOrphanException, NonexistentEntityException, Exception {
-//        EntityManager em = null;
-//        try {
-//            em = getEntityManager();
-//            em.getTransaction().begin();
-//            StudyPlan persistentStudyPlan = em.find(StudyPlan.class, studyPlan.getIdStudyPlan());
-//            Collection<Careers> careersCollectionOld = persistentStudyPlan.getCareersCollection();
-//            Collection<Careers> careersCollectionNew = studyPlan.getCareersCollection();
-//            Collection<Course> courseCollectionOld = persistentStudyPlan.getCourseCollection();
-//            Collection<Course> courseCollectionNew = studyPlan.getCourseCollection();
-//            List<String> illegalOrphanMessages = null;
-//            for (Careers careersCollectionOldCareers : careersCollectionOld) {
-//                if (!careersCollectionNew.contains(careersCollectionOldCareers)) {
-//                    if (illegalOrphanMessages == null) {
-//                        illegalOrphanMessages = new ArrayList<String>();
-//                    }
-//                    illegalOrphanMessages.add("You must retain Careers " + careersCollectionOldCareers + " since its studyPlanidStudyPlan field is not nullable.");
-//                }
-//            }
-//            for (Course courseCollectionOldCourse : courseCollectionOld) {
-//                if (!courseCollectionNew.contains(courseCollectionOldCourse)) {
-//                    if (illegalOrphanMessages == null) {
-//                        illegalOrphanMessages = new ArrayList<String>();
-//                    }
-//                    illegalOrphanMessages.add("You must retain Course " + courseCollectionOldCourse + " since its studyPlanidStudyPlan field is not nullable.");
-//                }
-//            }
-//            if (illegalOrphanMessages != null) {
-//                throw new IllegalOrphanException(illegalOrphanMessages);
-//            }
-//            Collection<Careers> attachedCareersCollectionNew = new ArrayList<Careers>();
-//            for (Careers careersCollectionNewCareersToAttach : careersCollectionNew) {
-//                careersCollectionNewCareersToAttach = em.getReference(careersCollectionNewCareersToAttach.getClass(), careersCollectionNewCareersToAttach.getCode());
-//                attachedCareersCollectionNew.add(careersCollectionNewCareersToAttach);
-//            }
-//            careersCollectionNew = attachedCareersCollectionNew;
-//            studyPlan.setCareersCollection(careersCollectionNew);
-//            Collection<Course> attachedCourseCollectionNew = new ArrayList<Course>();
-//            for (Course courseCollectionNewCourseToAttach : courseCollectionNew) {
-//                courseCollectionNewCourseToAttach = em.getReference(courseCollectionNewCourseToAttach.getClass(), courseCollectionNewCourseToAttach.getSyllabus());
-//                attachedCourseCollectionNew.add(courseCollectionNewCourseToAttach);
-//            }
-//            courseCollectionNew = attachedCourseCollectionNew;
-//            studyPlan.setCourseCollection(courseCollectionNew);
-//            studyPlan = em.merge(studyPlan);
-//            for (Careers careersCollectionNewCareers : careersCollectionNew) {
-//                if (!careersCollectionOld.contains(careersCollectionNewCareers)) {
-//                    StudyPlan oldStudyPlanidStudyPlanOfCareersCollectionNewCareers = careersCollectionNewCareers.getStudyPlanidStudyPlan();
-//                    careersCollectionNewCareers.setStudyPlanidStudyPlan(studyPlan);
-//                    careersCollectionNewCareers = em.merge(careersCollectionNewCareers);
-//                    if (oldStudyPlanidStudyPlanOfCareersCollectionNewCareers != null && !oldStudyPlanidStudyPlanOfCareersCollectionNewCareers.equals(studyPlan)) {
-//                        oldStudyPlanidStudyPlanOfCareersCollectionNewCareers.getCareersCollection().remove(careersCollectionNewCareers);
-//                        oldStudyPlanidStudyPlanOfCareersCollectionNewCareers = em.merge(oldStudyPlanidStudyPlanOfCareersCollectionNewCareers);
-//                    }
-//                }
-//            }
-//            for (Course courseCollectionNewCourse : courseCollectionNew) {
-//                if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
-//                    StudyPlan oldStudyPlanidStudyPlanOfCourseCollectionNewCourse = courseCollectionNewCourse.getStudyPlanidStudyPlan();
-//                    courseCollectionNewCourse.setStudyPlanidStudyPlan(studyPlan);
-//                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
-//                    if (oldStudyPlanidStudyPlanOfCourseCollectionNewCourse != null && !oldStudyPlanidStudyPlanOfCourseCollectionNewCourse.equals(studyPlan)) {
-//                        oldStudyPlanidStudyPlanOfCourseCollectionNewCourse.getCourseCollection().remove(courseCollectionNewCourse);
-//                        oldStudyPlanidStudyPlanOfCourseCollectionNewCourse = em.merge(oldStudyPlanidStudyPlanOfCourseCollectionNewCourse);
-//                    }
-//                }
-//            }
-//            em.getTransaction().commit();
-//        } catch (Exception ex) {
-//            String msg = ex.getLocalizedMessage();
-//            if (msg == null || msg.length() == 0) {
-//                Integer id = studyPlan.getIdStudyPlan();
-//                if (findStudyPlan(id) == null) {
-//                    throw new NonexistentEntityException("The studyPlan with id " + id + " no longer exists.");
-//                }
-//            }
-//            throw ex;
-//        } finally {
-//            if (em != null) {
-//                em.close();
-//            }
-//        }
-//    }
-    public void editar(StudyPlan studyPlan) throws NonexistentEntityException, Exception {
+    public void edit(StudyPlan studyPlan) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-
             StudyPlan persistentStudyPlan = em.find(StudyPlan.class, studyPlan.getIdStudyPlan());
-
+            Collection<Careers> careersCollectionOld = persistentStudyPlan.getCareersCollection();
             Collection<Careers> careersCollectionNew = studyPlan.getCareersCollection();
+            Collection<Course> courseCollectionOld = persistentStudyPlan.getCourseCollection();
             Collection<Course> courseCollectionNew = studyPlan.getCourseCollection();
-
-            studyPlan.setCareersCollection(null); // Avoid modifications to Careers
-            studyPlan.setCourseCollection(null);   // Avoid modifications to Course
-
-            studyPlan = em.merge(studyPlan);  // Merge only StudyPlan
-
-            // Update relationships with Careers and Course separately (if needed)
-            updateCareers(em, persistentStudyPlan, careersCollectionNew);
-            updateCourses(em, persistentStudyPlan, courseCollectionNew);
-
+            List<String> illegalOrphanMessages = null;
+            for (Careers careersCollectionOldCareers : careersCollectionOld) {
+                if (!careersCollectionNew.contains(careersCollectionOldCareers)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain Careers " + careersCollectionOldCareers + " since its studyPlanidStudyPlan field is not nullable.");
+                }
+            }
+            for (Course courseCollectionOldCourse : courseCollectionOld) {
+                if (!courseCollectionNew.contains(courseCollectionOldCourse)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain Course " + courseCollectionOldCourse + " since its studyPlanidStudyPlan field is not nullable.");
+                }
+            }
+            if (illegalOrphanMessages != null) {
+                throw new IllegalOrphanException(illegalOrphanMessages);
+            }
+            Collection<Careers> attachedCareersCollectionNew = new ArrayList<Careers>();
+            for (Careers careersCollectionNewCareersToAttach : careersCollectionNew) {
+                careersCollectionNewCareersToAttach = em.getReference(careersCollectionNewCareersToAttach.getClass(), careersCollectionNewCareersToAttach.getCode());
+                attachedCareersCollectionNew.add(careersCollectionNewCareersToAttach);
+            }
+            careersCollectionNew = attachedCareersCollectionNew;
+            studyPlan.setCareersCollection(careersCollectionNew);
+            Collection<Course> attachedCourseCollectionNew = new ArrayList<Course>();
+            for (Course courseCollectionNewCourseToAttach : courseCollectionNew) {
+                courseCollectionNewCourseToAttach = em.getReference(courseCollectionNewCourseToAttach.getClass(), courseCollectionNewCourseToAttach.getSyllabus());
+                attachedCourseCollectionNew.add(courseCollectionNewCourseToAttach);
+            }
+            courseCollectionNew = attachedCourseCollectionNew;
+            studyPlan.setCourseCollection(courseCollectionNew);
+            studyPlan = em.merge(studyPlan);
+            for (Careers careersCollectionNewCareers : careersCollectionNew) {
+                if (!careersCollectionOld.contains(careersCollectionNewCareers)) {
+                    StudyPlan oldStudyPlanidStudyPlanOfCareersCollectionNewCareers = careersCollectionNewCareers.getStudyPlanidStudyPlan();
+                    careersCollectionNewCareers.setStudyPlanidStudyPlan(studyPlan);
+                    careersCollectionNewCareers = em.merge(careersCollectionNewCareers);
+                    if (oldStudyPlanidStudyPlanOfCareersCollectionNewCareers != null && !oldStudyPlanidStudyPlanOfCareersCollectionNewCareers.equals(studyPlan)) {
+                        oldStudyPlanidStudyPlanOfCareersCollectionNewCareers.getCareersCollection().remove(careersCollectionNewCareers);
+                        oldStudyPlanidStudyPlanOfCareersCollectionNewCareers = em.merge(oldStudyPlanidStudyPlanOfCareersCollectionNewCareers);
+                    }
+                }
+            }
+            for (Course courseCollectionNewCourse : courseCollectionNew) {
+                if (!courseCollectionOld.contains(courseCollectionNewCourse)) {
+                    StudyPlan oldStudyPlanidStudyPlanOfCourseCollectionNewCourse = courseCollectionNewCourse.getStudyPlanidStudyPlan();
+                    courseCollectionNewCourse.setStudyPlanidStudyPlan(studyPlan);
+                    courseCollectionNewCourse = em.merge(courseCollectionNewCourse);
+                    if (oldStudyPlanidStudyPlanOfCourseCollectionNewCourse != null && !oldStudyPlanidStudyPlanOfCourseCollectionNewCourse.equals(studyPlan)) {
+                        oldStudyPlanidStudyPlanOfCourseCollectionNewCourse.getCourseCollection().remove(courseCollectionNewCourse);
+                        oldStudyPlanidStudyPlanOfCourseCollectionNewCourse = em.merge(oldStudyPlanidStudyPlanOfCourseCollectionNewCourse);
+                    }
+                }
+            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -304,23 +260,4 @@ public class StudyPlanJpaController implements Serializable {
         }
     }
     
-    public List<StudyPlan> consultList() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery<StudyPlan> cq = em.getCriteriaBuilder().createQuery(StudyPlan.class);
-            cq.select(cq.from(StudyPlan.class));
-            TypedQuery<StudyPlan> query = em.createQuery(cq);
-            return query.getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
-    private void updateCareers(EntityManager em, StudyPlan persistentStudyPlan, Collection<Careers> careersCollectionNew) {
-        
-    }
-
-    private void updateCourses(EntityManager em, StudyPlan persistentStudyPlan, Collection<Course> courseCollectionNew) {
-    }
-
 }

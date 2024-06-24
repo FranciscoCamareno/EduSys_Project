@@ -6,7 +6,7 @@ package edusys_project.view;
 
 /**
  *
- * @author Usuario
+ * @author valer
  */
 public class FrameOptions extends javax.swing.JFrame {
 
@@ -21,14 +21,11 @@ public class FrameOptions extends javax.swing.JFrame {
         return panelBtnOptions1;
     }
 
-    public PanelEduSys getPanelEduSys1() {
-        return panelEduSys1;
-    }
-
     public Panel_Nav getPanel_Nav1() {
         return panel_Nav1;
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,20 +38,21 @@ public class FrameOptions extends javax.swing.JFrame {
         panel_Nav1 = new edusys_project.view.Panel_Nav();
         panelEduSys1 = new edusys_project.view.PanelEduSys();
         panelBtnOptions1 = new edusys_project.view.PanelBtnOptions();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(panel_Nav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelEduSys1.setOpaque(false);
-        getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+        getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, -1, -1));
 
         panelBtnOptions1.setOpaque(false);
-        getContentPane().add(panelBtnOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, -1, -1));
+        getContentPane().add(panelBtnOptions1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setForeground(new java.awt.Color(60, 63, 65));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCelesteGrande.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,10 +60,40 @@ public class FrameOptions extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(FrameOptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(FrameOptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(FrameOptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(FrameOptions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FrameOptions().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private edusys_project.view.PanelBtnOptions panelBtnOptions1;
     private edusys_project.view.PanelEduSys panelEduSys1;
     private edusys_project.view.Panel_Nav panel_Nav1;

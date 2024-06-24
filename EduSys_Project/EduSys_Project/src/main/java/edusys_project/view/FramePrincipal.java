@@ -35,7 +35,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         panelEduSys1.setOpaque(false);
         getContentPane().add(panelEduSys1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, -1, -1));
 
-        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCelesteGrande.png"))); // NOI18N
+        jLFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
         getContentPane().add(jLFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 710));
 
         pack();

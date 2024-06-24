@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author valer
@@ -16,6 +18,64 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
     public PanelCoursesManagement() {
         initComponents();
     }
+    
+    public String getTxtCourseName() {
+        return txtCourseName.getText();
+    }
+
+    public void setTxtCourseName(JTextField txtCourseName) {
+        this.txtCourseName = txtCourseName;
+    }
+    
+    public String getTxtCredits() {
+        return txtCredits.getText();
+    }
+
+    public void setTxtCredits(JTextField txtCredits) {
+        this.txtCredits = txtCredits;
+    }
+    
+    public String getTxtDescription() {
+        return txtDescription.getText();
+    }
+
+    public void setTxtDescription(JTextField txtDescription) {
+        this.txtDescription = txtDescription;
+    }
+    
+    public String getTxtInDeptWorkHours() {
+        return txtInDeptWorkHours.getText();
+    }
+
+    public void setTxtInDeptWorkHours(JTextField txtInDeptWorkHours) {
+        this.txtInDeptWorkHours = txtInDeptWorkHours;
+    }
+    
+    public String getTxtLessonHours() {
+        return txtLessonHours.getText();
+    }
+
+    public void setTxtLessonHours(JTextField txtLessonHours) {
+        this.txtLessonHours = txtLessonHours;
+    }
+    
+    public String getTxtModality() {
+        return txtModality.getText();
+    }
+
+    public void setTxtModality(JTextField txtModality) {
+        this.txtModality = txtModality;
+    }
+    
+    public String getTxtSyllabus() {
+        return txtSyllabus.getText();
+    }
+
+    public void setTxtSyllabus(JTextField txtSyllabus) {
+        this.txtSyllabus = txtSyllabus;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +105,9 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtSyllabus = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,7 +115,7 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Inter ExtraBold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Courses Management and Maintenance");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 22, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         txtCourseName.setBorder(null);
         add(txtCourseName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 132, 310, 20));
@@ -124,11 +187,29 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SmallTextSpace.png"))); // NOI18N
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 428, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Syllabus_.png"))); // NOI18N
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+
+        txtSyllabus.setBorder(null);
+        txtSyllabus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSyllabusActionPerformed(evt);
+            }
+        });
+        add(txtSyllabus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 52, 90, 30));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/txtPequeño.png"))); // NOI18N
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtModalityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModalityActionPerformed
+
+    private void txtSyllabusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSyllabusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSyllabusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -137,6 +218,8 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -151,5 +234,6 @@ public class PanelCoursesManagement extends javax.swing.JPanel {
     private javax.swing.JTextField txtInDeptWorkHours;
     private javax.swing.JTextField txtLessonHours;
     private javax.swing.JTextField txtModality;
+    private javax.swing.JTextField txtSyllabus;
     // End of variables declaration//GEN-END:variables
 }

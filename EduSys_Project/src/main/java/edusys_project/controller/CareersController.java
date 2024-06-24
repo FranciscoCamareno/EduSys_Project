@@ -27,6 +27,7 @@ public class CareersController implements ActionListener {
     private FrameCareersManagementMaintenance frameCMM;
     private Careers careers;
     private CareersJpaController careersJpaController;
+    private PanelTableCareers panelTableCareers;
 
     public CareersController() {
         frameCMM = new FrameCareersManagementMaintenance();
@@ -34,6 +35,7 @@ public class CareersController implements ActionListener {
         careersJpaController = new CareersJpaController(emf);
         panelCRUD = frameCMM.getPanelCRUD();
         panelCMM = frameCMM.getPanelUsersManagement();
+        
         frameCMM.listen(this);
         frameCMM.setLocationRelativeTo(null);
     }
@@ -62,12 +64,12 @@ public class CareersController implements ActionListener {
                         careers = new Careers(idCareer, name, description, profProfile, workingMarket, null);
                         careersJpaController.create(careers);
                     } catch (Exception ex) {
-                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CareersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 break;
             case "Search":
-                //Que se quede como el buscar
+                panelTableCareers.showTable();
                 break;
             case "Modificar":
                 String idCareerNew = panelCMM.getTxtIdCareers();
@@ -86,7 +88,7 @@ public class CareersController implements ActionListener {
                         careers = new Careers(idCareerNew, nameNew, descriptionNew, profProfileNew, workingMarketNew, null);
                         careersJpaController.edit(careers);
                     } catch (Exception ex) {
-                        Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CareersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
@@ -113,4 +115,8 @@ public class CareersController implements ActionListener {
                 break;
         }
     }
+    
+//    public static void main(String[] args) {
+//        new CareersController();
+//    }
 }

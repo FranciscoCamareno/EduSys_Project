@@ -4,8 +4,6 @@
  */
 package edusys_project.view;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Usuario
@@ -19,18 +17,6 @@ public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
         initComponents();
     }
 
-    public PanelCRUD getPanelCRUD1() {
-        return panelCRUD1;
-    }
-
-    public PanelStudyPlanManagementAndMaintenance getPanelStudyPlanManagementAndMaintenance1() {
-        return panelStudyPlanManagementAndMaintenance1;
-    }
-
-    public void showMessage(String message){
-        JOptionPane.showMessageDialog(null, message);
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +34,7 @@ public class FrameStudyPlanManagementMaintenance extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelCRUD1.setOpaque(false);
-        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, -1, -1));
+        getContentPane().add(panelCRUD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, -1, -1));
 
         panelStudyPlanManagementAndMaintenance1.setOpaque(false);
         getContentPane().add(panelStudyPlanManagementAndMaintenance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));

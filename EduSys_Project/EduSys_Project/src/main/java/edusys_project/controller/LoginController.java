@@ -47,7 +47,7 @@ public class LoginController implements ActionListener {
         }
     }
     
-//    public static void main(String[] args) {
-//        new LoginController();
-//    }
+    public static void main(String[] args) {
+        new LoginController();
+    }
 }

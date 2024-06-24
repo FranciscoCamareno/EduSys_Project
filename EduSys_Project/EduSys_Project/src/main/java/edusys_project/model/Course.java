@@ -59,7 +59,7 @@ public class Course implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @Column(name = "lesson_hours")
-    private int lessonHours;
+    private BigDecimal lessonHours;
     @Basic(optional = false)
     @Column(name = "indep_work_hour")
     private int indepWorkHour;
@@ -83,18 +83,8 @@ public class Course implements Serializable {
     public Course(String syllabus) {
         this.syllabus = syllabus;
     }
-    
-    public Course(String syllabus, String name, int amountCredits, String description, int indepWorkHour, int lessonHours, String modality) {
-        this.syllabus = syllabus;
-        this.name = name;
-        this.amountCredits = amountCredits;
-        this.description = description;
-        this.indepWorkHour = indepWorkHour;
-        this.lessonHours = lessonHours;
-        this.modality = modality;
-    }
 
-    public Course(String syllabus, String description, String name, int amountCredits, String modality, int lessonHours, int indepWorkHour) {
+    public Course(String syllabus, String description, String name, int amountCredits, String modality, BigDecimal lessonHours, int indepWorkHour) {
         this.syllabus = syllabus;
         this.description = description;
         this.name = name;
@@ -144,11 +134,11 @@ public class Course implements Serializable {
         this.modality = modality;
     }
 
-    public int getLessonHours() {
+    public BigDecimal getLessonHours() {
         return lessonHours;
     }
 
-    public void setLessonHours(int lessonHours) {
+    public void setLessonHours(BigDecimal lessonHours) {
         this.lessonHours = lessonHours;
     }
 
