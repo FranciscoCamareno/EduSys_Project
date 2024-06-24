@@ -16,6 +16,7 @@ public class FrameCourses extends javax.swing.JFrame {
     /**
      * Creates new form FrameCourses
      */
+    
     public FrameCourses() {
         initComponents();
     }

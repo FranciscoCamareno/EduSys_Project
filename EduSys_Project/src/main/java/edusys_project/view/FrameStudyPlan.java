@@ -4,6 +4,7 @@
  */
 package edusys_project.view;
 
+import edusys_project.controller.tables.*;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,12 @@ public class FrameStudyPlan extends javax.swing.JFrame {
     /**
      * Creates new form FrameStudyPlan
      */
+    
+    public FrameStudyPlan(StudyPlanTableController controller) {
+        initComponents();
+        listen(controller);
+    }
+
     public FrameStudyPlan() {
         initComponents();
     }
