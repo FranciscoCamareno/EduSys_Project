@@ -70,11 +70,6 @@ public class CoursesController implements ActionListener {
                     }
                 }
             break;
-            
-            case "Consult":
-                //buscar
-            break;
-            
             case "Modificar":
                 String syllabusNew = panelCoursesManagement.getTxtSyllabus();
                 String nameNew = panelCoursesManagement.getTxtCourseName();

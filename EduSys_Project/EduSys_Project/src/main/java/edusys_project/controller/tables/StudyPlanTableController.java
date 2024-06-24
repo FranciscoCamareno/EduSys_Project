@@ -21,16 +21,13 @@ public class StudyPlanTableController implements ActionListener {
     private FrameStudyPlanManagementMaintenance studyPlanManagement;
     private StudyPlanJpaController studyPlanJpaController;
     private PanelTableStudyPlan panelTableStudyPlan;
-    private SideBarButtonsPanel panelSBB;
 
     public StudyPlanTableController() {
         frameStudyPlan = new FrameStudyPlan(this);
         frameStudyPlan.setLocationRelativeTo(null);
         studyPlanController = new StudyPlanManagementController();
-        panelSBB = frameStudyPlan.getPanelSBB();
         studyPlanManagement = studyPlanController.getFrameStudyPlanManagement();
-        panelSBB.listen(this);
-        frameStudyPlan.setVisible(true);
+//        frameStudyPlan.setVisible(true);
     }
 
     public FrameStudyPlan getFrameStudyPlan() {
@@ -43,25 +40,13 @@ public class StudyPlanTableController implements ActionListener {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             studyPlanManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Careers")) {
+        if (e.getActionCommand().equals("Back")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-
-        }
-        if (e.getActionCommand().equals("Courses")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-
-        }
-        if (e.getActionCommand().equals("Study Plans")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-
-        }
-        if (e.getActionCommand().equals("Users")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-
+            frameStudyPlan.dispose();
         }
     }
 
-    public static void main(String[] args) {
-        new StudyPlanTableController();
-    }
+//    public static void main(String[] args) {
+//        new StudyPlanTableController();
+//    }
 }

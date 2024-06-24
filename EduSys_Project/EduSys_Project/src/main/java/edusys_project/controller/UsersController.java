@@ -31,6 +31,7 @@ public class UsersController implements ActionListener {
     private Users users;
     private UsersJpaController usersJpaController;
     private UsersTableController usersTable;
+    PanelTableUsers panelTableUsers;
 
     public UsersController() {
         frameUM = new FrameUsersManagement();
@@ -79,10 +80,6 @@ public class UsersController implements ActionListener {
                     }
                 }
 
-                break;
-            case "Consultar":
-                usersTable = new UsersTableController();
-                //Que se quede como el buscar
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());

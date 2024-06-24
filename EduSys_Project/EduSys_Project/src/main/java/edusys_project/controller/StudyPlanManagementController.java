@@ -5,6 +5,7 @@
 package edusys_project.controller;
 
 import com.google.protobuf.TextFormat.ParseException;
+import java.text.SimpleDateFormat;
 import edusys_project.controller.JPA.StudyPlanJpaController;
 import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
@@ -44,13 +45,12 @@ public class StudyPlanManagementController implements ActionListener {
 //        frameSPM.setVisible(true);
         studyPlan = null;
         carrers = null;
-        
+
     }
-    
+
     public FrameStudyPlanManagementMaintenance getFrameStudyPlanManagement() {
         return frameSPM;
     }
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -99,24 +99,8 @@ public class StudyPlanManagementController implements ActionListener {
                     }
 
                 }
-
                 break;
-            case "Consultar":
-                String idStudyPlan = panelSPM.getIdStudyNameTxt();
-                frameSPM.showMessage("ID de plan de estudio ingresado: " + idStudyPlan);
-                int idStudyPlanInt = Integer.parseInt(idStudyPlan);
 
-                EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-                studyPlanJpaController.findStudyPlan(idStudyPlanInt);
-//                panelSPM.setDescriptionStudyPlanTxt(studyPlan.getDescription());
-                if (studyPlan != null) {
-                    frameSPM.showMessage("prueba");
-                    panelSPM.setDescriptionStudyPlanTxt(studyPlan.getDescription());
-                } else {
-                    frameSPM.showMessage("El plan de estudio no se encuentra registrado");
-                }
-
-                break;
             case "Modificar":
                 String newStudyPlanId = panelSPM.getIdStudyNameTxt();
                 int newStudyPlanIdInt = Integer.parseInt(newStudyPlanId);
@@ -145,18 +129,17 @@ public class StudyPlanManagementController implements ActionListener {
                 }
                 carrers = new Careers("", "", "", "", "");
                 studyPlan = new StudyPlan(newStudyPlanIdInt, newDescription, newEffectiveDate, newApprovalDate);
-            {
-                try {
-                    studyPlanJpaController.editar(studyPlan);
-                    frameSPM.showMessage("El plan de estudio fue modificado exitosamente");
-                } catch (NonexistentEntityException ex) {
-                    Logger.getLogger(StudyPlanManagementController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (Exception ex) {
-                    Logger.getLogger(StudyPlanManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                 {
+                    try {
+                        studyPlanJpaController.editar(studyPlan);
+                        frameSPM.showMessage("El plan de estudio fue modificado exitosamente");
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(StudyPlanManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        Logger.getLogger(StudyPlanManagementController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
                 break;
-
 
             case "Eliminar":
                 String studyPlanId = panelSPM.getIdStudyNameTxt();
@@ -181,7 +164,7 @@ public class StudyPlanManagementController implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new StudyPlanManagementController();
-    }
+//    public static void main(String[] args) {
+//        new StudyPlanManagementController();
+//    }
 }
