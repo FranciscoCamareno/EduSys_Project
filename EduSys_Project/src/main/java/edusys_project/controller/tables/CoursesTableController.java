@@ -30,7 +30,7 @@ public class CoursesTableController implements ActionListener{
         frameCourses.setLocationRelativeTo(null);
         coursesController = new CoursesController();
         panelSBB = frameCourses.getPanelSBB();
-//        coursesManagement = coursesController.getFrameCoursesManagement();
+        coursesManagement = coursesController.getFrameCoursesManagement();
         panelSBB.listen(this);
         frameCourses.setVisible(true);
     }

@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
  */
 public class UsersController implements ActionListener {
     
-    private static int idCounter = 3;
+    private static int idCounter = 4;
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;

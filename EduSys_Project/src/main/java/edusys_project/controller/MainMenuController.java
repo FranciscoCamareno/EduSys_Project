@@ -25,7 +25,7 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     CareersTableController carrersController;
 //    FrameCarrers frameCarrers;
     
-    StudyPlanController studyPlanController;
+    StudyPlanTableController studyPlanTableController;
 //    FrameStudyPlan frameStudyPlan;
     
     UsersTableController usersController;
@@ -67,7 +67,7 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
                 frameMainMenu.setVisible(false);
                 break;
             case "AdminPlanEstudios":
-                 studyPlanController = new StudyPlanController();
+                 studyPlanTableController = new StudyPlanTableController();
 //                frameStudyPlan.setLocationRelativeTo(null);
 //                frameStudyPlan.setVisible(true);
                 frameMainMenu.setVisible(false);
