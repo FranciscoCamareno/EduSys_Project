@@ -57,7 +57,7 @@ public class UsersTableController implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new UsersTableController();
-    }
+//    public static void main(String[] args) {
+//        new UsersTableController();
+//    }
 }

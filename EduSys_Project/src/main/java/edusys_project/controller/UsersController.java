@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
  */
 public class UsersController implements ActionListener {
     
-    private static int idCounter = 4;
+    private static int idCounter = 1;
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;
@@ -61,6 +61,7 @@ public class UsersController implements ActionListener {
                 String phoneNumber = panelUM.getTxtPhoneNumber();
                 String password = panelUM.getTxtPassword();
                 String userType = panelUM.getTxtUserType();
+                int idProfile = Integer.parseInt(panelUM.getTxtIdUser());
 
                 if (userName.isEmpty() || name.isEmpty() || password.isEmpty() || lastName.isEmpty() || eMail.isEmpty()) {
                     System.out.println("Rellene los campos para el registro");
@@ -70,7 +71,7 @@ public class UsersController implements ActionListener {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
                         Profile profile;
                         ProfileJpaController profileJpa = new ProfileJpaController(emf);
-                        profileJpa.create(profile = new Profile(idCounter, userType, null));
+                        profileJpa.create(profile = new Profile(idProfile, userType, null));
                         users = new Users(idUser, name, password, userName, eMail, phoneNumber, lastName, profile);
                         usersJpaController.create(users);
                         incrementIdCounter();
@@ -112,12 +113,12 @@ public class UsersController implements ActionListener {
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
                 ProfileJpaController profileJpa = new ProfileJpaController(emf);
                 UsersJpaController userJpa = new UsersJpaController(emf);
-                int idProfile = Integer.parseInt(panelUM.getTxtIdUser());
+                int idProf = Integer.parseInt(panelUM.getTxtIdUser());
 
                  {
                     try {
-                        userJpa.destroy(idProfile);
-                        profileJpa.destroy(idProfile);
+                        userJpa.destroy(idProf);
+                        profileJpa.destroy(idProf);
                     } catch (IllegalOrphanException ex) {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (NonexistentEntityException ex) {

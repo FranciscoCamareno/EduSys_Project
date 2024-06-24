@@ -178,7 +178,7 @@ public class StudyPlanManagementController implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new StudyPlanManagementController();
-    }
+//    public static void main(String[] args) {
+//        new StudyPlanManagementController();
+//    }
 }

@@ -59,7 +59,7 @@ public class CoursesTableController implements ActionListener{
         }
     }
 
-    public static void main(String[] args) {
-        new CoursesTableController();
-    }
+//    public static void main(String[] args) {
+//        new CoursesTableController();
+//    }
 }

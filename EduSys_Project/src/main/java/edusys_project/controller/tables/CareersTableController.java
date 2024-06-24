@@ -63,7 +63,7 @@ public class CareersTableController implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
-        new CareersTableController();
-    }
+//    public static void main(String[] args) {
+//        new CareersTableController();
+//    }
 }

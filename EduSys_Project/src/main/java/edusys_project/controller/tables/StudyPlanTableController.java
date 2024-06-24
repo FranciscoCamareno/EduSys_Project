@@ -27,7 +27,6 @@ public class StudyPlanTableController implements ActionListener{
         frameStudyPlan.setLocationRelativeTo(null);
         studyPlanController = new StudyPlanController();
         panelSBB = frameStudyPlan.getPanelSBB();
-//        StudyPlanManagement = studyPlanController.getFrameCareersManagementMaintenance();
         panelSBB.listen(this);
         frameStudyPlan.setVisible(true);
     }
@@ -60,7 +59,7 @@ public class StudyPlanTableController implements ActionListener{
         }
     }
 
-    public static void main(String[] args) {
-        new StudyPlanTableController();
-    }
+//    public static void main(String[] args) {
+//        new StudyPlanTableController();
+//    }
 }
