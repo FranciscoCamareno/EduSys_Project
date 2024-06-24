@@ -29,7 +29,7 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
 
     public MainMenuController() {
         coursesController = new CoursesController();
-        frameCourses = coursesController.frameCourses;
+//        frameCourses = coursesController.frameCourses;
         
         carrersController = new CarrersController();
         frameCarrers = carrersController.frameCarrers;
