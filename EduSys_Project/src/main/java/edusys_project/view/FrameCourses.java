@@ -21,6 +21,11 @@ public class FrameCourses extends javax.swing.JFrame {
         initComponents();
         listen(controller);
     }
+    
+    public SideBarButtonsPanel getPanelSBB() {
+        return sideBarButtonsPanel1;
+    }
+    
     public FrameCourses() {
         initComponents();
     }

@@ -5,6 +5,7 @@
 package edusys_project.view;
 
 import edusys_project.controller.*;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -27,6 +28,14 @@ public class PanelCRUD extends javax.swing.JPanel {
     }
     
     public void listen (CareersController controller){
+        btnAdd.addActionListener(controller);
+        btnConsult.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
+    
+    public void listen (ActionListener controller){
         btnAdd.addActionListener(controller);
         btnConsult.addActionListener(controller);
         btnEdit.addActionListener(controller);

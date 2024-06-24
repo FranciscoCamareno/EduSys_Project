@@ -23,6 +23,10 @@ public class FrameStudyPlan extends javax.swing.JFrame {
         listen(controller);
     }
 
+    public SideBarButtonsPanel getPanelSBB() {
+        return sideBarButtonsPanel1;
+    }
+    
     public FrameStudyPlan() {
         initComponents();
     }
