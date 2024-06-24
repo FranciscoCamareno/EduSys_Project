@@ -103,11 +103,11 @@ public class CoursesController implements ActionListener {
                 
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
                 CourseJpaController courseJpaController = new CourseJpaController(emf);
-                String nameCourses = panelCoursesManagement.getName();
+                String courseId = panelCoursesManagement.getTxtSyllabus();
 
                  {
             try {
-                courseJpaController.destroy(nameCourses);                
+                courseJpaController.destroy(courseId);                
             } catch (IllegalOrphanException ex) {
                 Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NonexistentEntityException ex) {

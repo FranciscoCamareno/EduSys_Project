@@ -113,10 +113,9 @@ public class CourseJpaController implements Serializable {
             em.getTransaction().begin();
 
             // Find the user by ID
-            Course persistentCourse = em.find(Course.class, course.getName());
+            Course persistentCourse = em.find(Course.class, course.getSyllabus());
 
             // Update user fields
-            persistentCourse.setSyllabus(course.getSyllabus());
             persistentCourse.setName(course.getName());
             persistentCourse.setAmountCredits(course.getAmountCredits());
             persistentCourse.setDescription(course.getDescription());
@@ -144,7 +143,7 @@ public class CourseJpaController implements Serializable {
         }
     }
 
-    public void edit(Course course) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    /*public void edit(Course course) throws IllegalOrphanException, NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -247,46 +246,46 @@ public class CourseJpaController implements Serializable {
                 em.close();
             }
         }
-    }
+    }*/
 
-    public void destroy(String name) throws IllegalOrphanException, NonexistentEntityException {
+    public void destroy(String id) throws IllegalOrphanException, NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             Course course;
             try {
-                course = em.getReference(Course.class, name);
+                course = em.getReference(Course.class, id);
                 course.getSyllabus();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The course with id " + name + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The course with id " + id + " no longer exists.", enfe);
             }
             List<String> illegalOrphanMessages = null;
             Collection<Groups> groupsCollectionOrphanCheck = course.getGroupsCollection();
-//            for (Groups groupsCollectionOrphanCheckGroups : groupsCollectionOrphanCheck) {
-//                if (illegalOrphanMessages == null) {
-//                    illegalOrphanMessages = new ArrayList<String>();
-//                }
-//                illegalOrphanMessages.add("This Course (" + course + ") cannot be destroyed since the Groups " + groupsCollectionOrphanCheckGroups + " in its groupsCollection field has a non-nullable coursesyllabus field.");
-//            }
+            for (Groups groupsCollectionOrphanCheckGroups : groupsCollectionOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This Course (" + course + ") cannot be destroyed since the Groups " + groupsCollectionOrphanCheckGroups + " in its groupsCollection field has a non-nullable coursesyllabus field.");
+            }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);
             }
-//            Cycle cycleidCycle = course.getCycleidCycle();
-//            if (cycleidCycle != null) {
-//                cycleidCycle.getCourseCollection().remove(course);
-//                cycleidCycle = em.merge(cycleidCycle);
-//            }
-//            StudyPlan studyPlanidStudyPlan = course.getStudyPlanidStudyPlan();
-//            if (studyPlanidStudyPlan != null) {
-//                studyPlanidStudyPlan.getCourseCollection().remove(course);
-//                studyPlanidStudyPlan = em.merge(studyPlanidStudyPlan);
-//            }
-//            Collection<Users> usersCollection = course.getUsersCollection();
-//            for (Users usersCollectionUsers : usersCollection) {
-//                usersCollectionUsers.getCourseCollection().remove(course);
-//                usersCollectionUsers = em.merge(usersCollectionUsers);
-//            }
+            Cycle cycleidCycle = course.getCycleidCycle();
+            if (cycleidCycle != null) {
+                cycleidCycle.getCourseCollection().remove(course);
+                cycleidCycle = em.merge(cycleidCycle);
+            }
+            StudyPlan studyPlanidStudyPlan = course.getStudyPlanidStudyPlan();
+            if (studyPlanidStudyPlan != null) {
+                studyPlanidStudyPlan.getCourseCollection().remove(course);
+                studyPlanidStudyPlan = em.merge(studyPlanidStudyPlan);
+            }
+            Collection<Users> usersCollection = course.getUsersCollection();
+            for (Users usersCollectionUsers : usersCollection) {
+                usersCollectionUsers.getCourseCollection().remove(course);
+                usersCollectionUsers = em.merge(usersCollectionUsers);
+            }
             em.remove(course);
             em.getTransaction().commit();
         } finally {
