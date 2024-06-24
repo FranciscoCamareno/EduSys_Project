@@ -22,7 +22,7 @@ public class StudyPlanController implements ActionListener {
     public StudyPlanController() {
         
         frameStudyPlan = new FrameStudyPlan();
-        sideBarButtonsPanel = frameStudyPlan.getSideBarButtonsPanel1();
+//        sideBarButtonsPanel = frameStudyPlan.getSideBarButtonsPanel1();
         frameStudyPlan.listen(this);
         sideBarButtonsPanel.listen(this);
         

@@ -46,7 +46,7 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
         // Obtener panel de botones y registrar ActionListeners
         panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu1();
         panelButtonsMenu.listen(this);
-        frameMainMenu.setVisible(true);
+//        frameMainMenu.setVisible(true);
     }
 
     public Frame_MainMenu getFrameMainMenu() {
@@ -82,7 +82,7 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
         }
     }
 
-    public static void main(String[] args) {
-        new MainMenuController();
-    }
+//    public static void main(String[] args) {
+//        new MainMenuController();
+//    }
 }
