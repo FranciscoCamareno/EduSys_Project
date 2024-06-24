@@ -14,22 +14,20 @@ import java.awt.event.ActionListener;
  *
  * @author eveba
  */
-public class StudyPlanTableController implements ActionListener{
+public class StudyPlanTableController implements ActionListener {
+
     private FrameStudyPlan frameStudyPlan;
-    private StudyPlanController studyPlanController;
+    private StudyPlanManagementController studyPlanController;
     private FrameStudyPlanManagementMaintenance studyPlanManagement;
     private StudyPlanJpaController studyPlanJpaController;
     private PanelTableStudyPlan panelTableStudyPlan;
-    private SideBarButtonsPanel panelSBB;
 
     public StudyPlanTableController() {
         frameStudyPlan = new FrameStudyPlan(this);
         frameStudyPlan.setLocationRelativeTo(null);
-        studyPlanController = new StudyPlanController();
-        panelSBB = frameStudyPlan.getPanelSBB();
-//        StudyPlanManagement = studyPlanController.getFrameCareersManagementMaintenance();
-        panelSBB.listen(this);
-        frameStudyPlan.setVisible(true);
+        studyPlanController = new StudyPlanManagementController();
+        studyPlanManagement = studyPlanController.getFrameStudyPlanManagement();
+//        frameStudyPlan.setVisible(true);
     }
 
     public FrameStudyPlan getFrameStudyPlan() {
@@ -38,29 +36,17 @@ public class StudyPlanTableController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("editCarrers")) {
+        if (e.getActionCommand().equals("editStudyPlanBtn")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             studyPlanManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Careers")) {
+        if (e.getActionCommand().equals("Back")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Courses")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Study Plans")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Users")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
+            frameStudyPlan.dispose();
         }
     }
 
-    public static void main(String[] args) {
-        new StudyPlanTableController();
-    }
+//    public static void main(String[] args) {
+//        new StudyPlanTableController();
+//    }
 }

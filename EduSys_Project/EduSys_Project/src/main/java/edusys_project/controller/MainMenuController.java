@@ -27,10 +27,6 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     private CoursesTableController coursesTableController;
 
     public MainMenuController() {
-//        frameCourses = coursesController.frameCourses;
-
-//        frameCarrers = carrersController.frameCarrers;
-//        frameStudyPlan = studyPlanController.frameStudyPlan;
         frameMainMenu = new Frame_MainMenu(this);
         frameMainMenu.setLocationRelativeTo(null);
         frameMainMenu.listen(this);

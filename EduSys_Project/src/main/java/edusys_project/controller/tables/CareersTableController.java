@@ -23,16 +23,13 @@ public class CareersTableController implements ActionListener {
     private FrameCareersManagementMaintenance careersManagement;
     private CareersJpaController careersJpaController;
     private PanelTableCareers panelTable;
-    private SideBarButtonsPanel panelSBB;
 
     public CareersTableController() {
         frameCareers = new FrameCareers(this);
         frameCareers.setLocationRelativeTo(null);
         carrersController = new CareersController();
-        panelSBB = frameCareers.getPanelSBB();
         careersManagement = carrersController.getFrameCareersManagementMaintenance();
-        panelSBB.listen(this);
-        frameCareers.setVisible(true);
+//        frameCareers.setVisible(true);
     }
 
     public FrameCareers getFrameCareers() {
@@ -45,25 +42,14 @@ public class CareersTableController implements ActionListener {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             careersManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Careers")) {
+        if (e.getActionCommand().equals("Back")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Courses")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Study Plans")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Users")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
+            frameCareers.dispose();
             
         }
     }
 
-    public static void main(String[] args) {
-        new CareersTableController();
-    }
+//    public static void main(String[] args) {
+//        new CareersTableController();
+//    }
 }

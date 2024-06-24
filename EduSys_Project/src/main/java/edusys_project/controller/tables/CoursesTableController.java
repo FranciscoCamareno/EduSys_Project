@@ -23,16 +23,17 @@ public class CoursesTableController implements ActionListener{
     private FrameCoursesManagement coursesManagement;
     private CourseJpaController coursesJpaController;
     private PanelTableCourse panelTableCourse;
-    private SideBarButtonsPanel panelSBB;
 
     public CoursesTableController() {
         frameCourses = new FrameCourses(this);
         frameCourses.setLocationRelativeTo(null);
         coursesController = new CoursesController();
-        panelSBB = frameCourses.getPanelSBB();
         coursesManagement = coursesController.getFrameCoursesManagement();
-        panelSBB.listen(this);
-        frameCourses.setVisible(true);
+//        frameCourses.setVisible(true);
+    }
+    
+    public FrameCourses getFrameCourses() {
+        return frameCourses;
     }
 
     @Override
@@ -41,25 +42,13 @@ public class CoursesTableController implements ActionListener{
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             coursesManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Careers")) {
+        if (e.getActionCommand().equals("Back")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Courses")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Study Plans")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Users")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
+            frameCourses.dispose();
         }
     }
 
-    public static void main(String[] args) {
-        new CoursesTableController();
-    }
+//    public static void main(String[] args) {
+//        new CoursesTableController();
+//    }
 }

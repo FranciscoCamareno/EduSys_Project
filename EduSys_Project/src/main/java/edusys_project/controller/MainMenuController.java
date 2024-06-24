@@ -17,34 +17,36 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
 
     Frame_MainMenu frameMainMenu;
     Panel_Buttons_Menu panelButtonsMenu;
-    Panel_Nav_Menu panelNavMenu;
-    
-    CoursesTableController coursesController;
-//    FrameCourses frameCourses;
-    
-    CareersTableController carrersController;
-//    FrameCarrers frameCarrers;
-    
-    StudyPlanTableController studyPlanTableController;
-//    FrameStudyPlan frameStudyPlan;
-    
-    UsersTableController usersController;
+    private FrameCareers frameCareers;
+    private FrameStudyPlan frameStudyPlan;
+    private FrameCourses frameCourses;
+    private FrameUsers frameUsers; 
+    private UsersTableController usersTableController;
+    private CareersTableController careersTableController;
+    private StudyPlanTableController studyPlanTableController;
+    private CoursesTableController coursesTableController;
 
     public MainMenuController() {
-//        frameCourses = coursesController.frameCourses;
-        
-//        frameCarrers = carrersController.frameCarrers;
-        
-//        frameStudyPlan = studyPlanController.frameStudyPlan;
+        frameMainMenu = new Frame_MainMenu(this);
+        frameMainMenu.setLocationRelativeTo(null);
+        frameMainMenu.listen(this);
 
-   
-   
-        frameMainMenu = new Frame_MainMenu();
+        // Inicializar frames y controladores
+        usersTableController = new UsersTableController();
+        frameUsers = usersTableController.getFrameUsers();
+
+        careersTableController = new CareersTableController();
+        frameCareers = careersTableController.getFrameCareers();
+
+        studyPlanTableController = new StudyPlanTableController();
+        frameStudyPlan = studyPlanTableController.getFrameStudyPlan();
+
+        coursesTableController = new CoursesTableController();
+        frameCourses = coursesTableController.getFrameCourses();
+        // Obtener panel de botones y registrar ActionListeners
         panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu1();
-        panelNavMenu = frameMainMenu.getPanel_Nav_Menu1();
         panelButtonsMenu.listen(this);
-        panelNavMenu.listen(this);
-
+//        frameMainMenu.setVisible(true);
     }
 
     public Frame_MainMenu getFrameMainMenu() {
@@ -55,32 +57,32 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "AdminCursos":
-                coursesController = new CoursesTableController();
-//                frameCourses.setLocationRelativeTo(null);
-//                frameCourses.setVisible(true);
-                frameMainMenu.setVisible(false);
+                coursesTableController = new CoursesTableController();
+                frameCourses.setLocationRelativeTo(null);
+                frameCourses.setVisible(true);
                 break;
             case "AdminCarreras":
-                  carrersController = new CareersTableController();
-//                frameCarrers.setLocationRelativeTo(null);
-//                frameCarrers.setVisible(true);
-                frameMainMenu.setVisible(false);
+                careersTableController = new CareersTableController();
+                frameCareers.setLocationRelativeTo(null);
+                frameCareers.setVisible(true);
                 break;
             case "AdminPlanEstudios":
-                 studyPlanTableController = new StudyPlanTableController();
-//                frameStudyPlan.setLocationRelativeTo(null);
-//                frameStudyPlan.setVisible(true);
-                frameMainMenu.setVisible(false);
+                studyPlanTableController = new StudyPlanTableController();
+                frameStudyPlan.setLocationRelativeTo(null);
+                frameStudyPlan.setVisible(true);
                 break;
             case "AdminUsuarios":
-                usersController = new UsersTableController();
-               
+                usersTableController = new UsersTableController();
+                frameUsers.setVisible(true);
                 break;
-            case "Exit":
+            case "ExitBtn":
                 frameMainMenu.showMessage("Cerrando el programa");
                 System.exit(0);
                 break;
         }
     }
 
+//    public static void main(String[] args) {
+//        new MainMenuController();
+//    }
 }

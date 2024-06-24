@@ -16,16 +16,13 @@ public class UsersTableController implements ActionListener {
     private FrameUsersManagement usersManagement;
     private UsersJpaController usersJpaController;
     private PanelTableUsers panelTableUsers;
-    private SideBarButtonsPanel panelSBB;
 
     public UsersTableController() {
         frameUsers = new FrameUsers(this);
         frameUsers.setLocationRelativeTo(null);
         usersController = new UsersController();
-        panelSBB = frameUsers.getPanelSBB();
         usersManagement = usersController.getFrameUsersManagement();
-        panelSBB.listen(this);
-        frameUsers.setVisible(true);
+//        frameUsers.setVisible(true);
     }
     
     public FrameUsers getFrameUsers() {
@@ -38,26 +35,13 @@ public class UsersTableController implements ActionListener {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             usersManagement.setVisible(true);
         }
-        if (e.getActionCommand().equals("Careers")) {
+        if (e.getActionCommand().equals("Back")) {
             System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
             frameUsers.dispose();
-            
-        }
-        if (e.getActionCommand().equals("Courses")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Study Plans")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
-        }
-        if (e.getActionCommand().equals("Users")) {
-            System.out.println("edusys_project.tablesController.UsersTableController.actionPerformed()");
-            
         }
     }
 
-    public static void main(String[] args) {
-        new UsersTableController();
-    }
+//    public static void main(String[] args) {
+//        new UsersTableController();
+//    }
 }

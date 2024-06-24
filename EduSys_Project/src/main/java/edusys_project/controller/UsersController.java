@@ -31,6 +31,7 @@ public class UsersController implements ActionListener {
     private Users users;
     private UsersJpaController usersJpaController;
     private UsersTableController usersTable;
+    PanelTableUsers panelTableUsers;
 
     public UsersController() {
         frameUM = new FrameUsersManagement();
@@ -61,6 +62,7 @@ public class UsersController implements ActionListener {
                 String phoneNumber = panelUM.getTxtPhoneNumber();
                 String password = panelUM.getTxtPassword();
                 String userType = panelUM.getTxtUserType();
+                 int idProf = Integer.parseInt(panelUM.getTxtIdUser());
 
                 if (userName.isEmpty() || name.isEmpty() || password.isEmpty() || lastName.isEmpty() || eMail.isEmpty()) {
                     System.out.println("Rellene los campos para el registro");
@@ -70,7 +72,7 @@ public class UsersController implements ActionListener {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
                         Profile profile;
                         ProfileJpaController profileJpa = new ProfileJpaController(emf);
-                        profileJpa.create(profile = new Profile(idCounter, userType, null));
+                        profileJpa.create(profile = new Profile(idProf, userType, null));
                         users = new Users(idUser, name, password, userName, eMail, phoneNumber, lastName, profile);
                         usersJpaController.create(users);
                         incrementIdCounter();
@@ -79,10 +81,6 @@ public class UsersController implements ActionListener {
                     }
                 }
 
-                break;
-            case "Consultar":
-                usersTable = new UsersTableController();
-                //Que se quede como el buscar
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());
