@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author fcama
@@ -17,6 +19,9 @@ public class Panel_Nav_Menu extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void listen(ActionListener controller){
+        btn_Exit.addActionListener(controller);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,19 +35,20 @@ public class Panel_Nav_Menu extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_bottom.png"))); // NOI18N
         btn_Exit.setActionCommand("Exit");
+        btn_Exit.setBorder(null);
+        btn_Exit.setBorderPainted(false);
         btn_Exit.setContentAreaFilled(false);
         add(btn_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EduSys.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nav_bar.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/navImagenRedondeado.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

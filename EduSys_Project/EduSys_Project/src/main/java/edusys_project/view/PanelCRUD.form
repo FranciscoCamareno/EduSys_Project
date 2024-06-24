@@ -18,13 +18,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnConsult" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="btnEdit" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="btnBack" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -33,9 +31,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="103" groupAlignment="3" attributes="0">
               <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="btnConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="btnEdit" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Component id="btnDelete" alignment="0" min="-2" max="-2" attributes="0"/>
           </Group>
           <Component id="btnBack" min="-2" max="-2" attributes="0"/>
       </Group>
@@ -48,15 +45,10 @@
           <Image iconType="3" name="/img/Add.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="agregar"/>
-        <Property name="contentAreaFilled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnConsult">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/Consult.png"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
         </Property>
-        <Property name="actionCommand" type="java.lang.String" value="Consultar"/>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -67,6 +59,10 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="actionCommand" type="java.lang.String" value="Modificar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -77,6 +73,10 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="actionCommand" type="java.lang.String" value="Eliminar"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -86,6 +86,10 @@
           <Image iconType="3" name="/img/BackParaMantenimiento.png"/>
         </Property>
         <Property name="actionCommand" type="java.lang.String" value="Back"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
     </Component>

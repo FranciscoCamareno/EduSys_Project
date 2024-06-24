@@ -399,6 +399,7 @@ public class UsersJpaController implements Serializable {
 //    public List<Users> findUsersEntities(int maxResults, int firstResult) {
 //        return findUsersEntities(false, maxResults, firstResult);
 //    }
+    
     public List<Users> consultList() {
         EntityManager em = getEntityManager();
         try {
