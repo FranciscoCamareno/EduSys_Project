@@ -20,6 +20,7 @@ import edusys_project.model.StudyPlan;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 /**
@@ -28,13 +29,18 @@ import javax.persistence.TypedQuery;
  */
 public class StudyPlanJpaController implements Serializable {
 
+    private EntityManagerFactory emf = null;
+
     public StudyPlanJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+
+    public StudyPlanJpaController(/*EntityManagerFactory emf*/) {
+        this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
     }
 
     public void create(StudyPlan studyPlan) throws PreexistingEntityException, Exception {

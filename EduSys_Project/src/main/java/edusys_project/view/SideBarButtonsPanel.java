@@ -5,6 +5,7 @@
 package edusys_project.view;
 
 import edusys_project.tablesController.*;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -42,6 +43,13 @@ public class SideBarButtonsPanel extends javax.swing.JPanel {
     }
     
     public void listen (StudyPlanTableController controller){
+        carrersBtn.addActionListener(controller);
+        coursesBtn.addActionListener(controller);
+        studyPlanBtn.addActionListener(controller);
+        usersBtn.addActionListener(controller);
+    }
+    
+    public void listen (ActionListener controller){
         carrersBtn.addActionListener(controller);
         coursesBtn.addActionListener(controller);
         studyPlanBtn.addActionListener(controller);

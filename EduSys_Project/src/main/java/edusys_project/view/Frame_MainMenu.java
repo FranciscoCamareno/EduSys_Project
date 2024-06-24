@@ -5,6 +5,7 @@
 package edusys_project.view;
 
 import edusys_project.controller.MenuController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +32,9 @@ public class Frame_MainMenu extends javax.swing.JFrame {
         panel_Buttons_Menu.listen(controller);
     }
     
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
