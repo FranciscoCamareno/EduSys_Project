@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
  */
 public class UsersController implements ActionListener {
     
-    private static int idCounter = 1;
+    private static int idCounter = 4;
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;
@@ -31,6 +31,7 @@ public class UsersController implements ActionListener {
     private Users users;
     private UsersJpaController usersJpaController;
     private UsersTableController usersTable;
+    PanelTableUsers panelTableUsers;
 
     public UsersController() {
         frameUM = new FrameUsersManagement();
@@ -40,7 +41,7 @@ public class UsersController implements ActionListener {
         panelCRUD = frameUM.getPanelCRUD();
         panelUM = frameUM.getPanelUsersManagement();
         frameUM.listen(this);
-        frameUM.setVisible(true);
+//        frameUM.setVisible(true);
         frameUM.setLocationRelativeTo(null);
     }
 
@@ -79,10 +80,6 @@ public class UsersController implements ActionListener {
                     }
                 }
 
-                break;
-            case "Consultar":
-                usersTable = new UsersTableController();
-                //Que se quede como el buscar
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());

@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import edusys_project.controller.MainMenuController;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,16 +17,17 @@ public class Frame_MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form Frame_MainMenu
      */
-    public Frame_MainMenu() {
+    public Frame_MainMenu(MainMenuController controller) {
         initComponents();
+        listen(controller);
     }
 
     public Panel_Buttons_Menu getPanel_Buttons_Menu1() {
         return panel_Buttons_Menu1;
     }
-
-    public Panel_Nav_Menu getPanel_Nav_Menu1() {
-        return panel_Nav_Menu1;
+    
+    public void listen(ActionListener controller){
+        btn_Exit.addActionListener(controller);
     }
     
     public void showMessage(String message){
@@ -40,13 +43,27 @@ public class Frame_MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_Nav_Menu1 = new edusys_project.view.Panel_Nav_Menu();
+        btn_Exit = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         panel_Buttons_Menu1 = new edusys_project.view.Panel_Buttons_Menu();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panel_Nav_Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btn_Exit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit_bottom.png"))); // NOI18N
+        btn_Exit.setActionCommand("ExitBtn");
+        btn_Exit.setBorder(null);
+        btn_Exit.setBorderPainted(false);
+        btn_Exit.setContentAreaFilled(false);
+        getContentPane().add(btn_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/EduSys.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/navImagenRedondeado.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panel_Buttons_Menu1.setOpaque(false);
         getContentPane().add(panel_Buttons_Menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, -1));
@@ -62,8 +79,10 @@ public class Frame_MainMenu extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Exit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private edusys_project.view.Panel_Buttons_Menu panel_Buttons_Menu1;
-    private edusys_project.view.Panel_Nav_Menu panel_Nav_Menu1;
     // End of variables declaration//GEN-END:variables
 }

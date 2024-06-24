@@ -35,7 +35,7 @@ public class CoursesController implements ActionListener {
        courseJpaController = new CourseJpaController(emf);
        panelCRUD = frameCoursesManagement.getPanelCRUD();                     
        panelCoursesManagement = frameCoursesManagement.getPanelCoursesManagement();
-       frameCoursesManagement.setVisible(true);
+//       frameCoursesManagement.setVisible(true);
        frameCoursesManagement.listen(this);
        frameCoursesManagement.setLocationRelativeTo(null);
     }
@@ -70,11 +70,6 @@ public class CoursesController implements ActionListener {
                     }
                 }
             break;
-            
-            case "Consult":
-                //buscar
-            break;
-            
             case "Modificar":
                 String syllabusNew = panelCoursesManagement.getTxtSyllabus();
                 String nameNew = panelCoursesManagement.getTxtCourseName();

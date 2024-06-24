@@ -27,6 +27,7 @@ public class CareersController implements ActionListener {
     private FrameCareersManagementMaintenance frameCMM;
     private Careers careers;
     private CareersJpaController careersJpaController;
+    private PanelTableCareers panelTableCareers;
 
     public CareersController() {
         frameCMM = new FrameCareersManagementMaintenance();
@@ -34,6 +35,7 @@ public class CareersController implements ActionListener {
         careersJpaController = new CareersJpaController(emf);
         panelCRUD = frameCMM.getPanelCRUD();
         panelCMM = frameCMM.getPanelUsersManagement();
+        
         frameCMM.listen(this);
         frameCMM.setVisible(true);
         frameCMM.setLocationRelativeTo(null);
@@ -68,7 +70,7 @@ public class CareersController implements ActionListener {
                 }
                 break;
             case "Search":
-                //Que se quede como el buscar
+                panelTableCareers.showTable();
                 break;
             case "Modificar":
                 String idCareerNew = panelCMM.getTxtIdCareers();

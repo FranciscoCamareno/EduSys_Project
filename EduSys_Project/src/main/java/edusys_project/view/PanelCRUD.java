@@ -5,6 +5,7 @@
 package edusys_project.view;
 
 import edusys_project.controller.*;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -20,7 +21,6 @@ public class PanelCRUD extends javax.swing.JPanel {
     }
     public void listen (UsersController controller){
         btnAdd.addActionListener(controller);
-        btnConsult.addActionListener(controller);
         btnEdit.addActionListener(controller);
         btnDelete.addActionListener(controller);
         btnBack.addActionListener(controller);
@@ -28,27 +28,24 @@ public class PanelCRUD extends javax.swing.JPanel {
     
     public void listen (CareersController controller){
         btnAdd.addActionListener(controller);
-        btnConsult.addActionListener(controller);
         btnEdit.addActionListener(controller);
         btnDelete.addActionListener(controller);
         btnBack.addActionListener(controller);
     }
     
-//    public void listen (CoursesController controller){
-//        btnAdd.addActionListener(controller);
-//        btnConsult.addActionListener(controller);
-//        btnEdit.addActionListener(controller);
-//        btnDelete.addActionListener(controller);
-//        btnBack.addActionListener(controller);
-//    }
-//    
-//    public void listen (StudyPlansController controller){
-//        btnAdd.addActionListener(controller);
-//        btnConsult.addActionListener(controller);
-//        btnEdit.addActionListener(controller);
-//        btnDelete.addActionListener(controller);
-//        btnBack.addActionListener(controller);
-//    }
+    public void listen (StudyPlanManagementController controller){
+        btnAdd.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
+    
+    public void listen (CoursesController controller){
+        btnAdd.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,7 +57,6 @@ public class PanelCRUD extends javax.swing.JPanel {
     private void initComponents() {
 
         btnAdd = new javax.swing.JButton();
-        btnConsult = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -70,12 +66,6 @@ public class PanelCRUD extends javax.swing.JPanel {
         btnAdd.setBorder(null);
         btnAdd.setBorderPainted(false);
         btnAdd.setContentAreaFilled(false);
-
-        btnConsult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consult.png"))); // NOI18N
-        btnConsult.setActionCommand("Consultar");
-        btnConsult.setBorder(null);
-        btnConsult.setBorderPainted(false);
-        btnConsult.setContentAreaFilled(false);
 
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Edit.png"))); // NOI18N
         btnEdit.setToolTipText("");
@@ -103,20 +93,17 @@ public class PanelCRUD extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnAdd)
-                .addGap(18, 18, 18)
-                .addComponent(btnConsult)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(btnEdit)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(btnDelete)
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(btnBack))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnAdd)
-                .addComponent(btnConsult)
                 .addComponent(btnEdit)
                 .addComponent(btnDelete))
             .addComponent(btnBack)
@@ -127,7 +114,6 @@ public class PanelCRUD extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnConsult;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     // End of variables declaration//GEN-END:variables

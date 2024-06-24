@@ -22,14 +22,12 @@ public class FrameUsers extends javax.swing.JFrame {
         listen(controller);
     }
 
-    public SideBarButtonsPanel getPanelSBB() {
-        return sideBarButtonsPanel;
-    }
     
     
     
     public void listen(ActionListener controller){
         editUsersBtn.addActionListener(controller);
+        BackBtn.addActionListener(controller);
     }
     
     
@@ -39,7 +37,7 @@ public class FrameUsers extends javax.swing.JFrame {
     private void initComponents() {
 
         panelTableUsers1 = new edusys_project.view.PanelTableUsers();
-        sideBarButtonsPanel = new edusys_project.view.SideBarButtonsPanel();
+        BackBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         editUsersBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -49,8 +47,15 @@ public class FrameUsers extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelTableUsers1.setOpaque(false);
-        getContentPane().add(panelTableUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 780, 520));
-        getContentPane().add(sideBarButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 100, -1, -1));
+        getContentPane().add(panelTableUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 830, 490));
+
+        BackBtn.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
+        BackBtn.setText("Back");
+        BackBtn.setBorderPainted(false);
+        BackBtn.setContentAreaFilled(false);
+        BackBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        getContentPane().add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Userstxt.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
@@ -71,11 +76,11 @@ public class FrameUsers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackBtn;
     private javax.swing.JButton editUsersBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private edusys_project.view.PanelTableUsers panelTableUsers1;
-    private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,6 +21,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -30,13 +31,18 @@ public class StudyPlanJpaController implements Serializable {
 
     private EntityManagerFactory emf = null;
 
-    public StudyPlanJpaController(/*EntityManagerFactory emf*/) {
+    public StudyPlanJpaController(EntityManagerFactory emf) {
+        this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
+    }
+    
+    public StudyPlanJpaController() {
         this.emf = Persistence.createEntityManagerFactory("EduSysPersistence");
     }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    
 
     public void create(StudyPlan studyPlan) throws PreexistingEntityException, Exception {
         if (studyPlan.getCareersCollection() == null) {
@@ -293,6 +299,18 @@ public class StudyPlanJpaController implements Serializable {
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<StudyPlan> consultList() {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery<StudyPlan> cq = em.getCriteriaBuilder().createQuery(StudyPlan.class);
+            cq.select(cq.from(StudyPlan.class));
+            TypedQuery<StudyPlan> query = em.createQuery(cq);
+            return query.getResultList();
         } finally {
             em.close();
         }
