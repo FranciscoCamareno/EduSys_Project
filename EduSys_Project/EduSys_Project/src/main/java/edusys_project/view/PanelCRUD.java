@@ -35,7 +35,7 @@ public class PanelCRUD extends javax.swing.JPanel {
         btnBack.addActionListener(controller);
     }
     
-    public void listen (ActionListener controller){
+    public void listen (StudyPlanManagementController controller){
         btnAdd.addActionListener(controller);
         btnConsult.addActionListener(controller);
         btnEdit.addActionListener(controller);
@@ -43,21 +43,13 @@ public class PanelCRUD extends javax.swing.JPanel {
         btnBack.addActionListener(controller);
     }
     
-//    public void listen (CoursesController controller){
-//        btnAdd.addActionListener(controller);
-//        btnConsult.addActionListener(controller);
-//        btnEdit.addActionListener(controller);
-//        btnDelete.addActionListener(controller);
-//        btnBack.addActionListener(controller);
-//    }
-//    
-//    public void listen (StudyPlansController controller){
-//        btnAdd.addActionListener(controller);
-//        btnConsult.addActionListener(controller);
-//        btnEdit.addActionListener(controller);
-//        btnDelete.addActionListener(controller);
-//        btnBack.addActionListener(controller);
-//    }
+    public void listen (CoursesController controller){
+        btnAdd.addActionListener(controller);
+        btnConsult.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -43,7 +43,7 @@ public class StudyPlanController implements ActionListener {
         panelCRUD = frameSPMM.getPanelCRUD1();
         panelSPM = frameSPMM.getPanelStudyPlanManagementAndMaintenance1();
         studyPlanJpaController = new StudyPlanJpaController();
-        panelCRUD.listen(this);
+//        panelCRUD.listen(this);
         
         frameSP.setLocationRelativeTo(null);
 //        frameSP.setVisible(true);
