@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
  */
 public class UsersController implements ActionListener {
     
-    private static int idCounter = 1;
+    private static int idCounter = 3;
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;
@@ -40,7 +40,7 @@ public class UsersController implements ActionListener {
         panelCRUD = frameUM.getPanelCRUD();
         panelUM = frameUM.getPanelUsersManagement();
         frameUM.listen(this);
-        frameUM.setVisible(true);
+//        frameUM.setVisible(true);
         frameUM.setLocationRelativeTo(null);
     }
 

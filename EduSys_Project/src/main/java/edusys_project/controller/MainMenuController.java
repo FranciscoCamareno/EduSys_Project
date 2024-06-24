@@ -4,6 +4,7 @@
  */
 package edusys_project.controller;
 
+import edusys_project.controller.tables.*;
 import edusys_project.view.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,25 +19,26 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     Panel_Buttons_Menu panelButtonsMenu;
     Panel_Nav_Menu panelNavMenu;
     
-    CoursesController coursesController;
-    FrameCourses frameCourses;
+    CoursesTableController coursesController;
+//    FrameCourses frameCourses;
     
-    CarrersController carrersController;
-    FrameCarrers frameCarrers;
+    CareersTableController carrersController;
+//    FrameCarrers frameCarrers;
     
     StudyPlanController studyPlanController;
-    FrameStudyPlan frameStudyPlan;
+//    FrameStudyPlan frameStudyPlan;
+    
+    UsersTableController usersController;
 
     public MainMenuController() {
-        coursesController = new CoursesController();
 //        frameCourses = coursesController.frameCourses;
         
-        carrersController = new CarrersController();
-        frameCarrers = carrersController.frameCarrers;
+//        frameCarrers = carrersController.frameCarrers;
         
-        studyPlanController = new StudyPlanController();
-        frameStudyPlan = studyPlanController.frameStudyPlan;
-        
+//        frameStudyPlan = studyPlanController.frameStudyPlan;
+
+   
+   
         frameMainMenu = new Frame_MainMenu();
         panelButtonsMenu = frameMainMenu.getPanel_Buttons_Menu1();
         panelNavMenu = frameMainMenu.getPanel_Nav_Menu1();
@@ -53,22 +55,26 @@ public class MainMenuController implements ActionListener {//aqui tienen que ini
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "AdminCursos":
-                frameCourses.setLocationRelativeTo(null);
-                frameCourses.setVisible(true);
+                coursesController = new CoursesTableController();
+//                frameCourses.setLocationRelativeTo(null);
+//                frameCourses.setVisible(true);
                 frameMainMenu.setVisible(false);
                 break;
             case "AdminCarreras":
-                frameCarrers.setLocationRelativeTo(null);
-                frameCarrers.setVisible(true);
+                  carrersController = new CareersTableController();
+//                frameCarrers.setLocationRelativeTo(null);
+//                frameCarrers.setVisible(true);
                 frameMainMenu.setVisible(false);
                 break;
             case "AdminPlanEstudios":
-                frameStudyPlan.setLocationRelativeTo(null);
-                frameStudyPlan.setVisible(true);
+                 studyPlanController = new StudyPlanController();
+//                frameStudyPlan.setLocationRelativeTo(null);
+//                frameStudyPlan.setVisible(true);
                 frameMainMenu.setVisible(false);
                 break;
             case "AdminUsuarios":
-                frameMainMenu.showMessage("AdminUsuarios");
+                usersController = new UsersTableController();
+               
                 break;
             case "Exit":
                 frameMainMenu.showMessage("Cerrando el programa");
