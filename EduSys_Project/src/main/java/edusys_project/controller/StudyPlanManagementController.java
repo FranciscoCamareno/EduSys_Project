@@ -46,6 +46,8 @@ public class StudyPlanManagementController implements ActionListener {
         carrers = null;
         
     }
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
