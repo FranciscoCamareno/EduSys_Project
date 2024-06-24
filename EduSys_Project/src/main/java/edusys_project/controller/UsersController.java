@@ -137,9 +137,9 @@ public class UsersController implements ActionListener {
         idCounter++;
     }
     
-    public static void main(String[] args) throws Exception {
-        new UsersController();
-
-    }
+//    public static void main(String[] args) throws Exception {
+//        new UsersController();
+//
+//    }
 
 }

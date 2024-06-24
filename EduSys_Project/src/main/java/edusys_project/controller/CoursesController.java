@@ -126,8 +126,8 @@ public class CoursesController implements ActionListener {
         }
     }
     
-    public static void main(String[] args) {
-        new CoursesController();
-    }
+//    public static void main(String[] args) {
+//        new CoursesController();
+//    }
     
 }

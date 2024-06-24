@@ -115,7 +115,7 @@ public class CareersController implements ActionListener {
         }
     }
     
-    public static void main(String[] args) {
-        new CareersController();
-    }
+//    public static void main(String[] args) {
+//        new CareersController();
+//    }
 }
