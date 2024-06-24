@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -25,6 +27,14 @@ public class FrameSign_In extends javax.swing.JFrame {
         return panel_Nav1;
     }
 
+    public PanelTxtSignIn getPanelTxtSingIn1() {
+        return panelTxtSingIn1;
+    }
+
+    public void showMessage(String message){
+        JOptionPane.showMessageDialog(null, message);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +45,7 @@ public class FrameSign_In extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_Nav1 = new edusys_project.view.Panel_Nav();
-        panelTxtSingIn1 = new edusys_project.view.PanelTxtSingIn();
+        panelTxtSingIn1 = new edusys_project.view.PanelTxtSignIn();
         panelBtnSingIn1 = new edusys_project.view.PanelBtnSingIn();
         jLabel1 = new javax.swing.JLabel();
 
@@ -44,12 +54,12 @@ public class FrameSign_In extends javax.swing.JFrame {
         getContentPane().add(panel_Nav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelTxtSingIn1.setOpaque(false);
-        getContentPane().add(panelTxtSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
+        getContentPane().add(panelTxtSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 290, -1));
 
         panelBtnSingIn1.setOpaque(false);
         getContentPane().add(panelBtnSingIn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_base.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoCelesteGrande.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -63,7 +73,7 @@ public class FrameSign_In extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private edusys_project.view.PanelBtnSingIn panelBtnSingIn1;
-    private edusys_project.view.PanelTxtSingIn panelTxtSingIn1;
+    private edusys_project.view.PanelTxtSignIn panelTxtSingIn1;
     private edusys_project.view.Panel_Nav panel_Nav1;
     // End of variables declaration//GEN-END:variables
 }

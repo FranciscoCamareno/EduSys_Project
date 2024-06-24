@@ -4,7 +4,7 @@
  */
 package edusys_project.view;
 
-import edusys_project.tablesController.*;
+import edusys_project.controller.tables.UsersTableController;
 import java.awt.event.ActionListener;
 
 /**
@@ -22,17 +22,12 @@ public class FrameUsers extends javax.swing.JFrame {
         listen(controller);
     }
 
-    public SideBarButtonsPanel getPanelSBB() {
-        return sideBarButtonsPanel;
-    }
     
     
     
     public void listen(ActionListener controller){
         editUsersBtn.addActionListener(controller);
-        usersCmb.addActionListener(controller);
-        filterTxt.addActionListener(controller);
-        jbRefresh.addActionListener(controller);
+        BackBtn.addActionListener(controller);
     }
     
     
@@ -41,10 +36,8 @@ public class FrameUsers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sideBarButtonsPanel = new edusys_project.view.SideBarButtonsPanel();
-        usersCmb = new javax.swing.JComboBox<>();
-        filterTxt = new javax.swing.JTextField();
-        jbRefresh = new javax.swing.JButton();
+        panelTableUsers1 = new edusys_project.view.PanelTableUsers();
+        BackBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         editUsersBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -52,14 +45,17 @@ public class FrameUsers extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(sideBarButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 100, -1, -1));
 
-        usersCmb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select an option", "ID", "Name" }));
-        getContentPane().add(usersCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 170, -1));
-        getContentPane().add(filterTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 170, -1));
+        panelTableUsers1.setOpaque(false);
+        getContentPane().add(panelTableUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 830, 490));
 
-        jbRefresh.setText("Refresh");
-        getContentPane().add(jbRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 150, 40));
+        BackBtn.setFont(new java.awt.Font("Inter", 1, 24)); // NOI18N
+        BackBtn.setForeground(new java.awt.Color(255, 255, 255));
+        BackBtn.setText("Back");
+        BackBtn.setBorderPainted(false);
+        BackBtn.setContentAreaFilled(false);
+        BackBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        getContentPane().add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Userstxt.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
@@ -80,13 +76,11 @@ public class FrameUsers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackBtn;
     private javax.swing.JButton editUsersBtn;
-    private javax.swing.JTextField filterTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton jbRefresh;
-    private edusys_project.view.SideBarButtonsPanel sideBarButtonsPanel;
-    private javax.swing.JComboBox<String> usersCmb;
+    private edusys_project.view.PanelTableUsers panelTableUsers1;
     // End of variables declaration//GEN-END:variables
 }

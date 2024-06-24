@@ -7,6 +7,7 @@ package edusys_project.controller;
 import edusys_project.controller.JPA.*;
 import edusys_project.controller.JPA.exceptions.IllegalOrphanException;
 import edusys_project.controller.JPA.exceptions.NonexistentEntityException;
+import edusys_project.controller.tables.*;
 import edusys_project.model.*;
 import edusys_project.view.*;
 import java.awt.event.ActionEvent;
@@ -21,20 +22,26 @@ import javax.persistence.Persistence;
  * @author fcama
  */
 public class UsersController implements ActionListener {
-
+    
+    private static int idCounter = 4;
     private PanelCRUD panelCRUD;
     private PanelUsersManagement panelUM;
     private FrameUsersManagement frameUM;
+    private FrameUsers frameUsers;
     private Users users;
     private UsersJpaController usersJpaController;
+    private UsersTableController usersTable;
+    PanelTableUsers panelTableUsers;
 
     public UsersController() {
         frameUM = new FrameUsersManagement();
+        frameUsers = new FrameUsers(usersTable);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
         usersJpaController = new UsersJpaController(emf);
         panelCRUD = frameUM.getPanelCRUD();
         panelUM = frameUM.getPanelUsersManagement();
         frameUM.listen(this);
+//        frameUM.setVisible(true);
         frameUM.setLocationRelativeTo(null);
     }
 
@@ -54,6 +61,7 @@ public class UsersController implements ActionListener {
                 String eMail = panelUM.getTxtEmail();
                 String phoneNumber = panelUM.getTxtPhoneNumber();
                 String password = panelUM.getTxtPassword();
+                String userType = panelUM.getTxtUserType();
 
                 if (userName.isEmpty() || name.isEmpty() || password.isEmpty() || lastName.isEmpty() || eMail.isEmpty()) {
                     System.out.println("Rellene los campos para el registro");
@@ -61,20 +69,17 @@ public class UsersController implements ActionListener {
 
                     try {
                         EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
-                        Integer id = 1;
                         Profile profile;
                         ProfileJpaController profileJpa = new ProfileJpaController(emf);
-                        profileJpa.create(profile = new Profile(id, "Student", null));
+                        profileJpa.create(profile = new Profile(idCounter, userType, null));
                         users = new Users(idUser, name, password, userName, eMail, phoneNumber, lastName, profile);
                         usersJpaController.create(users);
+                        incrementIdCounter();
                     } catch (Exception ex) {
                         Logger.getLogger(UsersController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
-                break;
-            case "Search":
-                //Que se quede como el buscar
                 break;
             case "Modificar":
                 int idUserNew = Integer.parseInt(panelUM.getTxtIdUser());
@@ -123,7 +128,12 @@ public class UsersController implements ActionListener {
         }
 
     }
-//
+
+    
+    private synchronized void incrementIdCounter() {
+        idCounter++;
+    }
+    
 //    public static void main(String[] args) throws Exception {
 //        new UsersController();
 //
