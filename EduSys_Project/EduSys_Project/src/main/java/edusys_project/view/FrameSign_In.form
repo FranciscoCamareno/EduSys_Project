@@ -32,13 +32,13 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="edusys_project.view.PanelTxtSingIn" name="panelTxtSingIn1">
+    <Component class="edusys_project.view.PanelTxtSignIn" name="panelTxtSingIn1">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="360" y="180" width="-1" height="-1"/>
+          <AbsoluteConstraints x="360" y="180" width="290" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -55,7 +55,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/fondo_base.png"/>
+          <Image iconType="3" name="/img/fondoCelesteGrande.png"/>
         </Property>
       </Properties>
       <Constraints>

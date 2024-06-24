@@ -5,6 +5,7 @@
 package edusys_project.view;
 
 import edusys_project.controller.*;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -27,6 +28,14 @@ public class PanelCRUD extends javax.swing.JPanel {
     }
     
     public void listen (CareersController controller){
+        btnAdd.addActionListener(controller);
+        btnConsult.addActionListener(controller);
+        btnEdit.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnBack.addActionListener(controller);
+    }
+    
+    public void listen (ActionListener controller){
         btnAdd.addActionListener(controller);
         btnConsult.addActionListener(controller);
         btnEdit.addActionListener(controller);
@@ -67,24 +76,34 @@ public class PanelCRUD extends javax.swing.JPanel {
 
         btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Add.png"))); // NOI18N
         btnAdd.setActionCommand("agregar");
+        btnAdd.setBorder(null);
+        btnAdd.setBorderPainted(false);
         btnAdd.setContentAreaFilled(false);
 
         btnConsult.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Consult.png"))); // NOI18N
         btnConsult.setActionCommand("Consultar");
+        btnConsult.setBorder(null);
+        btnConsult.setBorderPainted(false);
         btnConsult.setContentAreaFilled(false);
 
         btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Edit.png"))); // NOI18N
         btnEdit.setToolTipText("");
         btnEdit.setActionCommand("Modificar");
+        btnEdit.setBorder(null);
+        btnEdit.setBorderPainted(false);
         btnEdit.setContentAreaFilled(false);
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Delete.png"))); // NOI18N
         btnDelete.setToolTipText("");
         btnDelete.setActionCommand("Eliminar");
+        btnDelete.setBorder(null);
+        btnDelete.setBorderPainted(false);
         btnDelete.setContentAreaFilled(false);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BackParaMantenimiento.png"))); // NOI18N
         btnBack.setActionCommand("Back");
+        btnBack.setBorder(null);
+        btnBack.setBorderPainted(false);
         btnBack.setContentAreaFilled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

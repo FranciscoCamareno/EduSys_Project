@@ -4,6 +4,8 @@
  */
 package edusys_project.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Usuario
@@ -17,6 +19,11 @@ public class PanelBtnSingIn extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void listen(ActionListener controller){
+        btnBack.addActionListener(controller);
+        btnLogin.addActionListener(controller);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,13 +40,15 @@ public class PanelBtnSingIn extends javax.swing.JPanel {
 
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btn_Log-in.png"))); // NOI18N
         btnLogin.setActionCommand("login");
+        btnLogin.setBorder(null);
         btnLogin.setContentAreaFilled(false);
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Back2.png"))); // NOI18N
         btnBack.setActionCommand("back");
+        btnBack.setBorder(null);
         btnBack.setContentAreaFilled(false);
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 267, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
