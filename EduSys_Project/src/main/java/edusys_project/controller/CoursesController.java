@@ -33,7 +33,8 @@ public class CoursesController implements ActionListener {
        frameCoursesManagement = new FrameCoursesManagement();
        EntityManagerFactory emf = Persistence.createEntityManagerFactory("EduSysPersistence");
        courseJpaController = new CourseJpaController(emf);
-       panelCRUD = frameCoursesManagement.getPanelCRUD();                     
+       panelCRUD = frameCoursesManagement.getPanelCRUD();
+       panelCRUD.listen(this);
        panelCoursesManagement = frameCoursesManagement.getPanelCoursesManagement();
 //       frameCoursesManagement.setVisible(true);
        frameCoursesManagement.listen(this);
